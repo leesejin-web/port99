@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test02</title>
+    <style>
+        *{margin: 0; padding: 0;}
+    #warp {}
+    .container { width: 1200px; margin: 0 auto;}
+
+
+    /* 리셋 */
+    li, address { font-style: normal; list-style: none;}
+    a  { font-style: normal; color: #000; text-decoration: none;}
+
+    #header { overflow: hidden;}
+    #header h2 { margin: 20px; float: left; width: 150px;}
+    #header h2 img { width: 100%;}
+    #header ul {overflow: hidden; margin: 20px;}
+    #header li { float: right; font-size: 20px;margin: 15px; font-weight: bold;}
+
+    #banner {margin-bottom: 100px;}
+    #banner .ban {height: 400px; }
+    #banner .ban img {width: 100%; }
+
+    #content1 { overflow: hidden; margin-bottom: 30px;}
+    #content1 .cont1 {position: relative; width: 49%; height: 200px; background: #f2f2f2; float: left; margin-right: 2%; padding: 35px; box-sizing: border-box;}
+    #content1 .cont1 h3 {font-size: 25px; margin-bottom: 5px;}
+    #content1 .cont1 a {display: block; margin-top: 15px;}
+    #content1 .cont1 a img {width: 15px;}
+    #content1 .cont1 a span {padding-left: 5px;}
+    #content1 .cont1 .cont-icon {position: absolute; top: 55px; right: 40px;}
+    #content1 .cont1 .cont-icon img { width: 100px;}
+
+    #content1 .cont2 {position: relative; width: 49%; height: 200px; background: #f2f2f2; float: left;  padding: 35px; box-sizing: border-box;}
+    #content1 .cont2 h3 {font-size: 25px; margin-bottom: 5px;}
+    #content1 .cont2 a {display: block; margin-top: 15px;}
+    #content1 .cont2 a img {width: 15px;}
+    #content1 .cont2 a span {padding-left: 5px;}
+    #content1 .cont2 .cont-icon {position: absolute; top: 55px; right: 40px;}
+    #content1 .cont2 .cont-icon img { width: 100px;}
+    
+    #content2 { margin-bottom: 40px; }
+    #content2 h2 { font-size: 35px; margin-bottom: 15px;}
+    #content2 h2 span { color: #9e9e9e;}
+    #content2 ul {  overflow: hidden;}
+    #content2 li {width: 32%; margin-right: 2%; float: left; position: relative;}
+    #content2 li:last-child {margin-right: 0%; }
+    #content2 li img {width: 100%;}
+    #content2 li h3 { margin: 7px 0px;}
+    #content2 li .icon-img {width: 40px; position: absolute; right: 0; top: 410px;}
+    #content2 li .icon-img img { width: 100%;}
+
+    #footer { height: 200px;  background-color: #202020; color: #fff; overflow: hidden;}
+    #footer h2{ margin: 50px; width: 200px; float: left; padding-right: 120px;}
+    #footer h2 img{ width: 100%; }
+    #footer span { float: left; margin: 50px 0 0 50px; color: #fff;}
+    #footer span a{ color: #fff; }
+    footer span a::before { 
+        content: 'l';
+        width: 1px; height: 5px; background-color: #363636;
+        margin: 15px;
+    }
+    #footer span a:first-child::before { content: '';}
+    #footer address{ float: left; color: #808080; padding: 50px 0 0 80px;}
+    </style>
+</head>
+<body>
+    <div id="warp">
+        <div class="container">
+            <header id="header">
+                <h2><img src="img/logo1.jpg" alt="로고"></h2>
+                <ul>
+                    <li>COOKIT소개</li>
+                    <li>COOKIT메뉴</li>
+                    <li>리뷰</li>
+                    <li>이벤트</li>
+                    <li>MY쿡킷</li>
+                </ul>
+            </header>
+            <section id="banner">
+                <div class="ban"><img src="img/banner.jpg" alt="배너"></div>
+            </section>
+            <article id="content1">
+                <div class="cont1">
+                    <h3>우리집도 COOKIT 배송이 되나요?</h3>
+                    <p>배송이 가능한 지 알려드려요</p>
+                    <a href="#"><img src="img/cont-icon1.jpg" alt=""><span>배송지 검색</span></a>
+                    <div  class="cont-icon"><img src="img/icon1.jpg" alt="아이콘"></div>
+                </div>
+                <div class="cont2">
+                    <h3>7월 30일(화)에 받을 수 있어요</h3>
+                    <p>오전 7시까지 주문하시면 다음날 배송됩니다.</p>
+                    <a href="#"><img src="img/cont-icon2.jpg" alt=""><span>남은시간</span></a>
+                    <div  class="cont-icon"><img src="img/icon2.jpg" alt="아이콘"></div>
+                </div>
+            </article>
+            <article id="content2">
+                <h2>실시간 베스트 ㅣ <span>생생한 리뷰</span></h2>
+                <ul>
+                    <li><img src="img/content1.jpg" alt=""><h3>평양식 어북쟁반</h3><span>33,800원 /3인분</span><div class="icon-img"><img src="img/cont-icon3.jpg" alt=""></div></li>
+                    <li><img src="img/content2.jpg" alt=""><h3>새우쭈꾸미삼겹살</h3><span>33,800원 /3인분</span><div class="icon-img"><img src="img/cont-icon3.jpg" alt=""></div></li>
+                    <li><img src="img/content3.jpg" alt=""><h3>방울나물 아귀찜</h3><span>33,800원 /3인분</span><div class="icon-img"><img src="img/cont-icon3.jpg" alt=""></div></li>
+                </ul>
+            </article>
+            <footer id="footer">
+                <h2><img src="img/logo2.jpg" alt=""></h2>
+                <span>
+                    <a href="">이용약관  </a>
+                    <a href="">개인정보처리  </a>
+                    <a href="">방침 법적고지  </a>
+                    <a href="">사업자정보 확인  </a>
+                      </span>
+                      <address>씨제일제일제당(주) ㅣ 대표자:신현재 <br>
+                          주소: 서울 중구 동호로 330 CJ제일제당 센터 (우) 04560 ㅣ 사업자 등록번호: 104-86-09535<br>
+                          통신판매업신고 중구 제 07767호ㅣ 개인정보보호책임자  류화정
+                      </address>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
