@@ -271,35 +271,31 @@
 .gridly li {
 	float: left; 
 	list-style: none;
+	margin-bottom: 2px;
+	position: relative;
 }
 .gridly li a {
-	color: #157ed3;
+	color: #666;
 	display: block;
-    border: 3px solid #a5d5fa;
-    border-radius: 20px;
     margin-right: 20px;
-    font-size: 22px;
-    padding: 3px 15px;
+    font-size: 18px;
+	padding: 0 15px; 
+	line-height: 40px;
 }
 
-.gridly li a:hover{
-    box-shadow: 0 10px 10px -9px #157ed3
+.gridly li a span {
+	display: block;
+	width: 0%; height: 1px;
+	background: #000;
+	transition: all 0.2s ease;
 }
 
-.gridly .webstandard a {
-	color: #157ed3;
-	display: block;
-    border: 3px solid #a5d5fa;
-    border-radius: 20px;
-    margin-right: 20px;
-    font-size: 22px;
-    padding: 3px 15px;
-} 
+.gridly li a:hover span {
+	visibility: visible;
+	width: 100%;
+	
+}
 
-.gridly .webstandard a:hover {
-    box-shadow: 0 10px 10px -9px #157ed3
-  }
-  
 .gridly .html5 a {
 	color: #8432c4;
 	display: block;
