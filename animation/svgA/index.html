@@ -112,7 +112,7 @@
                 </style>
                 <!-- Intro1 -->
                 <div class="bs-docs-section">
-                    <h2 id="intro1" class="page-header">rect</h2>
+                    <h2 id="intro1" class="page-header">Rect</h2>
 
                     <h4>속성</h4>
                     <div class="table-responsive">
@@ -198,7 +198,7 @@
                 </style>
                 <!-- Intro2 -->
                 <div class="bs-docs-section">
-                    <h2 id="intro2" class="page-header">circle</h2>
+                    <h2 id="intro2" class="page-header">Circle</h2>
                     <h4>샘플</h4>
                     <div class="svgBox">
                         <svg class="svg">
@@ -239,7 +239,7 @@
                 </style>
                 <!-- Intro3 -->
                 <div class="bs-docs-section">
-                    <h2 id="intro3" class="page-header">polygon</h2>
+                    <h2 id="intro3" class="page-header">Polygon</h2>
                     <h4>샘플</h4>
                     <div class="svgBox">
                         <svg class="svg">
@@ -277,7 +277,7 @@
 
                 <!-- Intro4 -->
                 <div class="bs-docs-section">
-                    <h2 id="intro4" class="page-header">line, polyline</h2>
+                    <h2 id="intro4" class="page-header">Line, Polyline</h2>
                     <h4>샘플</h4>
                     <div class="svgBox">
                         <svg class="svg">
@@ -313,7 +313,7 @@
                 
                 <!-- Intro5 -->
                 <div class="bs-docs-section">
-                    <h2 id="intro5" class="page-header">path</h2>
+                    <h2 id="intro5" class="page-header">Path</h2>
                     <h4>샘플</h4>
                     <div class="svgBox">
                         <svg class="svg">
@@ -393,7 +393,7 @@
 
                 <!-- Intro6 -->
                 <div class="bs-docs-section">
-                    <h2 id="intro6" class="page-header">clip-path</h2>
+                    <h2 id="intro6" class="page-header">Clip-Path</h2>
                     <h4>샘플</h4>
                     <div class="svgBox">
                         <svg class="svg">
@@ -440,10 +440,83 @@
                                 SVG
                             </div>
                         </div>
-
                     </div>
                 </div>
-<pre class="line-numbers language-markup"><code>
+<pre class="line-numbers language-markup"><code>&lt;style&gt;
+.text-wrap{
+    display: inline-block;
+    background-color: #ffebee;
+    width: 160px; height: 160px;
+}
+.text-clip {
+    line-height: 170px;
+    text-align: center;
+    font-size:70px;
+    font-family:"Black Han Sans";
+    -webkit-text-fill-color : transparent;
+    -webkit-background-clip: text;
+    background-image:url(../../assets/img/svg.jpg);
+}
+
+.text-clip.t2 {
+    background-image: linear-gradient(60deg, #ff5858 0%, #f09819 100%);
+}
+
+.text-clip3 {
+    width: 160px; height: 160px;
+    line-height: 170px;
+    text-align: center;
+    font-size:70px;
+    font-family:"Black Han Sans";
+    -webkit-text-fill-color : transparent;
+    -webkit-text-stroke: 2px #ff5858
+}
+&lt;/style&gt;
+
+&lt;svg class="svg"&gt;
+    &lt;image xlink:href="../../assets/img/svg-french-fries.svg" width="160" height="160"/&gt;
+&lt;/svg&gt;
+&lt;svg class="svg"&gt;
+    &lt;image xlink:href="../../assets/img/svg-french-fries.svg" width="160" height="160" clip-path="circle(30px at center)"/&gt;
+&lt;/svg&gt;
+&lt;svg class="svg"&gt;
+    &lt;clipPath id="clip1"&gt;
+        &lt;polygon fill="none" points="82.5,43.348 89.609,63.338 108.771,54.23 99.662,73.391 119.651,80.5 99.662,87.609 108.771,106.771 89.609,97.662 82.5,117.651 75.391,97.662 56.23,106.771 65.338,87.609 45.348,80.5 65.338,73.391 56.23,54.23 75.391,63.338 "/&gt;
+    &lt;/clipPath&gt;
+    &lt;image xlink:href="../../assets/img/svg-french-fries.svg" width="160" height="160" clip-path="url(#clip1)" /&gt;
+&lt;/svg&gt;
+
+&lt;svg class="svg"&gt;
+    &lt;clipPath id="clip2"&gt;
+        &lt;path fill="none" stroke="#000000" stroke-miterlimit="10" d="M75.977,105.796c-2.709,11.867-17.993,4.507-10.404-5.011c-7.589,9.518-18.166-3.746-7.199-9.027C47.407,97.039,43.632,80.5,55.804,80.5c-12.172,0-8.397-16.539,2.57-11.258c-10.967-5.281-0.39-18.544,7.199-9.028c-7.589-9.517,7.695-16.877,10.404-5.01c-2.709-11.867,14.256-11.867,11.547,0c2.709-11.867,17.993-4.507,10.403,5.01c7.59-9.517,18.166,3.747,7.199,9.028c10.967-5.281,14.742,11.258,2.57,11.258c12.172,0,8.396,16.539-2.57,11.258c10.967,5.281,0.391,18.545-7.199,9.027c7.59,9.518-7.694,16.878-10.403,5.011C90.232,117.663,73.268,117.663,75.977,105.796z"/&gt;
+    &lt;/clipPath&gt;
+    &lt;image xlink:href="../../assets/img/svg-french-fries.svg" width="160" height="160" clip-path="url(#clip2)" /&gt;
+&lt;/svg&gt;
+&lt;svg class="svg"&gt;
+    &lt;text x="5" y="105" font-size="70" font-family="Black Han Sans"&gt;SVG&lt;/text&gt;
+&lt;/svg&gt;
+&lt;svg class="svg"&gt;
+    &lt;pattern id="pattern1" patternUnites="useSpaceOnUse" width="100%" height="100%"&gt;
+        &lt;image xlink:href="../../assets/img/svg.jpg" width="160" height="160"/&gt;
+    &lt;/pattern&gt;
+    &lt;text x="5" y="105" font-size="70" font-family="Black Han Sans" fill="url(#pattern1)"&gt;SVG&lt;/text&gt;
+&lt;/svg&gt;
+&lt;br&gt;
+&lt;div class="text-wrap"&gt;
+    &lt;div class="text-clip"&gt;
+        SVG
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="text-wrap"&gt;
+    &lt;div class="text-clip t2"&gt;
+        SVG
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="text-wrap"&gt;
+    &lt;div class="text-clip3"&gt;
+        SVG
+    &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
 				<!-- //Intro6 -->
 
@@ -457,16 +530,12 @@
             <div class="col-md-3">
                 <div class="bs-sidebar hidden-print" role="complementary">
                     <ul class="nav bs-sidenav">
-                        <li><a href="#intro1">Bar Animation</a></li>
-                        <li><a href="#intro2">Circle Animation</a></li>                        
-                        <li><a href="#intro3">Wave Animation</a></li>
-                        <li><a href="#intro4">Square Animation</a></li>
-                        <li><a href="#intro5">Cube Animation</a></li>
-                        <li><a href="#intro6">Minion Animation</a></li>
-                        <li><a href="#intro7">Tentacle Animation</a></li>
-                        <li><a href="#intro8"></a></li>
-                        <li><a href="#intro9"></a></li>
-                        <li><a href="#intro10"></a></li>
+                        <li><a href="#intro1">SVG</a></li>
+                        <li><a href="#intro2">Rect</a></li>
+                        <li><a href="#intro3">Circle</a></li>
+                        <li><a href="#intro4">Polygon</a></li>
+                        <li><a href="#intro5">Line, Polyline</a></li>
+                        <li><a href="#intro6">Path</a></li>
                     </ul>
                 </div>
             </div>
