@@ -621,4 +621,65 @@
 
 
 /**********  overview2  *********/
-.h2 {font-size: 66px; padding-top: 200px;  text-align: center;  font-weight: 700;   }
+.h2 {font-size: 66px; padding-top: 200px;  text-align: center;  font-weight: 700; }
+
+#side2-ac1 { 
+    ul{ text-align: center; margin: 100px; 
+        li:nth-child(1){ font-size: 24px; padding: 21px 25px; background: #e0ecde; display: inline-block; border: 2px solid #e0ecde ; border-radius: 40px; margin: 13px; font-weight: 700; color: #666;
+        transition: all 0.3s ease;
+            &:hover{background: #fff; border: 2px solid #96c11f ;}
+        }
+        li:nth-child(2){ font-size: 24px; padding: 21px 25px; background: #fff; display: inline-block; border: 2px solid #96c11f ; border-radius: 40px; margin: 13px; font-weight: 700; color: #666; transition: all 0.3s ease;
+            &:hover{background: #e0ecde; border: 2px solid #e0ecde ;}
+        }
+        li:nth-child(3){ font-size: 24px; padding: 21px 25px; background: #e0ecde; display: inline-block; border: 2px solid #e0ecde ; border-radius: 40px; margin: 13px; font-weight: 700; color: #666; transition: all 0.3s ease;
+            &:hover{background: #fff; border: 2px solid #96c11f ;}
+        }
+        li:nth-child(4){ font-size: 24px; padding: 21px 25px; background: #fff; display: inline-block; border: 2px solid #96c11f ; border-radius: 40px; margin: 13px; font-weight: 700; color: #666; transition: all 0.3s ease;
+            &:hover{background: #e0ecde; border: 2px solid #e0ecde ;}
+        }
+        li:nth-child(5){ font-size: 24px; padding: 21px 25px; background: #e0ecde; display: inline-block; border: 2px solid #e0ecde ; border-radius: 40px; margin: 13px; font-weight: 700; color: #666; transition: all 0.3s ease;
+            &:hover{background: #fff; border: 2px solid #96c11f ;}
+        }
+        li:nth-child(6){ font-size: 24px; padding: 21px 25px; background: #fff; display: inline-block; border: 2px solid #96c11f ; border-radius: 40px; margin: 13px; font-weight: 700; color: #666; transition: all 0.3s ease;
+            &:hover{background: #e0ecde; border: 2px solid #e0ecde ;}
+        }
+        li:nth-child(7){ font-size: 24px; padding: 21px 25px; background: #fff; display: inline-block; border: 2px solid #96c11f ; border-radius: 40px; margin: 13px; font-weight: 700; color: #666; transition: all 0.3s ease;
+            &:hover{background: #e0ecde; border: 2px solid #e0ecde ;}
+        }
+        li:nth-child(8){ font-size: 24px; padding: 21px 25px; background: #fff; display: inline-block; border: 2px solid #96c11f ; border-radius: 40px; margin: 13px; font-weight: 700; color: #666; transition: all 0.3s ease;
+            &:hover{background: #e0ecde; border: 2px solid #e0ecde ;}
+        }
+        li:nth-child(9){ font-size: 24px; padding: 21px 25px; background: #e0ecde; display: inline-block; border: 2px solid #e0ecde ; border-radius: 40px; margin: 13px; font-weight: 700; color: #666; transition: all 0.3s ease;
+            &:hover{background: #fff; border: 2px solid #96c11f ;}
+        }
+        li:nth-child(10){ font-size: 24px; padding: 21px 25px; background: #fff; display: inline-block; border: 2px solid #96c11f ; border-radius: 40px; margin: 13px; font-weight: 700; color: #666; transition: all 0.3s ease;
+            &:hover{background: #e0ecde; border: 2px solid #e0ecde ;}
+        }
+        li:nth-child(11){ font-size: 24px; padding: 21px 25px; background: #e0ecde; display: inline-block; border: 2px solid #e0ecde ; border-radius: 40px; margin: 13px; font-weight: 700; color: #666; transition: all 0.3s ease;
+            &:hover{background: #fff; border: 2px solid #96c11f ;}
+        }
+        li:nth-child(12){ font-size: 24px; padding: 21px 25px; background: #fff; display: inline-block; border: 2px solid #96c11f ; border-radius: 40px; margin: 13px; font-weight: 700; color: #666; transition: all 0.3s ease;
+            &:hover{background: #e0ecde; border: 2px solid #e0ecde ;}
+        }
+    }
+}
+
+#side2-ac2 {
+    .container { width: 1200px; margin: 0 auto; 
+        ul{ text-align: center; position: relative;
+            border-right: 1px solid #e8e8e8;  border-bottom: 1px solid #e8e8e8; 
+            display: inline-block;
+            li{ color: #222; font-size: 16px; padding: 20px 55px; display: inline-block; font-weight: 800; box-sizing: border-box;
+
+                &::before{ position: absolute;
+                    content: '';
+                    width: 8px; height: 8px;
+                    background: #e6001e;
+                    top: 61px; left: 83px;
+                    border-radius: 100%;
+                }
+            }
+        }
+    }
+}
