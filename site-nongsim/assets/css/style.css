@@ -1006,6 +1006,7 @@
 /*footer*/
 #footer {
   padding: 20px 30px;
+  border-top: solid 1px #e8e8e8;
 }
 
 #footer .container {
@@ -1132,7 +1133,7 @@
 /**********  overview2  *********/
 .h2 {
   font-size: 66px;
-  padding-top: 200px;
+  padding: 150px 0 60px 0;
   text-align: center;
   font-weight: 700;
 }
@@ -1402,5 +1403,254 @@
   top: 61px;
   left: 83px;
   border-radius: 100%;
+}
+
+#side2-se .container {
+  width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#side2-se .container ul {
+  display: inline;
+  margin-bottom: 50px;
+}
+
+#side2-se .container ul li {
+  display: inline-block;
+  padding: 50px 20px 10px 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#side2-se .container ul .se {
+  width: 367px;
+  height: 367px;
+}
+
+#side2-se .container ul .se1 {
+  background: url(../img/se1.jpg);
+  background-size: cover;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#side2-se .container ul .se1 .img {
+  background: url(../img/event.svg);
+  background-size: cover;
+  width: 46px;
+  height: 46px;
+}
+
+#side2-se .container ul .se2 {
+  background: url(../img/se2.jpg);
+  background-size: cover;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#side2-se .container ul .se2 .img {
+  background: url(../img/instagram.svg);
+  background-size: cover;
+  width: 46px;
+  height: 46px;
+}
+
+#side2-se .container ul .se3 {
+  background: url(../img/se3.jpg);
+  background-size: cover;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#side2-se .container ul .se3 .img {
+  background: url(../img/instagram.svg);
+  background-size: cover;
+  width: 46px;
+  height: 46px;
+}
+
+#side2-se .container ul .se4 {
+  background: url(../img/se4.jpg);
+  background-size: cover;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#side2-se .container ul .se4 .img {
+  background: url(../img/instagram.svg);
+  background-size: cover;
+  width: 46px;
+  height: 46px;
+}
+
+#side2-se .container ul .se5 {
+  background: url(../img/se5.jpg);
+  background-size: cover;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#side2-se .container ul .se5 .img {
+  background: url(../img/instagram.svg);
+  background-size: cover;
+  width: 46px;
+  height: 46px;
+}
+
+#side2-se .container ul .se6 {
+  background: url(../img/se6.jpg);
+  background-size: cover;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#side2-se .container ul .se6 .img {
+  background: url(../img/blog.svg);
+  background-size: cover;
+  width: 46px;
+  height: 46px;
+}
+
+#side2-se .container ul .se7 {
+  background: url(../img/se7.jpg);
+  background-size: cover;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#side2-se .container ul .se7 .img {
+  background: url(../img/event.svg);
+  background-size: cover;
+  width: 46px;
+  height: 46px;
+}
+
+#side2-se .container ul .se8 {
+  background: url(../img/se8.jpg);
+  background-size: cover;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#side2-se .container ul .se8 .img {
+  background: url(../img/youtube.svg);
+  background-size: cover;
+  width: 46px;
+  height: 46px;
+}
+
+#side2-se .container ul .se9 {
+  background: url(../img/se9.jpg);
+  background-size: cover;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#side2-se .container ul .se9 .img {
+  background: url(../img/youtube.svg);
+  background-size: cover;
+  width: 46px;
+  height: 46px;
+}
+
+#side2-se .container ul .se10 {
+  background: url(../img/se10.jpg);
+  background-size: cover;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#side2-se .container ul .se10 .img {
+  background: url(../img/instagram.svg);
+  background-size: cover;
+  width: 46px;
+  height: 46px;
+}
+
+#side2-se .container ul .se11 {
+  background: url(../img/se11.jpg);
+  background-size: cover;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#side2-se .container ul .se11 .img {
+  background: url(../img/instagram.svg);
+  background-size: cover;
+  width: 46px;
+  height: 46px;
+}
+
+#side2-se .container ul .se12 {
+  background: url(../img/se12.jpg);
+  background-size: cover;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#side2-se .container ul .se12 .img {
+  background: url(../img/instagram.svg);
+  background-size: cover;
+  width: 46px;
+  height: 46px;
+}
+
+#more {
+  margin: 0 auto;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #000;
+  border-radius: 50%;
+}
+
+#more::before {
+  position: absolute;
+  content: '';
+  width: 2px;
+  height: 15px;
+  background: #000;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#more::after {
+  position: absolute;
+  content: '';
+  width: 15px;
+  height: 2px;
+  background: #000;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#more2 {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  padding-top: 15px;
+  padding-bottom: 100px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -560,10 +560,10 @@
 
 
 /*footer*/ 
-#footer{ padding: 20px 30px; 
-    .container{ width: 1200px; position: relative; margin: 0 auto;
+#footer{ padding: 20px 30px; border-top: solid 1px #e8e8e8;
+    .container{ width: 1200px; position: relative; margin: 0 auto; 
         .link{ margin-bottom: 20px; color: #333; width: 500px;
-            li{font-size: 15px;  display: inline-block; padding: 15px; position: relative;
+            li{font-size: 15px;  display: inline-block; padding: 15px; position: relative; 
                 &::after {
                     content: '';
                     position: absolute;
@@ -621,7 +621,7 @@
 
 
 /**********  overview2  *********/
-.h2 {font-size: 66px; padding-top: 200px;  text-align: center;  font-weight: 700; }
+.h2 {font-size: 66px; padding: 150px 0 60px 0;  text-align: center;  font-weight: 700; }
 
 #side2-ac1 { 
     ul{ text-align: center; margin: 100px; 
@@ -682,4 +682,70 @@
             }
         }
     }
+}
+
+#side2-se {
+    .container{width: 1200px; margin: 0 auto; display: flex; justify-content: center; 
+        ul{ display: inline; margin-bottom: 50px;
+            li{display: inline-block; padding: 50px 20px 10px 0px; box-sizing: border-box;}
+            .se {width: 367px; height: 367px; }
+            .se1 {background: url(../img/se1.jpg); background-size: cover; padding: 15px; box-sizing: border-box;
+                .img{ background: url(../img/event.svg); background-size: cover; width: 46px; height: 46px; }
+            }
+            .se2 {background: url(../img/se2.jpg); background-size: cover; padding: 15px; box-sizing: border-box;
+                .img{ background: url(../img/instagram.svg); background-size: cover; width: 46px; height: 46px; }
+            }
+            .se3 {background: url(../img/se3.jpg); background-size: cover; padding: 15px; box-sizing: border-box;
+                .img{ background: url(../img/instagram.svg); background-size: cover; width: 46px; height: 46px; }
+            }
+            .se4 {background: url(../img/se4.jpg); background-size: cover; padding: 15px; box-sizing: border-box;
+                .img{ background: url(../img/instagram.svg); background-size: cover; width: 46px; height: 46px; }
+            }
+            .se5 {background: url(../img/se5.jpg); background-size: cover; padding: 15px; box-sizing: border-box;
+                .img{ background: url(../img/instagram.svg); background-size: cover; width: 46px; height: 46px; }
+            }
+            .se6 {background: url(../img/se6.jpg); background-size: cover; padding: 15px; box-sizing: border-box;
+                .img{ background: url(../img/blog.svg); background-size: cover; width: 46px; height: 46px; }
+             }
+            .se7 {background: url(../img/se7.jpg); background-size: cover; padding: 15px; box-sizing: border-box;
+                .img{ background: url(../img/event.svg); background-size: cover; width: 46px; height: 46px; }
+             }
+            .se8 {background: url(../img/se8.jpg); background-size: cover; padding: 15px; box-sizing: border-box;
+                .img{ background: url(../img/youtube.svg); background-size: cover; width: 46px; height: 46px; }
+            }
+            .se9 {background: url(../img/se9.jpg); background-size: cover; padding: 15px; box-sizing: border-box;
+                .img{ background: url(../img/youtube.svg); background-size: cover; width: 46px; height: 46px; }
+             }
+            .se10 {background: url(../img/se10.jpg); background-size: cover; padding: 15px; box-sizing: border-box;
+                .img{ background: url(../img/instagram.svg); background-size: cover; width: 46px; height: 46px; }
+             }
+            .se11 {background: url(../img/se11.jpg); background-size: cover; padding: 15px; box-sizing: border-box;
+                .img{ background: url(../img/instagram.svg); background-size: cover; width: 46px; height: 46px; }
+             }
+            .se12 {background: url(../img/se12.jpg); background-size: cover; padding: 15px; box-sizing: border-box;
+                .img{ background: url(../img/instagram.svg); background-size: cover; width: 46px; height: 46px; }
+            }
+        }
+    }
+}
+
+#more { margin: 0 auto; position: relative;
+    width: 50px; height: 50px;
+    border: 2px solid #000;
+    border-radius: 50%;
+
+    &::before{position: absolute;
+        content: '';
+        width: 2px; height: 15px; 
+        background: #000;
+        top: 50%;  left: 50%; transform: translate(-50%, -50%);
+    }
+    &::after{position: absolute;
+        content: '';
+        width: 15px; height: 2px; 
+        background: #000;
+        top: 50%;  left: 50%; transform: translate(-50%, -50%);
+    }
+}
+#more2 {text-align: center; font-size: 17px; font-weight: 600; padding-top: 15px; padding-bottom: 100px;
 }
