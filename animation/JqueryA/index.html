@@ -308,9 +308,9 @@
             let easing = $(this).text();
             //alert(easing)
             $(".circle2")
-            .animate({ left:"80%" },1000, easing)
-            .animate({ top:"80%" },1000, easing)
-            .animate({ left:"0%" },1000, easing)
+            .animate({ left:"100%", "left":"-25px"},1000, easing)    //easing : 움직임
+            .animate({ top:"100%" },1000, easing)
+            .animate({ left:"0%" },1000,easing)
             .animate({ top:"0%" },1000, easing)
         })
 
