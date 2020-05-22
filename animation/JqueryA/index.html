@@ -452,8 +452,17 @@ function out(){
                             <div class="circle"></div>
                         </div>
                     </div>
-<pre class="line-numbers language-css"><code>
-    
+<pre class="line-numbers language-css"><code>$(".btn11").click(function(){ 
+function loop(){
+    $(".circle11 > div")
+    .animate({ left : leftwidth },1000 , "easeOutQuint")
+    .animate({ left : 0 },1000 , "easeOutQuint",loop);
+}
+    function out(){
+    $(".circle11 > div").hide()}
+    loop()
+    setTimeout(out, 5000)
+});
 </code></pre>
 				</div>
                 <!-- //Intro11 -->
@@ -639,6 +648,22 @@ function out(){
 
        //intro11
        //속성. 애니메이션(2바퀴), -->무한 움직이기 --> 10분 뒤에 사라지게
+
+       $(".btn11").click(function(){ 
+        function loop(){
+            $(".circle11 > div")
+            .animate({ left : leftwidth },1000 , "easeOutQuint")
+            .animate({ left : 0 },1000 , "easeOutQuint",loop);
+        }
+            function out(){
+            $(".circle11 > div").hide()}
+            loop()
+            setTimeout(out, 5000)
+        });
+
+        
+
+
     </script> 
 </body>
 
