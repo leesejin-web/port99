@@ -173,9 +173,27 @@
             color: #fff;
         }
     }
-    
 }
 
+/* news Animation */
+#news h2 {opacity: 0; transform: translateY(100px); transition: all 0.8s ease}
+#news.show h2 { opacity: 1; transform: translateY(0);}
+
+#news .swiper-container {opacity: 0; transform: translateY(100px); transition: all 0.8s 0.3s ease}
+#news.show .swiper-container {opacity: 1; transform: translateY(0px); }
+
+#news .notice .notice-btn { display: inline-block; opacity: 0}
+#news.show .notice .notice-btn { animation:  bounceInLeft 0.6s 1.0s  forwards; }
+
+@keyframes bounceInLeft {
+    from,60%,75%,90%,
+    to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+    0% { opacity: 0;transform: translate3d(-3000px, 0, 0) scaleX(3); }
+    60% {opacity: 1;transform: translate3d(25px, 0, 0) scaleX(1); }
+    75% {transform: translate3d(-10px, 0, 0) scaleX(0.98);}
+    90% { transform: translate3d(5px, 0, 0) scaleX(0.995);}
+    to { opacity: 1; transform: translate3d(0, 0, 0);}
+}
 
 /* 인트로 */
 #intro{
@@ -232,6 +250,26 @@
             background: #ca0202;
             color: #fff;}
      }
+}
+
+/* 인트로 Animation */
+#intro h2 {opacity: 0; transform: translateY(100px); transition: all 0.8s ease}
+#intro.show h2 { opacity: 1; transform: translateY(0);}
+
+#intro .intro .intro-img {opacity: 0; transform: translateY(100px); transition: all 0.8s 0.2s ease}
+#intro.show .intro .intro-img {opacity: 1; transform: translateY(0px); }
+
+#intro .intro .intro-btn { display: inline-block; opacity: 0}
+#intro.show .intro .intro-btn { animation:  bounceInLeft 0.6s 1.0s  forwards; }
+
+@keyframes bounceInLeft {
+    from,60%,75%,90%,
+    to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+    0% { opacity: 0;transform: translate3d(-3000px, 0, 0) scaleX(3); }
+    60% {opacity: 1;transform: translate3d(25px, 0, 0) scaleX(1); }
+    75% {transform: translate3d(-10px, 0, 0) scaleX(0.98);}
+    90% { transform: translate3d(5px, 0, 0) scaleX(0.995);}
+    to { opacity: 1; transform: translate3d(0, 0, 0);}
 }
 
 
@@ -299,6 +337,26 @@
             color: #fff;
         }
     }
+}
+
+/* story Animation */
+#story h2 {opacity: 0; transform: translateY(100px); transition: all 0.8s ease}
+#story.show h2 { opacity: 1; transform: translateY(0);}
+
+#story .story {opacity: 0; transform: translateY(100px); transition: all 0.8s 0.2s ease}
+#story.show .story {opacity: 1; transform: translateY(0px); }
+
+#story .story .live-btn { display: inline-block; opacity: 0}
+#story.show .story .live-btn { animation:  bounceInLeft 0.6s 1.0s  forwards; }
+
+@keyframes bounceInLeft {
+    from,60%,75%,90%,
+    to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+    0% { opacity: 0;transform: translate3d(-3000px, 0, 0) scaleX(3); }
+    60% {opacity: 1;transform: translate3d(25px, 0, 0) scaleX(1); }
+    75% {transform: translate3d(-10px, 0, 0) scaleX(0.98);}
+    90% { transform: translate3d(5px, 0, 0) scaleX(0.995);}
+    to { opacity: 1; transform: translate3d(0, 0, 0);}
 }
 
 /* world */
@@ -378,7 +436,6 @@
 #world.show .world div:nth-child(3)  { opacity: 1; transform: translateY(0);}
 #world.show .world-btn { animation:  bounceInLeft 0.6s 1.4s  forwards; }
 
-
 @keyframes bounceInLeft {
     from,60%,75%,90%,
     to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
@@ -391,8 +448,6 @@
  
 /* brand */
 #brand { 
-    background: #f6f6f6;
-    padding-bottom: 100px;
     text-align: center;
     h2 { 
         padding-top: 100px;
@@ -403,7 +458,6 @@
         text-align: center;
         z-index: 10;
         position: relative;
-        background: #fff;
     }
     .brand-btn {
         font-size: 18px;
@@ -421,7 +475,7 @@
     }
 }
 
-.mbrand {
+.mbrand { 
     background: url(../img/brand.png);
     text-align: left;
     h3 {
@@ -432,35 +486,61 @@
         font-weight: 700;
     }
 }
-.brand {
-    display: flex;
-    justify-content: space-between;
-    width: 1200px;
-    margin: 0 auto;
-    padding-top: 100px;
-
-    div {
-        flex-basis: 20%;
-        h4 {
-            border-top: 2px solid #ca0202;
-            font-size: 18px;
-            text-transform: uppercase;
-            font-weight: 700;
-            padding-top: 10px;
-        }
-        figure {
-            em {
-                margin: 30px 20px;
-                background: #fff;
-                display: block;
-                border-radius: 50%;
+.brand{background: #f6f6f6; height: 700px;
+    .brand-in {
+        display: flex;
+        justify-content: space-between;
+        width: 1200px;
+        margin: 0 auto;
+        padding-top: 100px;
+        div {
+            flex-basis: 20%;
+            h4 {
+                border-top: 2px solid #ca0202;
+                font-size: 18px;
+                text-transform: uppercase;
+                font-weight: 700;
+                padding-top: 10px;
             }
-            figcaption {
-                font-size: 22px;
-                color: #777;
+            figure {
+                em {
+                    margin: 30px 20px;
+                    background: #fff;
+                    display: block;
+                    border-radius: 50%;
+                }
+                figcaption {
+                    font-size: 22px;
+                    color: #777;
+                }
             }
         }
     }
+}
+
+
+/* brand Animation*/
+#brand h2{opacity: 0; transform: translateY(100px); transition: all 0.8s ease}
+#brand.show h2 { opacity: 1; transform: translateY(0);}
+
+#brand .brand .brand-in>div { opacity: 0; transform: translateY(100px); transition: all 0.8s ease}
+#brand.show .brand .brand-in>div:nth-child(1) {  opacity: 1; transform: translateY(0); transition: all 0.8s 0.8s ease}
+#brand.show .brand .brand-in>div:nth-child(2) {  opacity: 1; transform: translateY(0); transition: all 0.8s 1.0s ease}
+#brand.show .brand .brand-in>div:nth-child(3) {  opacity: 1; transform: translateY(0); transition: all 0.8s 1.2s ease}
+#brand.show .brand .brand-in>div:nth-child(4) {  opacity: 1; transform: translateY(0); transition: all 0.8s 1.4s ease}
+
+#brand .brand-btn { display: inline-block; opacity: 0}
+#brand.show .brand-btn { animation:  bounceInLeft 0.6s 1.4s  forwards; }
+
+
+@keyframes bounceInLeft {
+    from,60%,75%,90%,
+    to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+    0% { opacity: 0;transform: translate3d(-3000px, 0, 0) scaleX(3); }
+    60% {opacity: 1;transform: translate3d(25px, 0, 0) scaleX(1); }
+    75% {transform: translate3d(-10px, 0, 0) scaleX(0.98);}
+    90% { transform: translate3d(5px, 0, 0) scaleX(0.995);}
+    to { opacity: 1; transform: translate3d(0, 0, 0);}
 }
 
 /*article*/ 

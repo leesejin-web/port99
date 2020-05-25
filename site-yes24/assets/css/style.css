@@ -23,7 +23,10 @@ li {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  z-index: 10000;
+  width: 100%;
 }
 
 #header h1 {
@@ -50,6 +53,10 @@ li {
 }
 
 /* banner */
+#banner {
+  position: relative;
+}
+
 #banner .img {
   background: url(../../img/banner1-1.jpg) no-repeat;
   width: 100%;
@@ -149,6 +156,8 @@ li {
 
 #content1 .container .event1 img {
   width: 585px;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
 }
 
 #content1 .container .event2 {
@@ -163,6 +172,8 @@ li {
 
 #content1 .container .event2 img {
   width: 380px;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
 }
 
 /* content2 */
