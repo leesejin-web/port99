@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>j</title>
+</head>
+<body>
+    <button class="btn1">Click</button>
+    <div class="selector" id="selector">
+        <div class="box">jQuery vs JavaScript</div>
+        <div class="box">jQuery vs JavaScript</div>
+        <div class="box add">jQuery vs JavaScript</div>
+        <div class="box">jQuery vs JavaScript</div>
+        <div class="box">jQuery vs JavaScript</div>
+    </div>
+
+    <br><br><br> <br>
+
+    <div>
+        <ul id="list">
+            <li>list01</li>
+            <li>list02</li>
+            <li>list03</li>
+            <li>list04</li>
+            <li>list05</li>
+            <li>list06</li>
+            <li>list07</li>
+            <li>list08</li>
+            <li>list09</li>
+            <li>list10</li>
+        </ul>
+    </div>
+
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.min_1.12.4.js"></script>
+<script>
+   //제이쿼리를 이용해서 글씨 색을 빨간색으로 변경하세요~
+    //$(".selector > .box").css("color","red")
+
+   //자바스크립트를 이용해서 글씨 색을 빨간색으로 변경하세요~
+    //document.querySelector(".selector").style.color="red"
+
+
+
+   //
+   //$("#list li").css("color","red");   <<jq
+   
+   //let list = document.getElementById("list")       //ID선택자   <<js
+   //let listLi = list.getElementsByTagName("li");    //자식 li 를 선택
+   //for(let i=0; i<=listLi.length; i++){                     //li 갯수만큼 실행
+   //     let li = listLi[i];                                             //배열에 저장
+   //    li.style.color = "red"                                   //스타일 속성 지정
+   //}
+
+
+
+
+   //다중 선택
+   //$(".box").css("color","red");  //<<jq
+   //document.querySelector(".selector").style.color="red"     //  >>다중 선택(x) jv
+   //document.querySelectorAll(".selector").style.color="red"    //  >>다중 선택(x) jv
+
+    //let box =document.querySelectorAll(".box");        //<<예전방식
+    //for(let i=0; i<=box.length; i++){
+    //box[i].style.color = "red"
+    //}
+
+    // document.querySelectorAll(".box").forEach(box => {      //<<요즘 방식
+    //     box.style.color = "red"
+    // });
+
+
+
+    //태그 선택자   
+    // $("div").css("color","blue");                                                          //jq
+    //document.getElementsByTagName("div").style.color = "blue" <<잘 쓰지 않음 //jv
+
+
+
+
+
+    //선택
+    // const selector = $("#selector");
+    // const box = selector.find(".box");
+    // selector.css("color","blue")
+
+    // const selector = document.getElementById("selector");
+    // const box = selector.querySelector(".box");
+    // box.style.color = "blue";
+
+    // const bosAll = selector.querySelectorAll(".box");
+    // bosAll.forEach(box=> {box.style.color = "blue"})
+
+
+
+
+
+    //숨기고 보여주기
+    // $(".box").hide();
+    // document.querySelectorAll(".box").forEach( box => {box.style.display = "none"})
+
+    // $(".box").show();
+    // document.querySelectorAll(".box").forEach( box => {box.style.display = "block"})
+
+
+
+
+
+    //클래스 추가하기
+    // $(".box").addClass("add");
+    // document.querySelectorAll(".box").forEach(box => {
+    //     box.classList.add("add")
+    // })
+
+    // $(".box").removeClass("box");
+    // document.querySelectorAll("box").forEach( box =>{
+    //     box.classList.remove("box")
+    // })
+
+
+
+
+    //버튼을 클릭하면 글씨 색을 빨간색으로 변경해주세요
+    //$(".btn1").click(function(){}             //jq
+    // $(".btn1").on("click",function(){    //jq 다른 방법
+    //     $(".box").css("color","red")
+    // })
+
+    // document.querySelector(".btn1").addEventListener("click",function(){     //jv
+    //     document.querySelectorAll(".box").forEach( box => {
+    //         box.style.color = "red" 
+    //     })
+    // });
+
+
+
+
+    //자바스크립트로 toggleClass 를 .box에 넣어주세요
+    // document.querySelector(".btn1").addEventListener("click",function(){
+    //     document.querySelectorAll(".box").forEach( box => {
+    //         box.classList.toggle("add")
+    //     });
+    // });
+
+
+
+
+
+
+    //mouseenter 했을 때 .box 를 색깔 레드로 바꿔주세요
+    // $(".box").on("mouseenter",function(){          //jq
+    //     $(".box").css("color","red");
+    // })
+
+    // document.querySelector(".selector").addEventListener("mouseenter", function(){    //jv mouseenter
+    //     document.querySelectorAll(".box").forEach( box => {
+    //         box.style.color = "red"
+    //     });
+    // })
+
+    // document.querySelector(".selector").addEventListener("mouseleave", function(){    //jv mouseleave
+    //     document.querySelectorAll(".box").forEach( box => {
+    //         box.style.color = "black"
+    //     });
+    // })
+
+
+
+
+
+    //hasClass 를 사용하여 red로 바꿔주세요
+    // if( $(".box").hasClass("add") ){
+    //     $(".add").css("color","blue");
+    // }
+
+    // if( document.querySelector("#selector").classList.contains("selector") ){
+    //     document.querySelector(".selector").style.color = "red"
+    // }
+
+
+
+
+    //append : 아래로 복사 prepend: 위로 복사 : jq
+    // $(".btn1").click(function(){
+    //     $(".selector").append("<div class='box'>jQuery vs JavaScript</div>")      //아래로 복사하기
+    //     $(".selector").prepend("<div class='box'>jQuery vs JavaScript</div>")       //위로 복사하기
+    // }); 
+
+
+    //append : 아래로 복사 prepend: 위로 복사 : jv
+    //appendChild
+    // document.querySelector(".btn1").addEventListener("click",function(){
+    //     let elem = document.getElementById("selector");
+    //     let doc = document.createElement("div");
+    //     elem.appendChild(doc)
+    // })
+</script> 
+</body>
+</html>

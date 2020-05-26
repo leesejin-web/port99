@@ -149,8 +149,20 @@
                                     <td>사각형의 보더 굴곡의 X값을 설정합니다.</td>
                                 </tr>
                                 <tr>
+                                    <td>r</td>
+                                    <td>원의 반지름을 의미한다.</td>
+                                </tr>
+                                <tr>
                                     <td>ry</td>
                                     <td>사각형의 보더 굴곡의 Y값을 설정합니다.</td>
+                                </tr>
+                                <tr>
+                                    <td>cx</td>
+                                    <td>원의 중심 중 x 값을 의미한다.</td>
+                                </tr>
+                                <tr>
+                                    <td>cy</td>
+                                    <td>원의 중심 중 y 값을 의미한다.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -667,7 +679,7 @@
 .aniRect2 { 
     stroke:#880e4f; stroke-width: 4; 
     animation: rect2 2s infinite ease;
-    stroke-dasharray: 50;                                     
+    stroke-dasharray: 50;                       //stroke-dasharray와 stroke-dashoffset값은 같아야 한다.
     stroke-dashoffset: 50;
     stroke-linecap: round;
 }
