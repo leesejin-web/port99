@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slide01 - 페이드 효과 이미지 슬라이드</title>
+    <title>Slide04</title>
 
 
     <style>
@@ -53,36 +53,39 @@
 
         /* slide */
 
-        .slide-wrap { 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        .slide-img {
-            position: relative;
+        .slider-wrap { 
             width: 1000px; height: 600px;
+            overflow: hidden;
+            position: absolute; left: 50%; top: 50%; 
+            transform: translate(-50%, -50%);
             box-shadow: 4px 4px 20px rgba(0,0,0,0.5);
+        }
+        .slider-img {
+            position: relative;
+            width: 5000px; height: 600px;
             overflow: hidden;
         }
 
-        .slide-img .slides{
-            position: relative; left: 0; top: 0;
+        .slider-img .slides{
+            float: left; width: 1000px;
         }
     </style>
 </head>
 <body>
-    
     <div class="info">
-        <h1>Image Slider01</h1>
-        <p>페이드 효과 이미지 슬라이드</p>
+        <h1>Image Slider04</h1>
+        <p>좌로 움직이기</p>
+        <ul>
+            <li>3초에 한 번씩 좌로 움직이기</li>
+            <li>연속적으로 움직이기</li>
+        </ul>
     </div>
     <div class="info2">
         <ul>
-            <li class="active"><a href="slide01.html">Slide01</a></li>
-            <li><a href="slide02.html">Slide02</a></li>
+            <li><a href="slide01.html">Slide01</a></li>
+            <li ><a  href="slide02.html">Slide02</a></li>
             <li><a href="slide03.html">Slide03</a></li>
-            <li><a href="slide04.html">Slide04</a></li>
+            <li class="active"><a href="slide04.html">Slide04</a></li>
             <li><a href="slide05.html">Slide05</a></li>
             <li><a href="slide06.html">Slide06</a></li>
             <li><a href="slide07.html">Slide07</a></li>
@@ -90,38 +93,32 @@
             <li><a href="slide09.html">Slide09</a></li>
         </ul>
     </div>
-    <div class="slide-wrap">
-        <div class="slide-img">
-            <div class="slides"><img src="img/img1.jpg" alt="이미지1"></div>
-            <div class="slides"><img src="img/img2.jpg" alt="이미지1"></div>
-            <div class="slides"><img src="img/img3.jpg" alt="이미지1"></div>
-            <div class="slides"><img src="img/img4.jpg" alt="이미지1"></div>
-            <div class="slides"><img src="img/img5.jpg" alt="이미지1"></div>
+
+    <!-- slider -->
+    <div class="slider-wrap">
+        <div class="slider-img">
+            <div class="slides s1"><img src="img/img1.jpg" alt="이미지1"></div>
+            <div class="slides s2"><img src="img/img2.jpg" alt="이미지1"></div>
+            <div class="slides s3"><img src="img/img3.jpg" alt="이미지1"></div>
+            <div class="slides s4"><img src="img/img4.jpg" alt="이미지1"></div>
+            <div class="slides s5"><img src="img/img5.jpg" alt="이미지1"></div>
         </div>
     </div>
+
+    <!-- script -->
     <script src="js/jquery.min_1.12.4.js"></script>
     <script>
-        let slideWrap = $(".slide-wrap");
-        let slideImg = $(".slide-img");
-        let slides = $(".slides");
-        
-        let currentIndex =  0;                //현재 첫 번째 보이는 이미지
-        let sildeCount = slides.length;  //이미지 갯수
+        const sliderWrap = $(".slider-wrap")
+        const slidreImg = $(".slider-img");
+        const slides = $(".sliders");
 
-        //첫 번째 이미지 선택해서 사라지게    slides.eq(0).hide()
-        //두 번째 이미지 선택해서 사라지게    slides.eq(1).hide()
-        //세 번째 이미지 선택해서 사라지게    slides.eq(2).hide()
-        //네 번째 이미지 선택해서 사라지게    slides.eq(3).hide()
-        //다섯번째 이미지 선택해서 사라지게 slides.eq(4).hide()
-
-        function showNext(){
-            let nextIndex = (currentIndex+1) % sildeCount;
-            slides.eq(currentIndex).fadeOut(500);
-            slides.eq(nextIndex).fadeIn(500);
-
-            currentIndex = nextIndex
-        }
-        setInterval(showNext, 3000)
+         //3초에 한 번씩 실행
+        setInterval(function(){
+            slidreImg.animate({ left : "-1000px"}, 400, function(){   //콜백 함수
+                $(".slides:first-child").appendTo(slidreImg);     // <<<appendTo() :는 선택한 요소를 다른 요소 안에 넣습니다.
+                slidreImg.css("left","");
+            })
+        },3000)
     </script>
 </body>
 </html>
