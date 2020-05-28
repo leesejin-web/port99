@@ -60,6 +60,11 @@
         #clock {
             display: block;
         }
+        .float-square{
+  position: absolute;
+  border-radius: 0%;
+  opacity: 0.7;
+}
     </style>
 </head>
 
@@ -87,12 +92,11 @@
     <!-- //nav -->
 
     <!-- header -->
-    <div id="header">
-        <div class="container">
+    <div id="header" >
+        <div class="container"  class="float-square">
             <div class="row" style="margin-left: 16px;">
                 <div class="span12" style="text-align:center;">
                     <div class="header_tit">
-                        <a href="http://webstoryboy.co.kr"><img src="assets/img/folder.svg" alt="main"></a>
                         <h1>Professional web publishers</h1>
                     </div>
                     <div class="header_icon">
@@ -681,6 +685,48 @@
     <script src="assets/js/bootstrap-transition.js"></script>
     <script src="assets/js/jquery.isotope.min.js"></script>
     <script>
+        var colors = ["#1C476D", "#8EC2FF", "#FFE600"];
+var numberOfSquares = 20;
+var squares = [];
+    for (var i = 0; i < numberOfSquares; i++) {
+var square = document.createElement("div");
+    square.classList.add("float-square");
+    square.style.background =    colors[Math.floor(Math.random() * colors.length)];
+    square.style.left = `${Math.floor(Math.random() * 100)}vw`;
+    square.style.top = `${Math.floor(Math.random() * 100)}vh`;
+    square.style.transform = `scale(${Math.random()})`;
+                square.style.width = `${Math.random()}em`;
+    square.style.height = square.style.width;
+
+      squares.push(square);
+      document.body.append(square);
+  }
+
+      squares.forEach((el, i, ra) => {
+      var to = {
+          x: Math.random() * (i % 2 === 0 ? -11 : 11),
+          y: Math.random() * 12
+               };
+
+      var anim = el.animate(
+                   [
+       { transform: "translate(0, 0)" },
+                        { transform: `translate(${to.x}rem, ${to.y}rem)` }
+                    ],
+                    {
+                        duration: (Math.random() + 1) * 2000, // random duration
+                        direction: "alternate",
+                        fill: "both",
+                        iterations: Infinity,
+                        easing: "ease-in-out"
+                    }
+                );
+            });
+
+
+
+
+
         $(function () {
             var $container = $('#container'),
                 filters = {};
@@ -732,6 +778,7 @@
             });
 
         });
+        
     </script>
 </body>
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slide06</title>
+    <title>Slide07</title>
 
 
     <style>
@@ -19,7 +19,7 @@
         img {width: 100%; vertical-align: top;}
         ul {padding: 10px 20px;}
         body {
-            background: url(img/so01.jpg) no-repeat center center;
+            background: url(img/img1) no-repeat center center;
             background-size: cover;
             font-family: 'Abel', 'GmarketSansMedium';
             color: #fff;
@@ -54,19 +54,21 @@
         /* slide */
 
         .slider-wrap { 
-            width: 1000px; height: 600px;
+            width: 1200px;
             overflow: hidden;
             position: absolute; left: 50%; top: 50%; 
             transform: translate(-50%, -50%);
-            box-shadow: 4px 4px 20px rgba(0,0,0,0.5);
         }
         .slider-img {
             position: relative;
             overflow: hidden;
+            width: 10000px;
         }
 
         .slider-img .slides{
             float: left; 
+            width: 400px;
+            padding: 10px;
         }
         .slider-btn a{
             position: absolute; top: 50%;
@@ -86,10 +88,10 @@
 </head>
 <body>
     <div class="info">
-        <h1>Image Slider06</h1>
+        <h1>Image Slider07</h1>
         <p>좌우로 움직이기</p>
         <ul>
-            <li>연속적으로 움직이기</li>
+            <li>3단 뷰 만들기</li>
             <li>버튼 만들기</li>
         </ul>
     </div>
@@ -100,8 +102,8 @@
             <li><a href="slide03.html">Slide03</a></li>
             <li><a href="slide04.html">Slide04</a></li>
             <li><a href="slide05.html">Slide05</a></li>
-            <li class="active"><a href="slide06.html">Slide06</a></li>
-            <li><a href="slide07.html">Slide07</a></li>
+            <li><a href="slide06.html">Slide06</a></li>
+            <li class="active"><a href="slide07.html">Slide07</a></li>
             <li><a href="slide08.html">Slide08</a></li>
             <li><a href="slide09.html">Slide09</a></li>
         </ul>
@@ -131,34 +133,48 @@
         const sliderBtn = $(".slider-btn")
         
         let slideCount =sliders.length;                             //슬라이드 개수
-        let slideWidth = sliders.width();                           //슬라이드 width 값
-        let slideHeight = sliders.height();                        //슬라이드 heigh0t 값
+        let slideWidth = sliders.outerWidth();                  //슬라이드 width 값
         let slideTatalWidth = slideCount* slideWidth;    //슬라이드 개수 X 슬라이드 width
 
-        sliders.css({ width: slideWidth, height:slideHeight});
-        sliderImg.css({width: slideTatalWidth, height:slideHeight, marginLeft: -slideWidth });
-        // $(".slides:last-child").prependTo(sliderImg);
+        let currentIndex = 0;                     //현재 보이는 이미지
+        let slideCopy = sliders.clone();
+        sliderImg.append(slideCopy);      //슬라이더 이미지를 카피 후 추가
 
+
+
+        //이미지 움직이기
         function moveLeft(){
-            sliderImg.animate({left : +slideWidth },400, function(){
-                $(".slides:last-child").prependTo(sliderImg);
-                sliderImg.css("left","0");
-            })
-        }; 
+            //이미지를 오른쪽으로 이동(박스의 크기 만큼)
+            if(currentIndex ==0){
+                currentIndex = slideCount;
+                sliderImg.css("margin-left", -currentIndex* slideWidth+"px");     //margin-left : 5000px 자연스럽게 나오게 하기 위해 만든 것
+            }
+            currentIndex--;
+            sliderImg.animate({"margin-left":-slideWidth * currentIndex +"px"},400);
+            console.log(currentIndex)
+        }
+
+
+
+        //이미지 움직이기
         function moveRight(){
-            sliderImg.animate({left : -slideWidth},400, function(){
-                $(".slides:first-child").appendTo(sliderImg);
-                sliderImg.css("left","0");
-            }) 
-        };
+            //이미지를 왼쪽으로 이동(박스의 크기 만큼)
+            if(currentIndex == slideCount){                 //currentIndex 값은 slideCount 같다. 보이는 값은 5랑 같다
+                currentIndex = 0;                                   //6으로 넘어가면 안 되니까 0으로 초기화.
+                sliderImg.css("margin-left", -currentIndex* slideWidth+"px");     //left : 0
+            }
+            currentIndex++;
+            sliderImg.animate({"margin-left":-slideWidth * currentIndex +"px"},400); 
+            console.log(currentIndex)
+        }
 
-
-        sliderBtn.find(".prev").click(function(){
-            moveLeft()
-        });
-
-        sliderBtn.find(".next").click(function(){
-            moveRight()
+        //버튼 클릭하기
+        sliderBtn.on("click","a",function(){
+            if( $(this).hasClass("prev")){
+                moveLeft()
+            }else{
+                moveRight()
+            }
         });
     </script>
 </body>

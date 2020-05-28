@@ -55,6 +55,7 @@ body {background:#f1f4fb url(../img/body_bg.gif)}
 	background:#a5d5fa center 57px;
 	padding: 10px 0 10px 0px;
 }
+
 #header.sub {
 	background:url(../img/header_bg.png) center 7px;
 	padding: 35px 0 55px 0px;
@@ -123,6 +124,8 @@ pre.pre-show{
 	border-radius: 0px 0px 4px 4px;
 	
 }
+
+
 
 /* header */
 .header_tit {margin-top:70px; }
