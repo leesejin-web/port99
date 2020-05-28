@@ -220,7 +220,7 @@
 }
 #contents_tit p {
 	padding:35px 0; 
-	font-family: 'Gaegu', cursive; font-size: 40px;
+	font-family: 'Baloo Da 2', cursive; font-size: 30px;
 }
 #contents_tit p a {
 	color:#2c94c4; 
@@ -348,7 +348,7 @@
 }
 
 .image-wrap img {
-	width: 55%;
+	width: 45%;
     padding-top: 70px;
     display: block;
     margin: 0 auto;
