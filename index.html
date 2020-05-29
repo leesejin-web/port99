@@ -70,7 +70,7 @@
 
 <body>
     <!-- nav -->
-    <div id="top-nav" class="navbar navbar-fixed-top">
+    <div id="top-nav" class="navbar navbar-fixed-top" style="width: 100%;">
         <div class="navbar-inner">
             <div class="container-fluid">
                 <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -97,7 +97,46 @@
             <div class="row" style="margin-left: 16px;">
                 <div class="span12" style="text-align:center;">
                     <div class="header_tit">
-                        <h1>Professional web publishers</h1>
+                        <div class="book">
+                            <div class="book__page"></div>
+                            <div class="book__page"></div>
+                            <div class="book__page"></div>
+                          </div>
+                        <h1 aria-label="Sarah Fossheim" class="h1">
+                            <span aria-hidden="true">
+                              <span style="--index: 1s">P</span>
+                              <span style="--index: 1.1s">R</span>
+                              <span style="--index: 1.2s">O</span>
+                              <span style="--index: 1.3s">F</span>
+                              <span style="--index: 1.4s">E</span>
+                              <span style="--index: 1.5s">S</span>
+                              <span style="--index: 1.6s">S</span>
+                              <span style="--index: 1.7s">I</span>
+                              <span style="--index: 1.8s">O</span>
+                              <span style="--index: 1.9s">N</span>
+                              <span style="--index: 2s">A</span>
+                              <span style="--index: 2.1s">L</span>
+                            </span>
+                            <span aria-hidden="true" class="spacing"  style="--index: 1.5"> </span>
+                            <span aria-hidden="true">
+                              <span style="--index: 2.2s">W</span>
+                              <span style="--index: 2.3s">E</span>
+                              <span style="--index: 2.4s">B</span>
+                            </span>
+                            <span aria-hidden="true" class="spacing"  style="--index: 1.5"> </span>
+                            <span aria-hidden="true">
+                              <span style="--index: 2.5s">P</span>
+                              <span style="--index: 2.6s">U</span>
+                              <span style="--index: 2.7s">B</span>
+                              <span style="--index: 2.8s">L</span>
+                              <span style="--index: 2.9s">I</span>
+                              <span style="--index: 3s">S</span>
+                              <span style="--index: 3.1s">H</span>
+                              <span style="--index: 3.2s">E</span>
+                              <span style="--index: 3.3s">R</span>
+                              <span style="--index: 3.4s">S</span>
+                            </span>
+                          
                     </div>
                     <div class="header_icon">
                         <ul>
@@ -692,8 +731,8 @@ var squares = [];
 var square = document.createElement("div");
     square.classList.add("float-square");
     square.style.background =    colors[Math.floor(Math.random() * colors.length)];
-    square.style.left = `${Math.floor(Math.random() * 100)}vw`;
-    square.style.top = `${Math.floor(Math.random() * 100)}vh`;
+    square.style.left = `${Math.floor(Math.random() * 100)}%`;
+    square.style.top = `${Math.floor(Math.random() * 100)}%`;
     square.style.transform = `scale(${Math.random()})`;
                 square.style.width = `${Math.random()}em`;
     square.style.height = square.style.width;
