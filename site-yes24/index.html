@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>yes24</title>
     <link rel="stylesheet" href="assets/css/style.css">
-
+    <link rel="stylesheet" href="assets/css/swiper.css">
 
     <!-- 웹 폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
@@ -20,12 +20,12 @@
         <h1><a href="#" class="logo"><img src="icon/logo.png" alt="로고"></a></h1>
         <nav id="nav">
             <ul>
-                <li><a href="#">예매</a></li>
-                <li><a href="#">영화</a></li>
-                <li><a href="#">이벤트</a></li>
-                <li><a href="#">매거진</a></li>
-                <li><a href="#">무비기프트</a></li>
-                <li><a href="#">다운로드</a></li>
+                <li><a href="#" class="blr">예매</a></li>
+                <li><a href="#" class="blr">영화</a></li>
+                <li><a href="#" class="blr">이벤트</a></li>
+                <li><a href="#" class="blr">매거진</a></li>
+                <li><a href="#" class="blr">무비기프트</a></li>
+                <li><a href="#" class="blr">다운로드</a></li>
             </ul>
         </nav>
         <div class="side-nav">
@@ -39,10 +39,41 @@
 
 
 
-   <!-- banner -->
+<main id="contents">
     <section id="banner">
-        <div class="img"></div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="https://movie.yes24.com/Magazine/Detail?contentsId=342473&sectionCd=CONATT250">
+                        <h2>
+                            <span>허남웅 영화경</span>
+                            장르의 익숙한 요소가 침입했다
+                        </h2>
+                        <div>
+                            <img src="img/banner3.jpg"  alt="마이 스파이" class="img-img">
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="">
+                        <h2>
+                            <em><img src="icon/download-icon.png" alt="다운로드"><p>다운로드</p></em>
+                            마이 스파이
+                            <span class="h2-span">덩치는 프로, 센스는 제로</span>
+                        </h2>
+                        <div>
+                            <img src="img/banner2.jpg" alt="인생을 맛있게, 농심">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
     </section>
+</main>
+<!-- //banner -->
 
     <section id="sub-banner">
         <div class="container">
@@ -78,15 +109,13 @@
     <article id="content1">
         <div class="cont-tit"><img src="img/content1-title.png" alt=""></div>
         <div class="container">
-            <div class="event1">
-                <a href=""><img src="img/event01.png" alt=""></a>
-                <a href=""><img src="img/event02.jpg" alt=""></a>
-            </div>
-            <div class="event2">
-                <a href=""><img src="img/event03.png" alt=""></a>
-                <a href=""><img src="img/event04.jpg" alt=""></a>
-                <a href=""><img src="img/event05.png" alt=""></a>
-            </div>
+            <ul class="event">
+                <li class="event-box"><a href=""><img src="img/event01.png" alt=""></a></li>
+                <li class="event-box"><a href=""><img src="img/event02.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/event03.png" alt=""></a></li>
+                <li><a href=""><img src="img/event04.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/event05.png" alt=""></a></li>
+            </ul>
         </div>
     </article>
 
@@ -275,5 +304,46 @@
             </div>
         </div>
     </footer>
+
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+        // 
+        //         </a>
+        //         <a href="#" class="icon-play">
+        //             <img src="assets/img/icon-play.svg" alt="시작">
+        //         </a>
+        $(document).ready(function(){
+            $(".swiper-pagination").append("<a href='#' class='icon-pause'><img src='img/icon-pause.svg' alt='정지'></a>");
+        
+            $(".swiper-pagination a").click(function(e){
+                e.preventDefault();
+                if( $(this).attr("class") == "icon-pause" ){
+                    $(this).children().attr({"src":"img/icon-play.svg", "alt":"시작"});
+                    $(this).attr("class","icon-play");
+                    mySwiper.autoplay.stop();
+                    
+                } else {
+                    $(this).children().attr({"src":"img/icon-pause.svg", "alt":"정지"});
+                    $(this).attr("class","icon-pause");
+                }
+            });
+        });
+        
+        $(window).scroll(function(){
+            const scrollTop = $(window).scrollTop() + $(window).height()/3;
+            $("#content1").each(function(){
+                if( scrollTop > $("#content1 > .container  ul li").offset().top ){
+                    $("#content1 > .container  ul li").addClass("show")
+                }
+            });
+        })
+
+        $(window).scroll(function(){
+            
+        });
+    </script>
 </body>
 </html>
