@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mouse Effect01</title>
+    <link rel="stylesheet" href="css/prism.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
         @font-face { 
@@ -13,9 +14,10 @@
             font-style: normal; 
         }
         @font-face { font-family: 'NanumBarunpen'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff'); font-weight: normal; font-style: normal; }
-
+      
 
         * {margin: 0; padding: 0; box-sizing: border-box;}
+        
         a {text-decoration: none; color: #fff;}
         img {width: 100%; vertical-align: top;}  
         ul {padding: 10px 20px;}
@@ -78,10 +80,38 @@
             background-color: rgba(255,255,255,0.1);
             user-select: none;
             pointer-events: none;
+            z-index: 1000000;
         }
+        .cursor.active {
+            background: rgba(255,165,0,0.4);
+            border-color: orange;
+        }
+
+        .infor4 {position: absolute; left: 0; bottom: 0; z-index: 1000; padding: 20px;}
+        .infor4 a {color: #fff; border: 1px solid #fff; border-radius: 30px; padding: 5px 30px}
+        .infor4 .modal {
+            background: rgba(0,0,0,0.8);
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            top: 100%;
+            left: 0;
+            text-align: left;
+            transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        .infor4 .modal.show {
+            top: 0;
+        }
+        .infor4 .modal .close {
+            position: absolute; right: 10px; top: 20px;
+        }
+        
     </style>
 </head>
 <body>
+    <div class="container">
     <div class="info">
         <h1>Mouse Effect01</h1>
         <p>마우스 따라다니기</p>
@@ -113,6 +143,80 @@
         </ul>
     </div>
 
+    <div class="infor4">
+        <a href="#" class="view">소스보기</a>
+        <!-- modal -->
+        <div class="modal">
+            <div class="code-editor">   
+                <span class="control"></span>
+                <span class="control"></span>
+                <span class="control"></span>
+<pre class="line-numbers"><code class="language-js">$(window).mousemove(function(event){
+    $(".clientX").text(event.clientX);
+    $(".clientY").text(event.clientY);
+    $(".offsetX").text(event.offsetX);
+    $(".offsetY").text(event.offsetY);
+    $(".pageX").text(event.pageX);
+    $(".pageY").text(event.pageY);
+    $(".screenX").text(event.screenX);
+    $(".screenY").text(event.screenY);
+
+    $(".cursor").css({ left: event.clientX -25, top: event.clientY-25 });
+
+    $(".contents a").hover(function(){
+        $(".cursor").addClass("active");
+    }, function(){
+        $(".cursor").removeClass("active");
+    });
+
+    //javascript
+    window.addEventListener("mousemove", function(event){
+        document.querySelector(".clientX").innerHTML = event.clientX;
+        document.querySelector(".clientY").innerHTML = event.clientY;
+        document.querySelector(".offsetX").innerHTML = event.offsetX;
+        document.querySelector(".offsetY").innerHTML = event.offsetY;
+        document.querySelector(".pageX").innerHTML = event.pageX;
+        document.querySelector(".pageY").innerHTML = event.pageY;
+        document.querySelector(".screenX").innerHTML = event.screenX;
+        document.querySelector(".screenY").innerHTML = event.screenY;
+
+        document.querySelector(".cursor").style.left = event.clientX - 25 + "px";
+        document.querySelector(".cursor").style.top = event.clientY - 25 + "px";
+
+        let x = event.clientX - 25 + "px";
+        let y = event.clientY - 25 + "px";
+
+        document.querySelector(".cursor").style.cssText = "left:"+ x +"; top:" + y;
+
+        // document.querySelector(".contents a").addEventListener("mouseenter", function(){});
+        // document.querySelector(".contents a").addEventListener("mouseleave", function(){});
+
+        // document.querySelector(".contents a").addEventListener("mouseenter", () => {
+        //     document.querySelector(".cursor").classList.add("active");
+        // });
+        // document.querySelector(".contents a").addEventListener("mouseleave", () => {
+        //     document.querySelector(".cursor").classList.remove("active");
+        // });
+
+        document.querySelectorAll("a").forEach(elem => {
+            elem.addEventListener("mouseenter", () => {
+                document.querySelector(".cursor").classList.add("active");
+            });
+            elem.addEventListener("mouseleave", () => {
+                document.querySelector(".cursor").classList.remove("active");
+            });
+        });
+    });
+});
+</code></pre>
+                
+                
+            </div>
+            <a class="close">Close</a>
+        </div>
+    </div>
+
+    
     <!-- 
         clientX : 브라우저 페이지에서의 X좌표 위치를 반환하나 스크롤은 무시하고 해당 페이지의 상단을 0으로 측정합니다.
         clientX : 브라우저 페이지에서의 Y좌표 위치를 반환하나 스크롤은 무시하고 해당 페이지의 상단을 0으로 측정합니다.
@@ -127,49 +231,94 @@
      <!-- contents -->
      <div class="cursor"></div>
 
+
+
      <div class="contents">
         <p  class="p">To climb steep hills requires <a>slow</a> pace at first. </p>
             <p>험준한 산을 오르기 위해선 먼저 <a>천천히</a> 걸어야 한다.</p>
     </div>
+
+    
+
+
      <!-- script -->
      <script src="../parallax/js/jquery.min_1.12.4.js"></script>
      <script src="../parallax/js/jquery-ui.min.js"></script>
+     <script src="js/prism.js"></script>
      <script>
-         $("body, html").mousemove(function(event){
-           $(".clientX").text(event.clientX);
-            $(".clientY").text(event.clientY);
+        //  $("body, html").mousemove(function(event){
+        //    $(".clientX").text(event.clientX);
+        //     $(".clientY").text(event.clientY);
 
-            $(".offsetX").text(event.offsetX);
-            $(".offsetY").text(event.offsetY);
+        //     $(".offsetX").text(event.offsetX);
+        //     $(".offsetY").text(event.offsetY);
 
-            $(".pageX").text(event.pageX);
-            $(".pageY").text(event.pageY);
+        //     $(".pageX").text(event.pageX);
+        //     $(".pageY").text(event.pageY);
 
-            $(".screenX").text(event.screenX);
-            $(".screenY").text(event.screenY);
+        //     $(".screenX").text(event.screenX);
+        //     $(".screenY").text(event.screenY);
 
-            $(".cursor").css({ left: event.clientX - 25, top: event.clientY - 25})
-         })
+        //     $(".cursor").css({ left: event.clientX - 25, top: event.clientY - 25})
+        //  })
 
-         $(".contents a").hover(function(){
-            $(".cursor").css({ backgroundColor : "Orange", border : "1px solid Orange"})
-         }, function(){
-            $(".cursor").css({ backgroundColor : "rgba(255,255,255,0.1)", border : "1px solid #fff" })
-         })
-        // window.addEventListener("mousemove", function(event){
-        //     document.querySelector(".clientX").innerHTML = event.clientX
-        //     document.querySelector(".clientY").innerHTML = event.clientY
+        //  $(".contents a").hover(function(){
+        //     $(".cursor").css({ backgroundColor : "Orange", border : "1px solid Orange"})
+        //  }, function(){
+        //     $(".cursor").css({ backgroundColor : "rgba(255,255,255,0.1)", border : "1px solid #fff" })
+        //  })
 
-        //     document.querySelector(".offsetX").innerHTML = event.offsetX
-        //     document.querySelector(".offsetY").innerHTML = event.offsetY
+        window.addEventListener("mousemove", function(event){
+            document.querySelector(".clientX").innerHTML = event.clientX
+            document.querySelector(".clientY").innerHTML = event.clientY
 
-        //     document.querySelector(".pageX").innerHTML = event.pageX
-        //     document.querySelector(".pageY").innerHTML = event.pageY
+            document.querySelector(".offsetX").innerHTML = event.offsetX
+            document.querySelector(".offsetY").innerHTML = event.offsetY
 
-        //     document.querySelector(".screenX").innerHTML = event.screenX
-        //     document.querySelector(".screenY").innerHTML = event.screenY
-            
-        // })
+            document.querySelector(".pageX").innerHTML = event.pageX
+            document.querySelector(".pageY").innerHTML = event.pageY
+
+            document.querySelector(".screenX").innerHTML = event.screenX
+            document.querySelector(".screenY").innerHTML = event.screenY
+
+            document.querySelector(".cursor").style.left = event.clientX - 25 + "px"
+            document.querySelector(".cursor").style.top = event.clientY - 25 + "px"
+
+            let x = event.clientX - 25 + "px"
+            let y = event.clientY - 25 + "px"
+            document.querySelector(".cursor").style.cssText = " left :"+ x +" ;  top :  "+y;
+
+            // document.querySelector(".contents a").addEventListener("mouseenter", function(){})
+            // document.querySelector(".contents a").addEventListener("mouseleave", function(){})
+
+            // document.querySelector(".contents a").addEventListener("mouseenter", () => {
+            //     document.querySelector(".cursor").classList.add("active");
+            // })
+            // document.querySelector(".contents a").addEventListener("mouseleave", () => {
+            //     document.querySelector(".cursor").classList.remove("active");
+            // })
+
+            document.querySelectorAll("a").forEach(elem => {
+                elem.addEventListener("mouseenter", () => {
+                    document.querySelector(".cursor").classList.add("active");
+                });
+                elem.addEventListener("mouseleave", () => {
+                    document.querySelector(".cursor").classList.remove("active");
+                });
+            });
+        });
+        
+
+        $(".infor4 a").click(function(){
+            $(".infor4 .modal").addClass("show");
+        });
+        $(".infor4 .close").click(function(){
+            $(".infor4 .modal").removeClass("show");
+        });
+
+        
+
+       
      </script>
 </body>
 
