@@ -157,7 +157,27 @@
                 <span class="control"></span>
                 <span class="control"></span>
                 <span class="control"></span>
-<pre class="line-numbers"><code class="language-js">
+<pre class="line-numbers"><code class="language-js">const cursor = $(".cursor")
+const follower = $(".cursor-follower")
+$(document).mousemove(function(e){
+    gsap.to(cursor, 0.3, {left: e.pageX - 5, top: e.pageY- 5})
+    gsap.to(follower, 0.8, {left: e.pageX - 15, top: e.pageY- 15 })
+
+})
+
+$("a").hover(function(){
+    cursor.addClass("active");
+    follower.addClass("active");
+}, function(){
+    cursor.removeClass("active");
+    follower.removeClass("active");
+})
+
+//출력용
+$(document).mousemove(function(e){  //마우스가 움직였을 때 이벤트 함수
+    $(".pageX").text(e.pageX);    //이벤트 pageX 값을 화면에 출력
+    $(".pageY").text(e.pageY);    //이벤트 pagey 값을 화면에 출력
+})
 </code></pre>
                 
                 

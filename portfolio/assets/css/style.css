@@ -4,7 +4,7 @@
 
 #watching-load .penguin{
   position: relative;
-  width: 27vh;
+  width: 27vh; height: ;
   position: fixed; 
   top: 42vh; left: 50%; 
   transform: translate(-50%, -50%);
@@ -41,8 +41,8 @@
 #watching-load .penguin img {width: 100%;}
 #watching-load .penguin .bubbles {
   position: absolute;
-  bottom: 5vw;
-  left: 9vh;
+  bottom: 8vh;
+  left: 8vh;
   z-index: 5;
   background-color: white;
   border-radius: 50%;
@@ -53,23 +53,23 @@
 }
 #watching-load .penguin .bubble-2 {
   animation: up 2s infinite;
-  left: 8vh;
+  left: 7vh;
 }
 #watching-load .penguin .bubble-3 {
-  left: 6vh;
+  left: 8.5vh;
   opacity: 1;
   animation: up 7s infinite;
 }
 #watching-load .penguin .bubble-4 {
-  left: 6.5vh;
+  left: 9vh;
   animation: up 6s infinite;
 }
 #watching-load .penguin .bubble-5 {
-  left: 9vh;
+  left: 10vh;
   animation: up 5s infinite;
 }
 #watching-load .penguin .bubble-6 {
-  left: 6.8vh;
+  left: 7.5vh;
   opacity: 1;
   animation: up 3s infinite;
 }
