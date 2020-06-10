@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parallax06</title>
 
+    <link rel="stylesheet" href="../mouse-effect/css/prism.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 
     <style>
@@ -175,6 +176,27 @@
             font-weight: normal;
         }
 
+         /* 소스보기 */
+         .infor4 {position: fixed; right: 0px; bottom: 120px; z-index: 1000; padding: 20px;}
+        .infor4 a {color: #fff; border: 1px solid #fff; border-radius: 30px; padding: 5px 30px}
+        .infor4 .modal {
+            background: rgba(0,0,0,0.8);
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            top: 100%;
+            left: 0;
+            text-align: left;
+            transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        .infor4 .modal.show {
+            top: 0;
+        }
+        .infor4 .modal .close {
+            position: absolute; right: 10px; top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -183,7 +205,7 @@
     </div>
     <div class="title">
         <h1>Parallax06</h1>
-        <p>이질감 효과 javascript</p>
+        <p>이질감 효과 javascript1</p>
         <ul>
             <li><a href="parallax01.html">Parallax01</a></li>
             <li><a href="parallax02.html">Parallax02</a></li>
@@ -191,8 +213,10 @@
             <li><a href="parallax04.html">Parallax04</a></li>
             <li><a href="parallax05.html">Parallax05</a></li>
             <li class="active"><a href="parallax06.html">Parallax06</a></li>
-            <li><a href="#">Parallax07</a></li>
-            <li><a href="#">Parallax08</a></li>
+            <li><a href="parallax07.html">Parallax07</a></li>
+            <li><a href="parallax08.html">Parallax08</a></li>
+            <li><a href="parallax09.html">Parallax09</a></li>
+            <li><a href="parallax10.html">Parallax10</a></li>
         </ul>
     </div>
 
@@ -273,9 +297,69 @@
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
         </div>
-    </section>
 
+        <div class="infor4">
+            <a href="#" class="view">소스보기</a>
+            <!-- modal -->
+            <div class="modal">
+                <div class="code-editor">   
+                    <span class="control"></span>
+                    <span class="control"></span>
+                    <span class="control"></span>
+<pre class="line-numbers"><code class="language-js">// $(window).scroll(function(){
+    //     let scrollTop = $(window).scrollTop();
+    //     $(".scrollTop").text(scrollTop);
+    //     $("#wrap h1").css( {transform: "translateX(-"+scrollTop+"px)" } );
+
+
+
+
+
+    // $(".content-item").each(function(){
+        //     let offset1 = (scrollTop - $(this).offset().top) * 0.1;
+        //     let offset2 = (scrollTop - $(this).offset().top) * 0.2;
+        //     let offset3 = (scrollTop - $(this).offset().top) * 0.3;
+        //     let offset4 = (scrollTop - $(this).offset().top) * 0.4;
+
+        //     $(this).find(".content-item-desc").css({"transform": "translateY("+ -offset2 +"px)"});
+        //     $(this).find(".content-item-num").css({"transform": "translateY("+ offset1 +"px)"});
+        //     $(this).find(".content-item-img").css({"transform": "translateY("+ offset2 +"px)"});
+        // });
+
+
+
+    window.addEventListener("scroll", () => { 
+        let pageYOffset = (window.pageYOffset || document.documentElement.scrollTop) + screen.height/3;
+
+        document.querySelector(".pageYOffset").textContent=pageYOffset;
+    
+
+
+        
+        document.querySelectorAll(".content-item").forEach(elem => {
+            // console.log(elem.childNodes[7])
+            let target = elem.childNodes[7];
+            let offset = (pageYOffset - elem.offsetTop) * 0.2;
+            target.style.transform = "translateY("+ offset +"px)"
+         });
+    });
+
+    $(".infor4 a").click(function(){
+        $(".infor4 .modal").addClass("show");
+    });
+    $(".infor4 .close").click(function(){
+        $(".infor4 .modal").removeClass("show");
+    });
+</code></pre>
+                </div>
+                <a class="close">Close</a>
+            </div>
+        </div>
+    </section>
     <!-- script -->
+    <script src="js/jquery.min_1.12.4.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="../mouse-effect/js/prism.js"></script>
     <script>
         // $(window).scroll(function(){
         //     let scrollTop = $(window).scrollTop();
@@ -315,7 +399,12 @@
              });
         });
 
-
+        $(".infor4 a").click(function(){
+            $(".infor4 .modal").addClass("show");
+        });
+        $(".infor4 .close").click(function(){
+            $(".infor4 .modal").removeClass("show");
+        });
     </script>
 </body>
 </html>
