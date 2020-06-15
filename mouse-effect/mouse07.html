@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mouse Effect02</title>
+    <title>Mouse Effect07</title>
     <link rel="stylesheet" href="css/prism.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
@@ -22,20 +22,19 @@
         img {width: 100%; vertical-align: top;}  
         ul {padding: 10px 20px;}
         body {
-            background: url(../slider/img/img3.jpg) no-repeat center center;
+            background: url(../slider/img/img4.jpg) no-repeat center center;
             background-size: cover;
             font-family: 'Abel', 'GmarketSansMedium';
             color: #fff;
             height: 100vh;
-            cursor: none;
             overflow: hidden;
         }
         body::before {
             content: '';
             position: absolute; left: 0; top: 0;
             width: 100%; height: 100vh;
-            background: rgba(66, 45, 100, 0.5);
             z-index: -1;
+            background: #000;
         }
 
         .info { position: absolute; left: 0; top: 0; z-index: 1000; padding: 20px; }
@@ -46,59 +45,36 @@
         .info2 li a{ color: #fff;}
         .info2 li.active a { border-bottom: 1px dashed #fff;}
 
-        .info3 { position: absolute; right: 0; bottom: 0; z-index: 1000; padding: 20px; }
-        .info3 li { list-style: none;margin-bottom: 5px;}
-        .info3 li a { color: #fff;}
-
         .contents{
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%; height: 100vh;
             flex-direction: column;
-            
         }
         .contents p {
             max-width: 70vw;
-            font-size: 3vw;
+            font-size: 8vw;
             text-align:justify;font-family: 'NanumBarunpen';
             text-align: center;
         }
         .contents .p { font-size: 2vw;}
+        
 
         .contents a{
             text-decoration: none; color: orange;
             border-bottom: 1px dashed orange;
         }
+        .contents p:nth-child(2) a{
+            text-decoration: none; color: red;
+            border-bottom: 1px dashed red;
+        }
+        .contents p:nth-child(3) a{
+            text-decoration: none; color: purple;
+            border-bottom: 1px dashed purple;
+        }
 
-        .cursor {
-            position: absolute; 
-            width: 10px; height: 10px;
-            background: #fff;
-            border-radius: 50%;
-            z-index: 1000;
-            user-select: none;
-            pointer-events: none;
-            transform: scale(1);
-            transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
-        }
-        .cursor.active {
-            opacity: .5;
-            transform: scale(0);
-        }
-        .cursor-follower {
-            position: absolute;
-            width: 30px; height: 30px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            user-select: none;
-            pointer-events: none;
-            transition: transform 0.6s ease-in-out, opacity 0.2s ease-in-out;
-        }
-        .cursor-follower.active {
-            opacity: .7;
-            transform: scale(4);
-        }
+        
         .infor4 {position: absolute; left: 0; bottom: 0; z-index: 1000; padding: 20px;}
         .infor4 a {color: #fff; border: 1px solid #fff; border-radius: 30px; padding: 5px 30px}
         .infor4 .modal {
@@ -120,34 +96,36 @@
             position: absolute; right: 10px; top: 20px;
         }
         
+        .cursor {
+            position: absolute;
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            user-select: none;
+            pointer-events: none;
+            background: url(../slider/img/img1.jpg) no-repeat center center fixed;
+            background-size: cover;
+            z-index: -1;
+        }
+        
     </style>
 </head>
 <body>
     <div class="container">
     <div class="info">
-        <h1>Mouse Effect02</h1>
-        <p>마우스 따라다니기</p>
-        <ul>
-            <li>Gsap</li>
-        </ul>
+        <h1>Mouse Effect07</h1>
+        <p></p>
     </div>
 
     <div class="info2">
         <ul>
             <li ><a href="mouse01.html">mouse01</a></li>
-            <li class="active"><a href="mouse02.html">mouse02</a></li>
-            <li><a href="mouse03.html">mouse03</a></li>
+            <li ><a href="mouse02.html">mouse02</a></li>
+            <li ><a href="mouse03.html">mouse03</a></li>
             <li><a href="mouse04.html">mouse04</a></li>
-            <li><a href="mouse07.html">mouse07</a></li>
+            <li class="active"><a href="mouse07.html">mouse07</a></li>
         </ul>
     </div>
 
-    <div class="info3">
-        <ul>
-            <li>pageX : <span class="pageX">0</span></li>
-            <li>pageY : <span class="pageY">0</span></li>
-        </ul>
-    </div>
 
     <div class="infor4">
         <a href="#" class="view">소스보기</a>
@@ -157,26 +135,18 @@
                 <span class="control"></span>
                 <span class="control"></span>
                 <span class="control"></span>
-<pre class="line-numbers"><code class="language-js">const cursor = $(".cursor")
-const follower = $(".cursor-follower")
-$(document).mousemove(function(e){
-    gsap.to(cursor, 0.3, {left: e.pageX - 5, top: e.pageY- 5})
-    gsap.to(follower, 0.8, {left: e.pageX - 15, top: e.pageY- 15 })
+<pre class="line-numbers"><code class="language-js">const cursor = document.querySelector(".cursor")
 
-})
+//원의 크기를 구해서 반지름 값을 변수화 
+let width = cursor.offsetWidth;
+let height = cursor.offsetHeight;
+let rect = cursor.getBoundingClientRect();
 
-$("a").hover(function(){
-    cursor.addClass("active");
-    follower.addClass("active");
-}, function(){
-    cursor.removeClass("active");
-    follower.removeClass("active");
-})
+console.log(rect.width)
 
-//출력용
-$(document).mousemove(function(e){  //마우스가 움직였을 때 이벤트 함수
-    $(".pageX").text(e.pageX);    //이벤트 pageX 값을 화면에 출력
-    $(".pageY").text(e.pageY);    //이벤트 pagey 값을 화면에 출력
+
+    $(document).mousemove(function(e){
+    gsap.to(".cursor",{duration: .3, left : e.pageX - rect.width/2 , top: e.pageY - rect.height/2 })
 })
 </code></pre>
                 
@@ -199,13 +169,11 @@ $(document).mousemove(function(e){  //마우스가 움직였을 때 이벤트 �
      -->
 
      <!-- contents -->
-     <div class="cursor"></div>
-     <div class="cursor-follower"></div>
 
 
      <div class="contents">
-        <p  class="p">When money speaks, the <a href="">truth</a>  keeps silent. </p>
-            <p>돈이 말할 때는 <a href="">진실</a>은 입을 다문다.</p>
+         <div class="cursor"></div>
+        <p>Sejin</a></p>
     </div>
 
     
@@ -217,28 +185,19 @@ $(document).mousemove(function(e){  //마우스가 움직였을 때 이벤트 �
      <script src="../parallax/js/gsap.min.js"></script>
      <script src="js/prism.js"></script>
      <script>
-        const cursor = $(".cursor")
-        const follower = $(".cursor-follower")
-        $(document).mousemove(function(e){
-            gsap.to(cursor, 0.3, {left: e.pageX - 5, top: e.pageY- 5})
-            gsap.to(follower, 0.8, {left: e.pageX - 15, top: e.pageY- 15 })
+         const cursor = document.querySelector(".cursor")
 
-        })
+         //원의 크기를 구해서 반지름 값을 변수화 
+         let width = cursor.offsetWidth;
+         let height = cursor.offsetHeight;
+         let rect = cursor.getBoundingClientRect();
 
-        $("a").hover(function(){
-            cursor.addClass("active");
-            follower.addClass("active");
-        }, function(){
-            cursor.removeClass("active");
-            follower.removeClass("active");
-        })
+         console.log(rect.width)
 
-        //출력용
-        $(document).mousemove(function(e){  //마우스가 움직였을 때 이벤트 함수
-            $(".pageX").text(e.pageX);    //이벤트 pageX 값을 화면에 출력
-            $(".pageY").text(e.pageY);    //이벤트 pagey 값을 화면에 출력
-        })
-       
+
+           $(document).mousemove(function(e){
+            gsap.to(".cursor",{duration: .3, left : e.pageX - rect.width/2 , top: e.pageY - rect.height/2 })
+       })
      </script>
 </body>
 
