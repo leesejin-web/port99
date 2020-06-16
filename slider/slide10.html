@@ -617,6 +617,7 @@
             duration = 1000, //이미지 슬라이드 이동 시간
             easing = "easeOutExpo"; //이미지 움직임 효과
             slideBg = ["#fcefe9", "#e9effd", "#fae3f5", "#fbe368", "#ccebea", "#e9effd", "#f4f2ec"];
+            slideMo = ["#fcefe9", "#e9effd", "#fae3f5", "#fbe368", "#ccebea", "#e9effd", "#f4f2ec"];
 
 
         //글씨 분할
@@ -626,7 +627,7 @@
             split = "<span aria-hidden='true'>" + split + "</span>";
             $(this).find(".stext > h2").html(split).attr("aria-label", txt);
         });
-
+        const cursor = $(".cursor")
 
         slide.each(function (i, e) {
             $(this).css({
@@ -667,6 +668,10 @@
             currentIndex = num;
             slideDot.find("a").removeClass().eq(currentIndex).addClass("active");
             slide.removeClass("active").eq(currentIndex).addClass("active")
+
+            cursor.css({ 
+                "backgroundColor" : slideMo[currentIndex]
+            })
         }
         gotoSlide(0);
 
@@ -709,8 +714,8 @@
         gotoSlide(currentIndex)
 
 
+
         //마우스
-        const cursor = $(".cursor")
         const follower = $(".cursor-follower")
         $(document).mousemove(function (e) {
             gsap.to(cursor, 0.3, {
@@ -721,8 +726,10 @@
                 left: e.pageX - 15,
                 top: e.pageY - 15
             })
-
         })
+
+        
+
 
         $("a").hover(function () {
             cursor.addClass("active");
@@ -731,6 +738,13 @@
             cursor.removeClass("active");
             follower.removeClass("active");
         })
+
+        let i = {
+            left : 5,
+            g :3
+        }
+
+        console.log(i.left)
     </script>
 </body>
 
