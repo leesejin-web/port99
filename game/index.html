@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Game</title>
-    
+    <link rel="stylesheet" href="../mouse-effect/css/prism.css">
     <style>
         @font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+        a {text-decoration: none;}
 
         body {
             height: 100vh;
@@ -204,6 +206,56 @@
         .turns span.last-turn{
             color: red;
         }
+
+        .success {
+            position: fixed; left: 0; top: 0;
+            width: 100%;  height: 100vh;
+            z-index: 10000;
+            text-align: center;
+            background-color:rgba(255,255,255,0.8);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: 'yg-jalnan';
+            display: none;
+        }
+        .success.is-visible {
+            display: flex;
+        }
+        .success h2 {font-size: 50px; margin: 0;}
+        .success .bg{background: transparent; color: #000;}
+
+        .success .btn-continue {
+            padding: 6px 25px;
+            font-size: 20px;
+            color: #fff;
+            background-color: #000;
+            border-radius: 20px;
+        }
+        .success .btn-continue:active {
+            transform: translateY(2px);
+            border: 0px;
+        }
+
+        .infor4 {position: absolute; left: 0; bottom: 0; z-index: 1000; padding: 20px;}
+        .infor4 a {color: #fff; border: 1px solid #fff; border-radius: 30px; padding: 5px 30px; margin-right: 10px;}
+        .infor4 .modal {
+            background: rgba(0,0,0,0.8);
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 100%;
+            left: 0;
+            text-align: left;
+            transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        .infor4 .modal.show {
+            top: 0;
+        }
+        .infor4 .modal .close {
+            position: absolute; right: 10px; top: 20px;
+        }
+        
     </style>
 </head>
 
@@ -213,11 +265,14 @@
     <button class="btn-sound"></button>
     <audio id="theme-song" src="music/background-sound.mp3" loop="loop"></audio>
 
-    <div class="score">
+    <div class="score bg">
         <div class="turns">기회 : <span>2</span></div>
         <div class="attemps">시도 : <span>0</span></div>
         <div class="wins">우승 : <span>0</span></div>
     </div>
+
+    
+    
     <div class="title">카드 뒤집기 게임</div>
 </div>
 
@@ -296,56 +351,93 @@
         </div>
     </main>
 
+    <div class="success">
+        <h2 class="success-massage">짝짝쓰</h2>
+        <div class="score bg">
+            <div class="turns">기회 : <span>2</span></div>
+            <div class="attemps">시도 : <span>0</span></div>
+            <div class="wins">우승 : <span>0</span></div>
+        </div>
+        <button class="btn-continue">또 할래?</button>
+    </div>
+
+
+    <div class="infor4">
+        <a href="#" class="view">소스보기</a>
+
+        <!-- modal -->
+        <div class="modal">
+            <div class="code-editor">   
+                <h3>Script Editor
+                    <span class="control"></span>
+                    <span class="control"></span>
+                    <span class="control"></span>
+                </h3>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">
+</code></pre>
+                </div>
+
+            </div>
+            <a class="close">Close</a>
+        </div>
+    </div>
 
     <script src="js/jquery-1.12.4.min.js"></script>
-
+    <script src="../mouse-effect/js/prism.js"></script>
 
     <script>
         const $board = $('main'),
-                  $card = $('.card'),
-                  $btnSonud = $('.btn-sound'),
-                  $themeSongEl = $('#theme-song')[0],
-                  $turns = $('.turns span'),
-                  
-                  
-                  selectedClass = 'is-selected',       //카드를 선택했을 때
-                  dataMatched = 'data-matched',
-                  dataType = 'data-type',
-                  playSoundClass = 'is-playing'
-                  lastTrunClass = 'last-turn'
-                  timeoutLength = 900;
-                  
+            $card = $('.card'),
+            $btnSound = $('.btn-sound'),
+            $themeSongEl = $('#theme-song')[0],
+            $turns = $('.turns span'),
+            $attempts = $('.attempts span'),
+            $wins = $('.wins span'),
+            $success = $('.success'),
+            $btnContinue = $('.btn-continue'),
+            $successMsg = $('.success-message'),
+            selectedClass = 'is-selected',       //카드를 선택했을 때
+            dataMatch = 'data-matched',
+            dataType = 'data-type',
+            playSoundClass = 'is-playing',
+            visibleClass = 'is-visible',
+            lastTrunClass = 'last-turn',
+            timeoutLength = 900;
 
-                  let sound = [
-                      'music/match.mp3', 
-                      'music/nomatch.mp3', 
-                      'music/allclear.mp3'
-                    ],
-                    trunsCount = 2,          //기회 횟수 2
-                    
-                  soundMatch = new Audio(sound[0]),
-                  soundNoMatch = new Audio(sound[1]),
-                  soundSuccess = new Audio(sound[2]);
-                  let card1, card2;
-        
 
+        let sound = [
+            'music/bonus_game_match.mp3',
+            'music/bonus_game_no_match.mp3',
+            'music/bonus_game-up.mp3'
+        ],
+            soundMatch = new Audio(sound[0]),
+            soundNoMatch = new Audio(sound[1]),
+            soundSuccess = new Audio(sound[2]),
+            trunsCount = 2,     //기회 횟수 2
+            attemptsCount = 0,  //시도 횟수
+            winCount = 0,       //우승 횟수
+            card1, card2, msg;
+
+        //카드 셔플
+        shuffleCards();
 
         //음악 아이콘을 클릭했을 때 음악이 나오고 또 클릭했을 때 정지
-        $btnSonud.on('click', function(){
+        $btnSound.on('click', function () {
             $(this).toggleClass(playSoundClass);
-            if( $(this).hasClass(playSoundClass)){
+            if ($(this).hasClass(playSoundClass)) {
                 $themeSongEl.play();
-            }else {
+            } else {
                 $themeSongEl.pause();
             }
-        })
-        
+        });
 
         //카드를 클릭하면 클릭한 카드한테 is-selected를 추가
         $card.click(function () {
-            if( $(this).attr(dataMatched) == 'false'){
+            if ($(this).attr(dataMatch) == 'false') {
                 $(this).addClass(selectedClass);
             }
+
             let selectedCards = $('.' + selectedClass);     //선택된 카드를 클래스로 변경 //.is-selected
 
             //만약에 카드가 똑같다면
@@ -353,43 +445,140 @@
                 card1 = selectedCards.eq(0).attr(dataType);
                 card2 = selectedCards.eq(1).attr(dataType);
 
-                console.log(card1)
-                //만약에 카드가 맞으면
+                //만약에 카드1과 카드2가 같다면
                 if (card1 == card2) {
-                    if( $btnSonud.hasClass(playSoundClass) ){
+                    if ($btnSound.hasClass(playSoundClass)) {
                         soundMatch.play()
                     }
-                    selectedCards.attr(dataMatched, true).removeClass(selectedClass)
+                    selectedCards.attr(dataMatch, true).removeClass(selectedClass);
                 } else {
-                    //카드가 맞지 않으면 
-                    if( $btnSonud.hasClass(playSoundClass) ){
+                    //카드가 맞지 않으면 원래 상태로 되돌림
+                    if ($btnSound.hasClass(playSoundClass)) {
                         soundNoMatch.play()
                     }
-                    setTimeout(function(){
+
+                    setTimeout(function () {
                         selectedCards.removeClass(selectedClass);
-                        trunsCount--;   //카운트를 줄이고
-                        $turns.text(trunsCount);
+                        trunsCount--;       //카운트 줄이고
+                        $turns.html(trunsCount);
                     }, timeoutLength);
 
-                    //카운트 기회가 없을 때 (주의)
-                    if( trunsCount ===1 ){
-                        setTimeout(function(){
+                    //카운드 기회가 없을 때(주의)
+                    if (trunsCount === 1) {
+                        setTimeout(function () {
                             $turns.addClass(lastTrunClass);
                         }, timeoutLength)
                     }
 
-                    //카운트 기회가 없을 때 (시도1+), 카운트->2
-                    if( trunsCount <= 0 ){
-                        setTimeout(function(){
-                            trunsCount = 2;         //기회를 2번 복구
-                        $truns.removeClass(lastTrunClass).html(trunsCount); //주의 표시 삭제, 카운트 표시
-                        $card.attr(dataMatched, false);
-                        },timeoutLength)
+                    //카운드 기회가 없을 때(시도+1) , 카운트->2 
+                    if (trunsCount <= 0) {
+                        setTimeout(function () {
+                            trunsCount = 2;     //기회를 2번 복구
+                            $turns.removeClass(lastTrunClass).html(trunsCount); //주의 표시 삭제, 카운트 표시
+                            $card.attr(dataMatch, false);  //모든 카드 초기화
+                            attemptsCount += 1;
+                            $attempts.html(attemptsCount);
+                        }, timeoutLength)
                     }
                 }
             }
-        });
-    </script>
-</body>
 
+            //완성했을 때 
+            //dataMatch가 true이면서 갯수가 전체 카드 갯수랑 같을 때
+            if ($('[' + dataMatch + '= "true"]').length == $card.length) {
+                setTimeout(() => {
+                    $success.addClass(visibleClass);
+                    winCount += 1;
+                    $wins.html(winCount);
+                }, timeoutLength);
+
+                //시도 횟수에 따른 메세지
+                switch (true) {
+                    case (attemptsCount <= 2):
+                        msg = "최고입니다. 최고의 아이큐";
+                        break;
+                    case (attemptsCount > 2 && attemptsCount <= 5):
+                        msg = "잘했네요~~~~";
+                        break;
+                    case (attemptsCount > 5 && attemptsCount <= 8):
+                        msg = "쫌만 더 잘해봐~~~ 바보야~~~";
+                        break;
+                    case (attemptsCount > 8):
+                        msg = "진짜 못하네~~~~ 다시 도전해봐~~~";
+                        break;
+                }
+                $successMsg.text(msg);
+
+                //카드 초기화
+                setTimeout(() => {
+                    $card.attr(dataMatch, false);
+                }, 1200);
+
+            }
+        });
+
+        //다시 게임 할 때 
+        $btnContinue.on('click', function () {
+            $success.removeClass(visibleClass);
+            shuffleCards();             //카드 셔플, 점수 초기화 
+            trunsCount = 2;
+            $turns.removeClass(lastTrunClass).html(trunsCount);
+            attemptsCount = 0;
+            $attempts.html(attemptsCount);
+        });
+
+
+        //카드 셔플
+        function shuffleCards() {
+            let cards = $board.children();
+            while (cards.length) {
+                $board.append(cards.splice(Math.floor(Math.random() * cards.length), 1)[0])
+            }
+            $card.each(function (index) {
+                setTimeout(() => {
+                    $(this).addClass(selectedClass);
+                }, timeoutLength + 100 * index);
+            });
+
+            setTimeout(() => {
+                $card.removeClass(selectedClass);
+            }, 5000);
+
+        }
+
+
+
+
+
+
+
+        //splice
+        //var number = [1, 2, 3, 4, 5, 6, 7]
+        // var removed = number.splice(2, 0, '10');
+
+        // alert(number) //1,2,10,3,4,5,6,7
+
+        // var removed = number.splice(2, 0, '10', '11');
+        // alert(number) //1,2,10,11,3,4,5,6,7
+
+        //var removed = number.splice(3, 1);
+        //alert(number) //1, 2, 3, 5, 6, 7
+
+        //var removed = number.splice(2, 1, '20');
+        //alert(number) //1, 2, 20, 4, 5, 6, 7
+
+        //var removed = number.splice(0, 2, '20', '30', '40');
+        //alert(number) //20,30,40,3,4,5,6,7
+
+        //var removed = number.splice(number.length-3, 2);
+        //alert(number) //1,2,3,7
+
+        //var removed = number.splice(-2, 1);
+        //alert(number) //1,2,3,4,5,7
+
+        //var removed = number.splice(2);
+        //alert(number) //1,2
+    </script>
+
+</body>
 </html>
