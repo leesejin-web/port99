@@ -1,0 +1,35 @@
+/* container */
+.container {max-width: 1000px; margin: 0 auto;}
+
+
+/* header */
+#header {}
+#header h1{ font-size: 18px; }
+#header nav {margin-top: 33px; font-size: 12px;}
+#header nav ul {display: flex; flex-direction: row;}
+#header nav ul li{padding-right: 21px;}
+
+
+/* mainImg */
+#mainImg { margin-top: 28px;}
+
+
+/* cont1 */
+#cont1 {padding-top: 60px; }
+#cont1 .container {position: relative;}
+#cont1 h2{font-size: 15px; margin-bottom: 37px;}
+.cont-box { display: flex; justify-content: space-between; border-bottom: 1px solid #ECECEC; padding-bottom: 10px; margin-bottom: 20px; align-items: center;}
+.cont-box .left{}
+.cont-box .left p{font-size: 13px; font-family: 'YoonDaehanB'; }
+.cont-box .left span{font-size: 11px; color: #666666; align-content:center ;}
+.cont-box .right{}
+.cont-box .right p{color: #308669; font-family: 'YoonDaehanB';}
+.cont-box .right span{color: #9A9A9A; font-size: 11px;}
+
+.cont1-img{ margin-top: 15px;}
+
+#cont1 .up{width: 20px; height: 15px; background: #FA5C50; top: 250px; left: 40px; position: absolute; border-radius: 25px;}
+#cont1 .up p{font-size: 8px; color: #fff;text-align: center; padding-top: 2px;}
+
+#cont1 .good{width: 25px; height: 20px; background: #F0F0F0; top: 385px; right: 67px; position: absolute; border-radius: 25px;}
+#cont1 .good p{font-size: 9px; color: #308669; text-align: center; padding-top: 4px;}
