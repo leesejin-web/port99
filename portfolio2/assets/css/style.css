@@ -1,0 +1,143 @@
+*{margin: 0;padding: 0;}
+
+#watching-load { width: 100%; height: 100vh;background: #ffda58;}
+
+#watching-load .penguin{
+  position: relative;
+  width: 27vh; height: ;
+  position: fixed; 
+  top: 42vh; left: 50%; 
+  transform: translate(-50%, -50%);
+}
+#watching-load .penguin img {width: 20vw;}
+
+#watching-load .penguin .eyes {
+  position: absolute;
+  width: 5.3vh; height: 2vh;
+  top: 4.1vh; left: 2.7vh;
+}
+#watching-load .penguin .eyes::before{
+  content: ''; width: 1.6vh; height: 1.6vh; 
+  position: absolute;background: #000;
+  border-radius: 50%;
+  right: 0; 
+  animation: eyes 3s infinite linear;
+}
+#watching-load .penguin .eyes::after{
+  content: ''; width: 1.6vh; height: 1.6vh; 
+  position: absolute;background: #000;
+  border-radius: 50%;
+  left: 0;
+  animation: eyes 3s infinite linear;
+}
+@keyframes eyes {
+  0% {height: 1.7vh;}
+  2% {height: 0.5vh;}
+  4% {height: 1.7vh;}
+  100% {height: 1.7vh;}
+}
+
+
+#watching-load .penguin img {width: 100%;}
+#watching-load .penguin .bubbles {
+  position: absolute;
+  bottom: 8vh;
+  left: 8vh;
+  z-index: 5;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 1;
+  width: 1.5vh;
+  height: 1.5vh;
+  animation: up 4s infinite;
+}
+#watching-load .penguin .bubble-2 {
+  animation: up 2s infinite;
+  left: 7vh;
+}
+#watching-load .penguin .bubble-3 {
+  left: 8.5vh;
+  opacity: 1;
+  animation: up 7s infinite;
+}
+#watching-load .penguin .bubble-4 {
+  left: 9vh;
+  animation: up 6s infinite;
+}
+#watching-load .penguin .bubble-5 {
+  left: 10vh;
+  animation: up 5s infinite;
+}
+#watching-load .penguin .bubble-6 {
+  left: 7.5vh;
+  opacity: 1;
+  animation: up 3s infinite;
+}
+@keyframes up {
+  100% {
+    transform: translateY(-22vh);
+    opacity: 0;
+  }
+}
+
+
+
+#watching-load #progressbar{
+  width: 30vh;
+  height: 2vh;
+  position: absolute;
+  left: 50%;
+  top: 56vh;
+  transform: translate(-50%, -50%);
+  background: rgba(159, 159, 159, 0.5);
+  opacity: 1;
+  transition: all 0.2s ease;
+  position: fixed;
+}
+#watching-load #progressbar.active {}
+
+
+#watching-load #loading{
+  width: inherit;
+  height: inherit;
+  background: #474747;
+  position: absolute;
+  display: inline-block;
+  animation-fill-mode:both;
+  transition: all 500ms ease;
+}
+#watching-load #progressbar #loading.active {
+  animation: load 10s ease infinite;
+  animation-iteration-count:1
+}
+@keyframes load{
+  0%{width: 2%;}
+  10%{width: 10%;}
+}
+
+
+#watching-load #progressbar .text{margin-left: 2vw;  width: inherit;}
+#watching-load #progressbar .text p{
+  font-size: 4vh;
+  text-align: center;
+  padding-top: 4vh;
+  animation: font 0.8s var(--index) ease infinite ;
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  margin: 0 auto;
+}
+@keyframes font {
+  0% { bottom: 0em;}
+  50% { bottom: 0.4em;}
+  100% {bottom: 0;}
+}
+
+
+
+
+
+
+
+
+/*로딩*/

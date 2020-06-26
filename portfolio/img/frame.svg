@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="254.178px" height="255.627px" viewBox="0 0 254.178 255.627" enable-background="new 0 0 254.178 255.627"
+	 xml:space="preserve">
+<g>
+	<g>
+		<polygon fill="none" stroke="#5D6AB2" stroke-width="3" stroke-miterlimit="10" points="34.991,162.518 127.089,3 
+			219.186,162.518 		"/>
+		<circle fill="#2D2C7A" cx="127.382" cy="8.262" r="2.819"/>
+		<path fill="#958E8C" d="M127.383,5.441c-0.978,0-1.838,0.5-2.344,1.256c0.48-0.381,1.08-0.617,1.739-0.617
+			c1.557,0,2.819,1.262,2.819,2.818c0,0.58-0.176,1.117-0.477,1.566c0.653-0.518,1.08-1.307,1.08-2.203
+			C130.201,6.705,128.939,5.441,127.383,5.441z"/>
+		<rect y="78.262" fill="#5D6AB2" width="254.178" height="177.365"/>
+		<polygon fill="#FBD8E7" points="250.857,252.266 250.857,81.625 63.715,81.625 249.523,252.266 		"/>
+		<polygon fill="#948EC5" points="63.715,81.625 3.32,81.625 3.32,252.266 249.523,252.266 		"/>
+		<g>
+			<defs>
+				<rect id="SVGID_1_" x="3.32" y="81.625" width="247.537" height="170.641"/>
+			</defs>
+			<clipPath id="SVGID_2_">
+				<use xlink:href="#SVGID_1_"  overflow="visible"/>
+			</clipPath>
+			<g clip-path="url(#SVGID_2_)">
+				<line fill="#54459C" x1="1.123" y1="79.479" x2="21.261" y2="99.414"/>
+				<line fill="#54459C" x1="253.369" y1="79.139" x2="233.387" y2="98.945"/>
+				<line fill="#54459C" x1="0.492" y1="254.674" x2="21.081" y2="238.113"/>
+				<line fill="#54459C" x1="253.369" y1="255.148" x2="233.018" y2="238.041"/>
+			</g>
+		</g>
+		<polygon fill="#FFFFFF" points="234.094,98.162 81.722,98.162 234.094,238.096 		"/>
+		<polygon fill="#FBD8E7" points="81.722,98.162 20.086,98.162 20.086,239.299 234.094,239.299 234.094,238.096 		"/>
+	</g>
+	<path fill="#FEF3F8" d="M250.775,237.432c0,2.348-1.902,4.25-4.25,4.25l0,0c-2.348,0-4.25-1.902-4.25-4.25v-142
+		c0-2.348,1.902-4.25,4.25-4.25l0,0c2.348,0,4.25,1.902,4.25,4.25V237.432z"/>
+</g>
+</svg>
