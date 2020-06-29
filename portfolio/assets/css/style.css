@@ -1,12 +1,89 @@
-*{margin: 0; padding: 0; box-sizing: border-box;}
+*{margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: .78vw;}
+img {width: 100%; vertical-align: top;}
 
-#wrap{width: 100vw; height: 100vh; background: #fad7e6; position: relative; overflow: hidden;}
-.under { width: 100%; height: 135px; background: #6f6ea9; position: absolute; bottom: 0; right: 0; z-index: 0;}
-.desk01 {position: relative; width: 700px; height: 750px; background: #000; position: absolute; top: 120px; left: 60px;}
-.desk01 .desk {position: absolute; bottom: 0;}
-.desk01 .monitor {position: absolute; left: 150px; } 
+#wrap{width: 100%; height: 100vh; position: relative;  background: #fad7e6; position: relative; overflow: hidden; }
+.background {width: 112rem; }
+.under { width: 100%; height: 8rem; position: absolute; top: 57rem; background: #6f6ea9;}
 
-.desk01 .desk01-speaker01 {position: absolute; top: 148px; left: 512px;}
-.desk01 .desk01-speaker02 {position: absolute; top: 148px; left: 75px;}
-.desk01 .juice {position: absolute; top: 250px; left: 40px;}
-.desk01 .book04 {position: absolute; top: 369px; left: 30px;}
+.carpet {width: 50rem; position: absolute; top: 56rem; left :2rem; }
+.poster {width: 13rem; position: absolute; top: 2rem ; left : 4rem; border-radius: 0 0 0 96px ; overflow: hidden; transition: all 1s; box-shadow: -6px 3px 3px rgba(96,106,168,0.2);}
+.poster::before {content: ''; position: absolute; width: 55px; height: 55px; bottom: 0; left: 0; background: #5d6ab1; transition: all 1s ;}
+.poster:hover { border-radius: 0 0 0 0 ;}
+.poster:hover::before{ 
+    width: 0; height: 0;
+}
+
+.frame1 { position: absolute; top: 0; left : 34rem;}
+.frame2 { position: absolute; top: 0; left : 50.7rem;}
+.frame3 { position: absolute; top: 0; left : 67.4rem;}
+.frm img { width: 15rem;}
+.frm:hover{animation: 1s swing; transform-origin: top;}
+@keyframes swing {
+    20% {
+      transform: rotate3d(0, 0, 1, 5deg);
+      transform: rotate3d(0, 0, 1, 5deg);
+    }
+  
+    40% {
+      transform: rotate3d(0, 0, 1, -5deg);
+      transform: rotate3d(0, 0, 1, -5deg);
+    }
+  
+    60% {
+      transform: rotate3d(0, 0, 1, 0deg);
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+  
+    80% {
+      transform: rotate3d(0, 0, 1, 0deg);
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+}
+
+
+.light02 { width: 50rem; position: absolute; top:-4rem ; left : 4rem; }
+.guitar { width: 23.5rem; position: absolute; top: 14rem; left : 48.8rem; }
+
+
+/* 책상1 */
+
+.desk02{width: 46.5rem; position: absolute; top: 29.5rem ; left : 5.2rem;}
+
+.speaker01 {width: 7.8rem; position: absolute; top: 18.5rem; left : 39rem; }
+.monitor {width: 25rem; position: absolute; top: 9rem; left : 15rem;}
+.speaker02 {width: 7.8rem; position: absolute; top: 18.5rem; left : 9.5rem;  }
+
+.book04 {width: 4.1rem; position: absolute; top: 33rem; left : 7.5rem}
+.blocks {width: 5.6em; position: absolute; top: 34rem; left : 12.5rem}
+.flowerpot{width: 3.1rem; position: absolute; top: 32.5rem; left : 18.5rem}
+.mirror {width: 4.6rem; position: absolute; top: 41.9rem; left : 8.2rem}
+.book03 {width: 8.3rem; position: absolute; top: 41.4rem; left : 13.5rem}
+.ball {width: 2.3rem; position: absolute; top: 46rem; left : 12rem;}
+.thing {width: 7.5rem; position: absolute; top: 50rem; left : 14rem}
+.radio {width: 10.5rem; position: absolute; top: 44.5rem; left : 23rem}
+.chair {width: 35rem; position: absolute; top: 23rem; left : 26rem}
+
+
+/* baseball */
+.bat {width: 13.2rem; position: absolute; top: 26rem; left : -6.1rem;}
+.glove {width: 13.5rem; position: absolute; top: 52rem; left :4.5rem;}
+.cap {width: 13.5rem; position: absolute; top: 53rem; left :-1rem;}
+
+
+/* 책상2 */
+.desk01 { width: 47.8rem; position: absolute; top: 30rem; left :66.5rem; }
+.tv { width: 30.5rem; position: absolute; top: -2.5rem; left :76rem;}
+.speaker03 { width: 8rem; position: absolute; top: 19.5rem; left :69rem; }
+.shelf  { width: 13.9rem; position: absolute; top: 0; right :0; }
+.book02 { width: 9.3rem; position: absolute; top: 33.3rem; left :74rem; }
+.camera { width: 13rem; position: absolute; top: 36.3rem; left :79rem; }
+.game { width: 14.2rem; position: absolute; top: 34.5rem; left :92.7rem; }
+.earth { width: 10rem; position: absolute; top: 45rem; left : 74rem; }
+.call {width: 13rem; position: absolute; top: 49rem; left : 81.5rem; }
+.book01 {width: 12.7rem; position: absolute; top: 45rem; left :95rem; }
+.sofa {width: 30rem; position: absolute; top: 40rem; right:-6rem;}
+.bowl {width: 10rem; position: absolute; top: 55rem; right: 30rem;}
+
+.bowling-pin {width: 18rem; position: absolute; top: 45rem; left :58rem;} 
+.bowling{width: 11rem; position: absolute; top: 52rem; left : 50rem;}
