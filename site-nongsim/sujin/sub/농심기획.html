@@ -278,10 +278,10 @@ function hasScroll(){
   let wScroll = $(this).scrollTop();
   
   if( wScroll > lastScrollTop ){   //스크롤을 내렸을 때
-    $("#header").addClass("on");
+    $("#header").slideDown();
   }else {                          //스크롤을 올렸을 때
     if( wScroll + wHeight < dHeight){
-       $("#header").removeClass("on");
+       $("#header").slideUp();
     }
   }
   
