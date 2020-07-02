@@ -2,18 +2,38 @@
 html { font-size: .78vw;}
 img {width: 100%; vertical-align: top;}
 
-#wrap{width: 100%; height: 100vh; position: relative;  background: #fad7e6; position: relative; overflow: hidden; }
+
+
+
+
+#wrap{width: 100%; height: 100vh; position: relative;  background: #fad7e6; overflow: hidden; }
+
+.text {position: absolute; width: 0%; top: 50%; right: 50%; transform: translate(-50%, -50%); visibility: hidden;}
+
+/* first */
+.first { display: flex; justify-content: center;}
+.first > div { margin-bottom: 2rem; }
+.first > div > img { width: 9rem; height: 12rem; display: block; margin: 0 auto;}
+
+/* second */
+.second {display: flex; justify-content: center; position: relative; width: 100%;}
+.second > div {}
+.second > div > img { width: 5rem; height: 5rem; display: block; margin: 0 auto;}
+.i {margin: 0 -1.5rem;}
+
+
+
+
+.intro {  }
 .background {width: 112rem; }
-.under { width: 100%; height: 8rem; position: absolute; top: 57rem; background: #6f6ea9;}
-.icons { width: 100%; height: 8rem; position: absolute; top: 65rem; background: #fff; z-index: 5;}
+.under { width: 100%; height: 20rem; position: absolute; top: 55rem; background: #6f6ea9;}
+.icons { width: 50rem; height: 10rem; position: absolute; top: 64rem; left: 50%; transform: translate(-50%); background: #fad7e6; z-index: 5; border-radius: 5rem;}
 
 .carpet {width: 50rem; position: absolute; top: 56rem; left :2rem; }
 .poster {width: 13rem; position: absolute; top: 2rem ; left : 4rem; border-radius: 0 0 0 4rem ; overflow: hidden; transition: border-radius 1s; box-shadow: -6px 3px 3px rgba(96,106,168,0.2);}
 .poster::before {content: ''; position: absolute; width: 3.5rem; height:  3.5rem; bottom: 0; left: 0; background: #5d6ab1; transition: all 1s ;}
 .poster:hover { border-radius: 0 0 0 0 ;}
-.poster:hover::before{ 
-    width: 0; height: 0;
-}
+.poster:hover::before{ width: 0; height: 0;}
 
 .frame1 { position: absolute; top: 0; left : 34rem;}
 .frame2 { position: absolute; top: 0; left : 50.7rem;}
@@ -86,5 +106,6 @@ img {width: 100%; vertical-align: top;}
 .sofa {width: 30rem; position: absolute; top: 40rem; right:-6rem;}
 .bowl {width: 10rem; position: absolute; top: 55rem; right: 30rem;}
 
-.bowling-pin {width: 18rem; position: absolute; top: 45rem; left :58rem;} 
+.bowling-pin {width: 18rem; position: absolute; top: 50rem; left :20rem;} 
 .bowling{width: 11rem; position: absolute; top: 52rem; left : 50rem;}
+
