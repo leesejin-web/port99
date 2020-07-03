@@ -25,11 +25,11 @@ body {background: #fad7e6;}
 /* setting */
 .background { width: 100%; height: 100vh; overflow: hidden;}
 .under { width: 100%; height: 7vw; background: #6f6ea9; bottom: 0;}
-.shelf { right: 0; top: 0; width: 10vw;}
 .frame1 { right: 60vw; top: 2vw; }
 .frame2 { right: 47vw; top: 2vw; }
 .frame3 { right: 34vw; top: 2vw; }
 .poster{ left: 3vw; top: 2vw; }
+.light01 {right: 17vw; top: 0vw; }
 .light02 { left: 0; top: -2vw;}
 .desk02 {left: 3vw; bottom: 5vw;}
 .monitor { left: 12vw; top: 10vw;}
@@ -50,6 +50,9 @@ body {background: #fad7e6;}
 .glove { left: 1vw;  top: 40vw; }
 .cap { left: -1vw;  top: 42vw; }
 
+.desk01 { right: 13vw; top: 26vw; }
+.tv { right: 18vw; top: 3vw; }
+.shelf { right: 0; top: 0; width: 10vw;}
 
 /* aniamtion */
 .logo .text-wrap .text {opacity: 0; transition: all 0.3s ease;}
@@ -76,9 +79,6 @@ body.show .background {height: 100vh;}
 .under {width: 0%; transition: all 1s 1s linear;}
 body.show .under {width:100%}
 
-.shelf {right: -11vw; transition: all 1s 1.3s ease;}
-body.show .shelf {right: 0vw;}
-
 .frame1 {top: -15vw; transition: all 1s 1.1s linear;}
 body.show .frame1 {top: 2vw;}
 .frame2 {top: -15vw; transition: all 1s 1.2s linear;}
@@ -88,6 +88,9 @@ body.show .frame3 {top: 2vw;}
 
 .poster {left: -15vw; transition: all 0.5s 1.6s linear;}
 body.show .poster {left: 3vw}
+
+.light01 { top: -20vw; transition: all 0.5s 1s linear;}
+body.show .light01 {top: 0vw;}
 
 .light02 { top: -15vw; transition: all 0.5s 1s linear;}
 body.show .light02 {top: -2vw;}
@@ -143,6 +146,14 @@ body.show .radio{ bottom: 5vw }
 .chair { bottom: -28vw; transition: all 0.6s 2.5s linear; }
 body.show .chair{ bottom: 4vw; }
 
+.desk01 {  right: -40vw; transition: all 0.6s 2.5s linear; }
+body.show .desk01{ right: 10vw; }
+
+.tv { right: -22vw; transition: all 0.6s 2.5s linear; }
+body.show .tv{ right: 18vw; }
+
+.shelf {right: -11vw; transition: all 1s 1.3s ease;}
+body.show .shelf {right: 0vw;}
 
 /* media */
 @media (max-width:1500px){
