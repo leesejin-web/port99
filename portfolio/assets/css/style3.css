@@ -1,5 +1,5 @@
 * {margin: 0; padding: 0; box-sizing: border-box;}
-svg {width: 100%;}
+svg, img {width: 100%;}
 
 
 body {background: #fad7e6;}
@@ -25,55 +25,132 @@ body {background: #fad7e6;}
 /* setting */
 .background { width: 100%; height: 100vh; overflow: hidden;}
 .under { width: 100%; height: 11vw; background: #6f6ea9; bottom: 0;}
-.carpet {right: 60vw; bottom: 0vw; }
+.carpet {right: 60vw; bottom: 2vw; }
 .frame1 { right: 60vw; top: 1vw; }
 .frame2 { right: 47vw; top: 1vw; }
 .frame3 { right: 34vw; top: 1vw; }
-.poster{ left: 3vw; top: 2vw; }
+.poster{height: 14vw; left: 3vw; top: 2vw; position: absolute;  border-radius: 0 0 0 1.5vw ; overflow: hidden;  transition: left 0.5s 1.6s linear, border-radius 1s; box-shadow: -6px 3px 3px rgba(96,106,168,0.2);}
+.poster::before {
+    content: ''; position: absolute; 
+    width: 2vw; height: 2vw; bottom: 0; left: 0; 
+    background: #5d6ab1; transition: all 1s ;
+}
+.poster:hover { border-radius: 0;}
+.poster:hover::before{ width: 0; height: 0;}
+
 .light01 {right: 17vw; top: 0vw; }
 .light02 { left: 7vw; top: -2vw;}
 .desk02 {left: 4vw; bottom: 7.3vw;}
 .monitor { left: 12vw; top: 9vw;}
 .speaker01 { left: 7.5vw; top: 15vw;}
 .speaker02 { left: 28vw; top: 15vw;}
-.juice { left: 5vw; top: 20vw;}
-.book04 { left: 4.5vw; top: 26.1vw; }
-.blocks { left: 8.5vw; top: 27vw; }
-.flowerpot { left: 13vw; top: 25.8vw; }
-.mirror { left: 5vw; top: 33vw; }
-.book03 { left: 9.5vw; top: 32.8vw; }
-.ball {  left: 8.5vw; top: 36.2vw; }
-.thing { left: 10vw; top: 39.2vw; }
-.radio { left: 16.4vw; bottom: 5vw; }
-.chair { left: 19vw; bottom: 4vw; }
+.juice { left: 5vw; top: 18.8vw;}
+.book04 { left: 5.4vw; top: 24.5vw; }
+.blocks { left: 8.5vw; top: 25.5vw; }
+.flowerpot { left: 13vw; top: 24.2vw }
+.mirror { left: 6vw; top: 31vw; }
+.book03 { left: 9.9vw; top: 31vw; }
+.ball {  left: 8.5vw; top: 34.2vw; }
+.thing { left: 10.2vw; top: 37vw; }
+.radio { left: 16.7vw; bottom: 5vw; }
+.chair { left: 19vw; bottom: 6vw; }
 
-.bat { left: -5.3vw;  top: 19vw; }
-.glove { left: 1vw;  top: 40vw; }
+.bat { left: -4.3vw;  top: 17vw; }
+.glove { left: 1vw;  top: 39vw; }
 .cap { left: -1vw;  top: 42vw; }
 
-.desk01 { right: 13vw; top: 26vw; }
-.guitar-shadow { right: 50vw; bottom: 3vw; width: 13vw; height: 2vw; background: rgba(83,68,155,0.4); border-radius: 50%; }
-.guitar { right: 43vw; bottom: 3vw; }
-.book02 { right: 35vw; bottom: 13.8vw; }
-.camera { right: 27vw; bottom: 13.9vw; }
-.game { right: 15.3vw; bottom: 13.9vw; }
-.earth { right: 34.3vw; bottom: 2.9vw; }
-.call { right: 25vw; bottom: 2.9vw; }
-.book01 { right: 15vw; bottom: 2.9vw; }
-.bowl { right: 41vw; bottom: 1vw; }
-.speaker03 { right: 39vw; bottom: 23.5vw;}
-.speaker04 { right: 13vw; bottom: 23.5vw; transform: scaleX(-1)}
-.tv { right: 18vw; top: 3vw; }
+.desk01 { right: 11vw; top: 24vw; }
+.guitar-shadow { right: 50vw; bottom: 6vw; width: 13vw; height: 2vw; background: rgba(83,68,155,0.4); border-radius: 50%; }
+.guitar { right: 43vw; bottom: 7vw; }
+.book02 { right: 35vw; bottom: 16.2vw; }
+.camera { right: 27vw; bottom: 16.2vw; }
+.game { right: 16.3vw; bottom: 16vw; }
+.earth { right: 34.3vw; bottom: 5.5vw; }
+.call { right: 25vw; bottom: 5.5vw; }
+.book01 { right: 15vw; bottom: 5.8vw; }
+.bowl { right: 22vw; bottom: 3vw; }
+.speaker03 { right: 38.5vw; bottom: 25.5vw;}
+.speaker04 { right: 13vw; bottom: 25.5vw; transform: scaleX(-1)}
+.tv { right: 18.5vw; top: 2.5vw; }
 .shelf { right: 0; top: 0; width: 10vw;}
-.sofa {right: -5vw; bottom: -10vw; }
+.sofa {right: -5vw; bottom: -7vw; }
 
-.icons { width: 35vw; height: 7vw; position: absolute; top: 44vw; left: 50%; transform: translate(-50%); background: #fad7e6; z-index: 5; border-radius: 5rem;}
-.icons .icons-box {display: flex; justify-content: space-between; width: 30vw; margin: 0 auto; padding: 0.7vw }
-.icon-monitor img{ width: 4vw; padding-top: 0.8vw; width: 4vw; }
+.bowling-pin { left: 23vw; bottom: 1vw; }
+.bowling { left: 16vw; bottom: 1vw; }
+
+
+.icons { 
+    width: 35vw; height: 7vw; 
+    position: absolute; bottom: 0; left: 50%; transform: translate(-50%); 
+    background: #fad7e6; z-index: 5; border-radius: 5rem;
+}
+.icons .icons-box { 
+    display: flex; justify-content: space-between; 
+    width: 30vw; margin: 0 auto; padding: 0.7vw 
+}
+.icon-monitor img{ width: 4vw; padding-top: 0.8vw; }
+.icon-monitor img:hover {animation: bounce
+
+; animation-duration: 1s;}
 .icon-rocket img{ width: 2.3vw; margin: 0 0.6vw 0 0.6vw; }
-.icon-Jellyfish img{ width: 3vw; padding-top: 0.5vw;}
-.icon-call img{ width: 4.5vw; margin-top: 0.8vw;}
-.icon-script img{ width: 3vw; margin-top: 0.8vw;}
+.icon-rocket img:hover {animation: bounce
+
+; animation-duration: 1s;}
+.icon-Jellyfish img{ width: 3vw; padding-top: 0.5vw; }
+.icon-Jellyfish img:hover {animation: bounce
+
+; animation-duration: 1s;}
+.icon-call img{ width: 4.5vw; margin-top: 0.8vw; }
+.icon-call img:hover {animation: bounce
+
+; animation-duration: 1s;}
+.icon-script img{ width: 3vw; margin-top: 0.8vw; }
+.icon-script img:hover {animation: bounce; animation-duration: 1s;}
+
+.fra {transform-origin: top;}
+.fra:hover {animation: 1s swings; transform-origin: top;}
+@keyframes swings {
+    20% {
+      transform: rotate3d(0, 0, 1, 5deg);
+      transform: rotate3d(0, 0, 1, 5deg);
+    }
+  
+    40% {
+      transform: rotate3d(0, 0, 1, -5deg);
+      transform: rotate3d(0, 0, 1, -5deg);
+    }
+  
+    60% {
+      transform: rotate3d(0, 0, 1, 0deg);
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+  
+    80% {
+      transform: rotate3d(0, 0, 1, 0deg);
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+}
+
+.browser {
+    width: 70%;
+    height: 80%;
+    background: #f8f8ff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    overflow: hidden;
+}
+.browser-top { 
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    height: 4vw;
+    background: #dcdcdc;
+    position: relative;
+}
+.btn-box { left: 2vw; top: 50%; transform: translateY(-50%); width: 5vw; height: 2vw; background: #000; position: absolute;}
 
 /* aniamtion */
 .logo .text-wrap .text {opacity: 0; transition: all 0.3s ease;}
@@ -94,6 +171,8 @@ body.show .logo .text-wrap .text.t14 {opacity: 1; animation: bounce 1s 1.4s ease
 body.show .logo .text-wrap .text.t15 {opacity: 1; animation: bounce 1s 1.5s ease}
 
 
+
+
 .background {height: 0vh; transition: all 1s linear;}
 body.show .background {height: 100vh;}
 
@@ -101,7 +180,8 @@ body.show .background {height: 100vh;}
 body.show .under {width:100%}
 
 .carpet { bottom: -8vw; transition: all 0.3s 1s linear;}
-body.show .carpet {bottom: 0vw;}
+body.show .carpet {bottom: 2vw;}
+
 
 .frame1 {top: -15vw; transition: all 1s 1.1s linear;}
 body.show .frame1 {top: 1vw;}
@@ -110,7 +190,8 @@ body.show .frame2 {top: 1vw;}
 .frame3 {top: -15vw; transition: all 1s 1.3s linear;}
 body.show .frame3 {top: 1vw;}
 
-.poster {left: -15vw; transition: all 0.5s 1.6s linear;}
+
+.poster {left: -15vw;}
 body.show .poster {left: 3vw}
 
 .light01 { top: -20vw; transition: all 0.5s 1s linear;}
@@ -135,16 +216,16 @@ body.show .speaker02 {left: 28vw;}
 body.show .juice{left: 5vw; }
 
 .book04 { left: -4.5vw; transition: all 0.2s 2s linear; }
-body.show .book04{left: 4.5vw;}
+body.show .book04{left: 5.4vw;}
 
 .blocks { left: -8.5vw; transition: all 0.3s 2s linear;}
-body.show .blocks{ left: 8.5vw; }
+body.show .blocks{ left: 9vw; }
 
 .flowerpot { left: -13vw; transition: all 0.4s 2s linear; }
-body.show .flowerpot{ left: 13vw; }
+body.show .flowerpot{ left: 13.5vw; }
 
 .bat { left: -12vw; transition: all 0.2s 2s linear; }
-body.show .bat{ left: -5.3vw; }
+body.show .bat{ left: -4.3vw; }
 
 .glove { left: -14vw; transition: all 0.3s 2s linear;}
 body.show .glove{ left: 1vw; }
@@ -153,40 +234,40 @@ body.show .glove{ left: 1vw; }
 body.show .cap{ left: -1vw; }
 
 .mirror { left: -5vw; transition: all 0.4s 2.2s linear; }
-body.show .mirror{ left: 5vw;}
+body.show .mirror{ left: 6vw;}
 
 .book03 { left: -7vw; transition: all 0.4s 2.3s linear;}
-body.show .book03{  left: 9.5vw; }
+body.show .book03{  left: 9.9vw; }
 
 .ball { left: -8.5vw; transition: all 0.4s 2.3s linear; }
 body.show .ball{  left: 8.5vw; }
 
 .thing { left: -10vw; transition: all 0.4s 2.3s linear;  }
-body.show .thing{  left: 10vw }
+body.show .thing{  left: 10.2vw }
 
-.radio { bottom: -11vw; transition: all 0.4s 2.5s linear; }
-body.show .radio{ bottom: 5vw }
+.radio { bottom: -11vw; transition: all 0.4s 2.7s linear; }
+body.show .radio{ bottom: 7.5vw }
 
 .chair { bottom: -28vw; transition: all 0.6s 2.3s linear; }
-body.show .chair{ bottom: 4vw; }
+body.show .chair{ bottom: 6vw; }
 
 .desk01 {  right: -40vw; transition: all 0.9s 1.5s linear; }
-body.show .desk01{ right: 10vw; }
+body.show .desk01{ right: 11vw; }
 
 .guitar-shadow {opacity: 0; transition: all 1s 2s ease;}
 body.show .guitar-shadow {opacity: 1;}
 
 .guitar {bottom: -35vw;transition: all 0.7s 2s ease; }
-body.show .guitar {bottom: 3vw;}
+body.show .guitar {bottom: 7vw;}
 
-.book02 { bottom: -13.8vw; transition: all 0.7s 2s ease;}
-body.show .book02 {bottom: 13.8vw; }
+.book02 { bottom: -16.2vw; transition: all 0.7s 2s ease;}
+body.show .book02 {bottom: 16.2vw; }
 
 .camera { bottom: -13.9vw; transition: all 0.7s 2.3s ease}
-body.show .camera { bottom: 13.9vw; }
+body.show .camera { bottom:16.2vw; }
 
-.game { bottom: -13.9vw; transition: all 0.6s 2.5s ease }
-body.show .game { bottom: 13.9vw; }
+.game { bottom: -16vw; transition: all 0.6s 2.5s ease }
+body.show .game { bottom: 16vw; }
 
 .earth { right: -8vw; transition: all 0.6s 2.1s ease }
 body.show .earth { right: 34.3vw; }
@@ -195,43 +276,39 @@ body.show .earth { right: 34.3vw; }
 body.show .call { right: 25vw; }
 
 .book01 { right: -11vw; transition: all 0.5s 2.5s ease }
-body.show .book01 { right: 15vw;}
+body.show .book01 { right: 16vw;}
 
 .bowl { bottom: -7vw; transition: all 0.8s 2.2s ease }
-body.show .bowl { bottom: 1vw;}
+body.show .bowl { bottom: 3vw;}
 
-.speaker03 { bottom: -23.5vw; transition: all 0.8s 2.2s ease}
-body.show .speaker03 { bottom: 23.5vw; }
+.speaker03 { bottom: -25.5vw; transition: all 0.8s 2.2s ease}
+body.show .speaker03 { bottom: 25.5vw; }
 
 .speaker04 {right: -13vw; transition: all 0.8s 2.2s ease}
 body.show .speaker04 { right: 13vw; }
 
 .tv { right: -22vw; transition: all 0.6s 2.5s linear; }
-body.show .tv{ right: 18vw; }
+body.show .tv{ right: 18.5vw; }
 
 .shelf {right: -11vw; transition: all 0.8s 0.5s ease;}
 body.show .shelf {right: 0vw;}
 
 .sofa { bottom: -30vw; transition: all 0.8s 2s ease;}
-body.show .sofa {bottom: -10vw; }
+body.show .sofa {bottom: -7vw; }
+
+.bowling-pin { bottom: -15vw; transition: all 0.6s 2.5s ease; }
+body.show .bowling-pin { bottom: 1vw; }
+
+.bowling { bottom: -8vw; transition: all 0.4s 2.3s ease; }
+body.show .bowling { bottom: 1vw; }
+
+.icons { bottom: -30vw; transition: all 2s 3.5s ease;}
+body.show .icons {bottom:0vw; }
 
 
 
-/* media */
-@media (max-width:1500px){
-    .shelf img { height: 60vw;}
-    .frame1 img{ height:15vw;}
-    .frame2 img{ height:15vw;}
-    .frame3 img{ height:15vw;}
-}
 
-@media (max-width:1220px){
-}
 
-@media (max-width:768px){
-}
-
-@media (max-width:480px){}
 
 
 
