@@ -1,118 +1,48 @@
 *{margin: 0; padding: 0; box-sizing: border-box; }
 html { font-size: .78vw;}
-img {width: 100%; vertical-align: top;}
+img, svg {width: 100%; vertical-align: top;}
 
 
 
 
 
-#wrap{width: 100%; height: 100vh; position: relative;  background: #fad7e6; overflow: hidden; }
+#wrap{width: 100%; height: 100vh; position: relative;  background: #fbde53; overflow: hidden; }
 
-.text {position: absolute; width: 0%; top: 50%; right: 50%; transform: translate(-50%, -50%); }
-
-/* first */
-.first { display: flex; justify-content: center;}
-.first > div { margin-bottom: 2rem; }
-.first > div > img { width: 9rem; height: 12rem; display: block; margin: 0 auto;}
-
-/* second */
-.second {display: flex; justify-content: center; position: relative; width: 100%;}
-.second > div {}
-.second > div > img { width: 5rem; height: 5rem; display: block; margin: 0 auto;}
-.i {margin: 0 -1.5rem;}
-
-
-
-
-.intro { visibility: hidden;}
-.background {width: 112rem; }
-.under { width: 100%; height: 20rem; position: absolute; top: 50rem; background: #6f6ea9;}
-.icons { width: 45rem; height: 10rem; position: absolute; top: 56rem; left: 50%; transform: translate(-50%); background: #fad7e6; z-index: 5; border-radius: 5rem;}
-.icons .icons-box {display: flex; justify-content: space-between; width: 40rem; margin: 0 auto; padding: 1.5rem }
-.icon-moniter { width: 5rem; padding-top: 0.8rem;}
-.icon-rocket { width: 3rem; margin: -0.5rem 0.5rem 0 0.5rem; }
-.icon-Jellyfish { width: 4rem; }
-.icon-call { width: 6rem; margin-top: 0.8rem;}
-.icon-script { width: 4rem; margin-top: 0.8rem;}
-
-.carpet {width: 50rem; position: absolute; top: 52rem; left :2rem; }
-.poster {width: 13rem; position: absolute; top: 2rem ; left : 4rem; border-radius: 0 0 0 4rem ; overflow: hidden; transition: border-radius 1s; box-shadow: -6px 3px 3px rgba(96,106,168,0.2);}
-.poster::before {content: ''; position: absolute; width: 3.5rem; height:  3.5rem; bottom: 0; left: 0; background: #5d6ab1; transition: all 1s ;}
-.poster:hover { border-radius: 0 0 0 0 ;}
-.poster:hover::before{ width: 0; height: 0;}
-
-.frame1 { position: absolute; top: 0; left : 34rem;}
-.frame2 { position: absolute; top: 0; left : 50.7rem;}
-.frame3 { position: absolute; top: 0; left : 67.4rem;}
-.frm img { width: 15rem;}
-.frm:hover{animation: 1s swing; transform-origin: top;}
-@keyframes swing {
-    20% {
-      transform: rotate3d(0, 0, 1, 5deg);
-      transform: rotate3d(0, 0, 1, 5deg);
-    }
-  
-    40% {
-      transform: rotate3d(0, 0, 1, -5deg);
-      transform: rotate3d(0, 0, 1, -5deg);
-    }
-  
-    60% {
-      transform: rotate3d(0, 0, 1, 0deg);
-      transform: rotate3d(0, 0, 1, 0deg);
-    }
-  
-    80% {
-      transform: rotate3d(0, 0, 1, 0deg);
-      transform: rotate3d(0, 0, 1, 0deg);
-    }
+.text { position: absolute; width: 50%; height: 300px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.first  { overflow: hidden; display: block;}
+.first .text-move{ opacity: 0;;}
+.first .text-move:nth-child(1) { animation:  move 1.5s 0s  forwards;}
+.first .text-move:nth-child(2) { animation:  move 1.5s 0.2s  forwards;}
+.first .text-move:nth-child(3) { animation:  move 1.5s 0.4s  forwards;}
+.first .text-move:nth-child(4) { animation:  move 1.5s 0.6s  forwards;}
+.first .text-move:nth-child(5) { animation:  move 1.5s 0.8s  forwards;}
+@keyframes move {
+  0%{ transform: translateY(200px); opacity: 0;}
+  100% { transform: translateY(0); opacity: 1;}
 }
 
+.first { width: 35vw; display: flex; justify-content: space-between; margin: 0 auto;}
+.second {  width: 35vw; display: flex; justify-content: space-between; margin: 0 auto; }
+.second .circle {padding-top: 3.5vw;}
+.under { width: 100%; height: 30px; position: absolute; bottom: 0; background: #000;}
 
-.light02 { width: 50rem; position: absolute; top:-4rem ; left : 4rem; }
-.guitar { width: 22rem; position: absolute; top: 14rem; left : 52rem; transform: rotate(5deg); z-index: 5;}
-.guitar-shadow { width: 18rem; position: absolute; height: 2rem; background: rgba(83,83,188,0.5); top: 54rem; left: 48rem; border-radius: 50%;}
+.me-wrap { position: absolute; bottom: 0; right: 2vw;}
+.me { width: 20vw; position: relative;}
+.me .eye-wrap { width: 5vw; height: 1.5vw; position: absolute; top: 10vw; right: 8.5vw; }
+.me .eye-wrap::before { position: absolute; content: ''; top: 0; right: 0; background: #000; width: 1.2vw; height: 1.2vw; border-radius: 50%; animation: eyes 1s 5s infinite;}
+.me .eye-wrap::after { position: absolute; content: ''; top: 0; left: 0; background: #000; width: 1.2vw; height: 1.2vw; border-radius: 50%; animation: eyes 1s 5s infinite;}
+@keyframes eyes {
+  0% { height: 0; }
+  10% { height: 1.2vw;}
+}
+.hand { position: absolute; top: 22vw;  animation: bounce 2s 2s infinite;}
 
-
-/* 책상1 */
-
-.desk02{width: 40rem; position: absolute; top: 28.5rem ; left : 7.5rem;}
-
-.speaker01 {width: 6.5rem; position: absolute; top: 19.5rem; left : 37rem; }
-.monitor {width: 21rem; position: absolute; top: 11.5rem; left : 17rem;}
-.speaker02 {width: 6.5rem; position: absolute; top: 19.5rem; left : 11.5rem;  }
-
-.book04 {width: 4rem; position: absolute; top: 31rem; left : 9.2rem}
-.blocks {width: 5em; position: absolute; top: 32.2rem; left : 13.5rem}
-.flowerpot{width: 3rem; position: absolute; top: 30.2rem; left : 18.5rem}
-.mirror {width: 4rem; position: absolute; top: 39.1rem; left : 9.9rem}
-.book03 {width: 7rem; position: absolute; top: 38.7rem; left : 14.7rem}
-.ball {width: 2.3rem; position: absolute; top: 42.3rem; left : 13rem;}
-.thing {width: 6.5rem; position: absolute; top: 45.9rem; left : 15.3rem}
-.radio {width: 8.5rem; position: absolute; top: 42rem; left : 22.7rem}
-.chair {width: 30rem; position: absolute; top: 23rem; left : 26rem; }
-
-
-/* baseball */
-.bat {width: 13.2rem; position: absolute; top: 26rem; left : -4rem;}
-.glove {width: 13.5rem; position: absolute; top: 50rem; left :4.5rem;}
-.cap {width: 13.5rem; position: absolute; top: 51rem; left :-1rem;}
-
-
-/* 책상2 */
-.desk01 { width: 46rem; position: absolute; top: 30rem; left :68.5rem; }
-.tv { width: 29rem; position: absolute; top: -1rem; left :78em;}
-.speaker03 { width: 7rem; position: absolute; top: 21rem; left :72rem; }
-.shelf  { width: 13.9rem; position: absolute; top: 0; right :0; }
-.book02 { width: 8.5rem; position: absolute; top: 33.7rem; left :75rem; }
-.camera { width: 12rem; position: absolute; top: 36.3rem; left :81rem; }
-.game { width: 14.2rem; position: absolute; top: 34rem; left :93.5rem; }
-.earth { width: 9rem; position: absolute; top: 45rem; left : 75.5rem; }
-.call {width: 11rem; position: absolute; top: 49rem; left : 83rem; }
-.book01 {width: 12rem; position: absolute; top: 45rem; left :96rem; }
-.sofa {width: 30rem; position: absolute; top: 40rem; right:-6rem;}
-.bowl {width: 9rem; position: absolute; top: 55rem; right: 30rem;}
-
-.bowling-pin {width: 18rem; position: absolute; top: 41rem; left :20rem;} 
-.bowling{width: 10rem; position: absolute; top: 54rem; left : 16rem;}
-
+.code { width: 5vw; position: absolute; right: 0; margin: 15px;}
+.music-wrap { position: absolute; top: 0; left: 0; margin: 15px; display: flex;}
+.music-wrap .music01 { width: 5vw; animation: music 1s infinite linear; overflow: hidden; position: absolute; margin: 5px; left: 0; transition: left 1s;}
+@keyframes music {
+  0% { transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+.music01.show { left: 5vw; }
+.music-wrap .music02 { width: 8vw; position: absolute; }
