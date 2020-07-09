@@ -10,11 +10,11 @@ body {animation: background 10s linear infinite alternate;}
     30% {background: #fad7e6;}
     40% {background: #fad7e6;}
     50% {background: #fad7e6;}
-    60% {background: #fad7e6;}
-    70% {background: #fad7e6;}
-    80% {background: #fad7e6;}
-    90% {background: #fad7e6;}
-    100% {background: #000;}
+    60% {background: #fbde53;}
+    70% {background: #fbde53;}
+    80% {background: #fbde53;}
+    90% {background: #fbde53;}
+    100% {background: #fbde53;}
 }
 
 #contents {
@@ -31,10 +31,52 @@ body {animation: background 10s linear infinite alternate;}
 
 /* logo */
 .logo {
-    width: 60vw; position: absolute; left: 50%; top: 50%;
+    width: 60vw; 
+    position: absolute; left: 50%; top: 50%;
     transform: translate(-50%, -50%); display: block;
 }
 .text-wrap .text {opacity: 0; transform: translateY(120px)}
+
+/* me */
+.me {
+    width: 20vw;
+    position: absolute; bottom: -30px; right: 0;
+    opacity: 0;
+}
+.me .eye-wrap { 
+    width: 5vw; height: 1.5vw; position: absolute; top: 10vw; right: 8.5vw;
+}
+.me .eye-wrap::before { 
+    position: absolute; 
+    content: ''; top: 0; right: 0; 
+    background: #000; width: 1.2vw; 
+    height: 1.2vw; border-radius: 50%; 
+    animation: eyes 1s 5s infinite;
+}
+.me .eye-wrap::after { 
+    position: absolute; 
+    content: ''; top: 0; left: 0; 
+    background: #000; width: 1.2vw; height: 1.2vw; 
+    border-radius: 50%; 
+    animation: eyes 1s 5s infinite;
+}
+.me .hand {
+    position: absolute; bottom: 20px; 
+    animation: hand 1s 5s ease-in-out infinite;
+}
+.me img {width: 100%;}
+
+@keyframes eyes {
+  0% { height: 0; }
+  10% { height: 1.2vw;}
+}
+@keyframes hand {
+  0% { bottom: 20px; }
+  10% { bottom: 40px;}
+}
+
+
+
 
 
 /* setting */
