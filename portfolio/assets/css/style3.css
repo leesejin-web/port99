@@ -14,7 +14,7 @@ body {background: #fad7e6; position: relative;}
 #contents > div {
     position: absolute;
 }
-
+.vstudio {display: none;}
 
 /* logo */
 .logo {

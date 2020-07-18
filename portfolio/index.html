@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="assets/css/all.css">
+    
 </head>
 <body>
     <div id="wrap">
@@ -65,21 +66,27 @@
         </div>
     </div>
 
-    <div class="vstudio">
+    <div class="pop-up">
         <div class="header">
-            <div class="light">
-                <a href=""><div class="red"></div></a>
+            <div class="button">
+                <div class="red"></div>
                 <div class="yellow"></div>
                 <div class="green"></div>
             </div>
         </div>
-        <section id="section">
-            <div class="side01">
-                
+        <div class="nav">
+            <div class="row">
+                <div class="left">
+                    <img src="img/left.svg" alt="뒤로가기">
+                    <img src="img/right.svg" alt="뒤로가기">
+                    <img src="img/refresh.svg" alt="뒤로가기">
+                </div>
+                <div class="right">
+                    <span>SITE</span>
+                </div>
             </div>
-            <div class="side02"></div>
-            <div class="section"></div>
-        </section>
+        </div>
+        <div class="section"></div>
     </div>
 
     <!-- bubble  -->
@@ -122,7 +129,7 @@
         <div class="bubble-20"></div>
         <div class="out"></div>
       </div>
-  
+      
     <!-- rocket -->
       <div class="rocket-container">
         <svg class="rocket" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -282,6 +289,13 @@
     <script src="assets/js/jquery.jcarousel.min.js"></script>
     <script src="assets/js/font.js"></script>
     <script>
+        
+        
+        $(".icon2").click(function(){
+            let tl = gsap.timeline();
+            tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), duration:1, opacity: 0, y: -200, stagger: 0.05});
+            tl.fromTo(".me", {y: 0}, {y:1000, opacity: 1, duration:2, ease: "bounce.out"});
+        });
 
         //music
         // 
@@ -305,8 +319,9 @@
         // logo
         setTimeout(function(){
             var tl = gsap.timeline();
-            gsap.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 1, y: 0, stagger: 0.05});
-            tl.fromTo(".me", {y:1000}, {y:0, opacity: 1, duration:2, ease: "bounce.out"})
+            tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 1, y: 0, stagger: 0.05});
+            tl.fromTo(".me", {y:1000}, {y:0, opacity: 1, duration:2, ease: "bounce.out"});
+            tl.fromTo(".icon div", {x:-500}, {x:0, opacity: 1, duration:2, ease: "bounce.out", stagger: 0.05});
         },2000);
 
        
@@ -341,7 +356,6 @@
             player.pause();
         }  
         }
-
 
 
         // cat
