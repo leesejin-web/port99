@@ -141,7 +141,7 @@
         </div>
     </div>
 
-    <!-- <div class="pop-up site">
+    <div class="pop-up site">
         <div class="header">
             <div class="button">
                 <div class="red"></div>
@@ -162,12 +162,36 @@
             </div>
         </div>
         <div class="section">
-            <img src="img/site-cont01.svg" alt="사이트 아이콘1">
-            <img src="img/site-cont02.svg" alt="사이트 아이콘2">
-            <img src="img/site-cont03.svg" alt="사이트 아이콘3">
-            <img src="img/site-cont04.svg" alt="사이트 아이콘4">
+            <img src="img/site-cont01.svg" alt="사이트 아이콘1" class="site-icon">
+            <img src="img/site-cont02.svg" alt="사이트 아이콘2" class="site-icon">
+            <img src="img/site-cont03.svg" alt="사이트 아이콘3" class="site-icon">
+            <img src="img/site-cont04.svg" alt="사이트 아이콘4" class="site-icon">
         </div>
-    </div> -->
+    </div>
+
+    <div class="pop-up code">
+        <div class="header">
+            <div class="button">
+                <div class="red"></div>
+                <div class="yellow"></div>
+                <div class="green"></div>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="row">
+                <div class="left">
+                    <img src="img/left.svg" alt="뒤로가기">
+                    <img src="img/right.svg" alt="뒤로가기">
+                    <img src="img/refresh.svg" alt="뒤로가기">
+                </div>
+                <div class="right">
+                    <span>SITE</span>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+        </div>
+    </div>
 
     <!-- bubble  -->
     <div class="jelly-container">
@@ -491,8 +515,16 @@
                 $(".about").show()
             })
 
-            $(".pop-up .header .button .red").click(function(){
+            $(".about .header .button .red").click(function(){
                 $(".about").hide()
+            })
+
+            $(".icon3").click(function(){
+                $(".site").show()
+            })
+
+            $(".site .header .button .red").click(function(){
+                $(".site").hide()
             })
     </script>
 </body>

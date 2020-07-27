@@ -589,6 +589,7 @@ svg {
    width: 1.3vw; height: 1.3vw;
    background: #eb6659; border-radius: 50%;
    position: relative;
+   cursor: pointer;
 }
 .pop-up .header .button .red::after { 
   content: ''; position: absolute; top: 50%; left: 50%; 
@@ -659,6 +660,7 @@ svg {
 
 
 /* about */
+.about { display: none;}
 .about .first { width: 25%; height: 40%; background: #fbde53; float: left; border-right: solid 0.3vw #000;}
 .about .first img { height: 120%; }
 
@@ -700,7 +702,13 @@ svg {
   }
 }
 
-
+.site {display: none; }
+.site .section { display: flex; justify-content: space-evenly; align-items: flex-start;}
+.site .section img { 
+  cursor: pointer; 
+  width: 20%; box-shadow: 0.6vw 0.6vw 0px 0px #fbde53;
+  border-radius: 0.5vw;
+}
 
 @media (max-width : 1300px){
   .icon { display: flex; top: 13vh; left: 50%; transform: translate(-50%, -50%); margin-left: 0;}
@@ -713,7 +721,6 @@ svg {
 @media (max-width : 1000px){
   .pop-up { border: 2px solid #000; border-radius: 10px;}
 }
-
 @media (max-width : 600px){
   .jelly-wrapper { width: 120px; height: 140px;}
   @keyframes shadow {
