@@ -70,18 +70,29 @@ img, svg {width: 100%; vertical-align: top;}
 .icon { position: absolute; top: 50%; transform: translateY(-50%); margin-left: 5vw;}
 .icon > div { margin-bottom: 1vw; opacity: 0;}
 
-.icon1 { width: 8vw; position: relative;}
-.icon1-1 { width: 5vw; animation: music 1s infinite linear; overflow: hidden; position: absolute;  left: 50%; top: 50%; transition: left 1s; z-index: -10; transform: translate(-50%, -50%);}
+.icon1 { 
+  position: relative;
+  width: 8vw; 
+}
+.icon1-1 { 
+  width: 5vw; overflow: hidden; 
+  position: absolute;  left: 50%; top: 50%; 
+  animation: music 1s infinite linear; 
+  transition: left 1s; z-index: -10; 
+  transform: translate(-50%, -50%);
+}
 @keyframes music {
   0% { transform: translate(-50%, -50%) rotate(0deg);}
   100% {transform: translate(-50%, -50%) rotate(360deg);}
 }
 .icon1-1.show { left: 8vw;}
+
 .icon2 { width: 8vw; }
-.icon3 { width: 8vw;}
-.icon4 { width: 8vw;}
-.icon5 { width: 8vw;}
-.icon6 { width: 8vw;}
+.icon2 .icon2-hand { width: 5vw; }
+.icon3 { width: 8vw; }
+.icon4 { width: 8vw; }
+.icon5 { width: 8vw; }
+.icon6 { width: 8vw; }
 
 
 .play-wrap { width: 1.3vw;  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
@@ -682,13 +693,18 @@ svg {
 }
 
 .about  .third .container .outer {
+  transform-origin: center;
+  transform: rotate(-90deg);
   stroke: #f99;
   stroke-dasharray: 500;
   stroke-dashoffset: 500;
   animation: load 1s linear alternate;
   animation-fill-mode: forwards;
 }
-
+.about  .third .container svg{
+  width:100px;
+  height:100px;
+}
 .about  .third .container .inner {
   stroke: #fee;
 }
