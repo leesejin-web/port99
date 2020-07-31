@@ -193,6 +193,7 @@
             position: absolute;
             border-bottom: 1px solid red;
             transform: rotate(-50deg);
+            margin: 0;
         }
 
         .btn-sound.is-playing::before {
@@ -368,16 +369,375 @@
         <!-- modal -->
         <div class="modal">
             <div class="code-editor">   
-                <h3>Script Editor
+                <h3>
                     <span class="control"></span>
                     <span class="control"></span>
                     <span class="control"></span>
                 </h3>
                 <div class="code">
-<pre class="line-numbers"><code class="language-js">
+<pre class="line-numbers"><code class="language-js">&lt;style&gt;
+@font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+a {text-decoration: none;}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background: url(img/background.png) no-repeat;
+    background-size: cover;
+}
+
+/* 카드 */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 2% auto;
+}
+
+.card {
+    position: relative;
+    width: 120px;
+    height: 150px;
+    margin: 1%;
+    perspective: 1000px;
+    
+}
+
+.card>div {
+    transform-style: preserve-3d;
+}
+
+.card .front {
+    width: 100%;
+    height: 100%;
+    background: url(img/back.png);
+    background-size: cover;
+    position: relative;
+    z-index: 100;
+    transform: rotatey(0deg);
+    transition: transform 1s;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.card .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: rotatey(-180deg);
+    transition: transform 1s;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+/* 카드를 클릭했을 때 */
+/* .card:hover .front {
+    transform: rotatey(180deg);
+    transition: transform 1s;
+} */
+
+/* .card:hover .back {
+    transform: rotatey(0deg);
+    transition: transform 1s;
+} */
+
+.card.is-selected .front{
+    transform: rotatey(180deg);
+    transition: transform 0.6s;
+}
+
+.card.is-selected .back{
+    transform: rotatey(0deg);
+    transition: transform 0.6s;
+}
+
+[data-matched="true"] .front{
+    transform: rotatey(180deg);
+    transition: transform 0.6s;
+}
+
+[data-matched="true"] .back{
+    transform: rotatey(0deg);
+    transition: transform 0.6s;
+}
+
+[data-type="img1"] .back {
+    background: url(img/img01.png);
+    background-size: cover;
+}
+
+[data-type="img2"] .back {
+    background: url(img/img02.png);
+    background-size: cover;
+}
+
+[data-type="img3"] .back {
+    background: url(img/img03.png);
+    background-size: cover;
+}
+
+[data-type="img4"] .back {
+    background: url(img/img04.png);
+    background-size: cover;
+}
+
+[data-type="img5"] .back {
+    background: url(img/img05.png);
+    background-size: cover;
+}
+
+[data-type="img6"] .back {
+    background: url(img/img06.png);
+    background-size: cover;
+}
+
+[data-type="img7"] .back {
+    background: url(img/img07.png);
+    background-size: cover;
+}
+
+[data-type="img8"] .back {
+    background: url(img/img08.png);
+    background-size: cover;
+}
+
+[data-type="img9"] .back {
+    background: url(img/img09.png);
+    background-size: cover;
+}
+
+/* info */
+.info {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'yg-jalnan';
+    height: 100px;
+    border-radius: 50px;
+    font-size: 1vw;
+}
+.score >div {padding: 1vw;}
+.title { 
+    text-align: center; 
+    color: #fff;
+        font-size: 4vw;
+        font-family: 'yg-jalnan';
+        padding: 1vh 0;
+}
+
+.btn-sound{
+    position: absolute;
+    right: 30px; 
+    top: 30px;
+    width: 24px;
+    height: 24px;
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/icon-sound-on.svg);
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+}
+.btn-sound:active{
+    transform: translateY(1px);
+}
+
+.btn-sound::before{
+    content: '';
+    width: 30px; height: 10px;
+    top: 0px; right: 0px;
+    position: absolute;
+    border-bottom: 1px solid red;
+    transform: rotate(-50deg);
+    margin: 0;
+}
+
+.btn-sound.is-playing::before {
+    display: none;
+}
+
+.score span {
+    display: inline-block;
+    margin-right: 20px;
+}
+.turns span.last-turn{
+    color: red;
+}
+
+.success {
+    position: fixed; left: 0; top: 0;
+    width: 100%;  height: 100vh;
+    z-index: 10000;
+    text-align: center;
+    background-color:rgba(255,255,255,0.8);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'yg-jalnan';
+    display: none;
+}
+.success.is-visible {
+    display: flex;
+}
+.success h2 {font-size: 50px; margin: 0;}
+.success .bg{background: transparent; color: #000;}
+
+.success .btn-continue {
+    padding: 6px 25px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #000;
+    border-radius: 20px;
+}
+.success .btn-continue:active {
+    transform: translateY(2px);
+    border: 0px;
+}
+
+.infor4 {position: absolute; left: 0; bottom: 0; z-index: 1000; padding: 20px;}
+.infor4 a {color: #fff; border: 1px solid #fff; border-radius: 30px; padding: 5px 30px; margin-right: 10px;}
+.infor4 .modal {
+    background: rgba(0,0,0,0.8);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 100%;
+    left: 0;
+    text-align: left;
+    transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
+}
+.infor4 .modal.show {
+    top: 0;
+}
+.infor4 .modal .close {
+    position: absolute; right: 10px; top: 20px;
+}
+
+&lt;/style&gt;
+
+&lt;body&gt;
+
+    &lt;div class="info"&gt;
+        &lt;button class="btn-sound"&gt;&lt;/button&gt;
+        &lt;audio id="theme-song" src="music/background-sound.mp3" loop="loop"&gt;&lt;/audio&gt;
+    
+        &lt;div class="score bg"&gt;
+            &lt;div class="turns"&gt;기회 : &lt;span&gt;2&lt;/span&gt;&lt;/div&gt;
+            &lt;div class="attemps"&gt;시도 : &lt;span&gt;0&lt;/span&gt;&lt;/div&gt;
+            &lt;div class="wins"&gt;우승 : &lt;span&gt;0&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    
+        
+        
+        &lt;div class="title"&gt;카드 뒤집기 게임&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;main&gt;
+        &lt;div class="card" data-type="img1" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img2" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img3" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img4" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img5" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img6" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img7" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img8" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img9" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img1" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img2" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img3" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img4" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img5" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img6" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img7" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img8" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="card" data-type="img9" data-matched="false"&gt;
+            &lt;div class="front"&gt;&lt;/div&gt;
+            &lt;div class="back"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/main&gt;
+
+    &lt;div class="success"&gt;
+        &lt;h2 class="success-massage"&gt;짝짝쓰&lt;/h2&gt;
+        &lt;div class="score bg"&gt;
+            &lt;div class="turns"&gt;기회 : &lt;span&gt;2&lt;/span&gt;&lt;/div&gt;
+            &lt;div class="attemps"&gt;시도 : &lt;span&gt;0&lt;/span&gt;&lt;/div&gt;
+            &lt;div class="wins"&gt;우승 : &lt;span&gt;0&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button class="btn-continue"&gt;또 할래?&lt;/button&gt;
+    &lt;/div&gt;
+
+
+    &lt;div class="infor4"&gt;
+        &lt;a href="#" class="view"&gt;소스보기&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+
 </code></pre>
                 </div>
-
             </div>
             <a class="close">Close</a>
         </div>
@@ -407,9 +767,9 @@
 
 
         let sound = [
-            'music/bonus_game_match.mp3',
-            'music/bonus_game_no_match.mp3',
-            'music/bonus_game-up.mp3'
+            'music/match.mp3',
+            'music/nomatch.mp3',
+            'music/allclear.mp3'
         ],
             soundMatch = new Audio(sound[0]),
             soundNoMatch = new Audio(sound[1]),

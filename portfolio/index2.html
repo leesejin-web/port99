@@ -48,12 +48,12 @@
         
         <nav class="menu">
             <ul>
-                <li><a href="#"><img src="img/icon/icon01.svg" alt="음반"></a></li>
-                <li><a href="#"><img src="img/icon/icon02.svg" alt="아이콘1"></a></li>
-                <li><a href="#"><img src="img/icon/icon03.svg" alt="아이콘2"></a></li>
-                <li><a href="#"><img src="img/icon/icon04.svg" alt="아이콘3"></a></li>
-                <li><a href="#"><img src="img/icon/icon05.svg" alt="아이콘4"></a></li>
-                <li><a href="#"><img src="img/icon/icon06.svg" alt="아이콘4"></a></li>
+                <li class="play"><a href="#"></a></li>
+                <li><a href="#"><img src="img/icon/icon02.svg" alt="아이콘"></a></li>
+                <li><a href="#"><img src="img/icon/icon03.svg" alt="아이콘"></a></li>
+                <li><a href="#"><img src="img/icon/icon04.svg" alt="아이콘"></a></li>
+                <li><a href="#"><img src="img/icon/icon05.svg" alt="아이콘"></a></li>
+                <li class="animation-icon"><a href="#"><img src="img/icon/icon06.svg" alt="아이콘"></a></li>
             </ul>
         </nav>
         <!-- //menu -->
@@ -67,23 +67,61 @@
             <span></span>
             <span></span>
         </div>
-        <div class="url">
+        <div class="content">
             <ul>
-                <li class="button"><img src="img/nav-button.svg" alt=""></li>
-                <li class="url-box"></li>
+                <li><img src="img/site-cont01.svg" alt="사이트 버튼1"></li>
+                <li><img src="img/site-cont02.svg" alt="사이트 버튼2"></li>
+                <li><img src="img/site-cont03.svg" alt="사이트 버튼3"></li>
+                <li><img src="img/site-cont04.svg" alt="사이트 버튼4"></li>
             </ul>
         </div>
-        
     </div>
     <!-- //pop-up about -->
+
+
+    <div class="pop-up site">
+        <div class="top">
+            <span class="close"></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="content">
+            <img src="site.png" alt="">
+        </div>
+    </div>
+    <!-- //pop-up site -->
+
+
+    <div class="pop-up code">
+        <div class="top">
+            <span class="close"></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="content">
+            <img src="code.png" alt="">
+        </div>
+    </div>
+    <!-- //pop-up code -->
     
-    
-    
+
+    <div class="animation">
+        <ul>
+            <li><img src="img/animation-icon/men.svg" alt="아이콘1"></li>
+            <li><img src="img/animation-icon/text.svg" alt="아이콘2"></li>
+            <li><img src="img/animation-icon/jellyfish.svg" alt="아이콘3"></li>
+            <li><img src="img/animation-icon/rocket.svg" alt="아이콘4"></li>
+        </ul>
+    </div>
+    <!-- //animation-icon click code -->
+
+      
     <!-- script -->
     <script src="assets/js/jquery.min_1.12.4.js"></script>
     <script src="assets/js/gsap.min.js"></script>
     <script>
         
+        // logo
         setTimeout(function(){
             var tl = gsap.timeline();
             tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 1, y: 0, stagger: 0.05});
@@ -91,13 +129,28 @@
             tl.fromTo(".menu ul li", {x:-500}, {x:0, opacity: 1, duration:2, ease: "bounce.out", stagger: 0.05});
         },2000);
 
-        
+
+         // logo
         $(".menu li").eq(1).click(function(){
             var tl = gsap.timeline();
             tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 0, y: 0, stagger: 0.05});
             tl.to(".me", {opacity:0, duration:1, ease: "bounce.out"});
             tl.to(".about", {opacity:1, left: '50%', duration:2, ease: "bounce.out"});
         });
+
+        // icon play
+        $(".play > a").append("<img src='img/play.svg' alt='정지'>");
+
+        $(".play").click(function(){
+            $(".play").toggleClass("show")
+            $(".play").is(".show") ? $(".play > a > img").attr({src : "img/stop.svg"}) : $(".play > a > img").attr({src : "img/play.svg"})
+        })
+
+        // animation-icon click
+        $(".animation-icon").click(function(){
+            var al =  gsap.timeline();
+            al.to(".animation > ul > li ", 0.5, {opacity: 1, y: 0, stagger: 0.05});
+        })
     </script>
 </body>
 </html>
