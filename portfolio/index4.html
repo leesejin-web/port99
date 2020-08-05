@@ -10,8 +10,9 @@
     <title>포트폴리오</title>
 
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style2.css">
+    <link rel="stylesheet" href="assets/css/style4.css">
     <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/prism.css">
 </head>
 <body>
     
@@ -61,24 +62,112 @@
     <!-- //wrap -->
     
     
-    <div class="pop-up about">
+    <div class="popup about">
         <div class="top">
             <span class="close"></span>
             <span></span>
             <span></span>
         </div>
-        <div class="url">
-            
+        <div class="cont">
+            about
         </div>
-        
     </div>
     <!-- //pop-up about -->
+    
+    <div class="popup site">
+        <div class="top">
+            <span class="close"></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="cont">
+            site
+        </div>
+    </div>
+    <!-- //pop-up about -->
+    
+    <div class="popup coding">
+        <div class="top">
+            <span class="close"></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="cont">
+            <div class="editor">
+                <div class="icon"></div>
+                <div class="list"></div>
+                <div class="code">
+<pre class="language-markup line-numbers"><code>
+&lt;li class="text"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;MUSIC&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;ABOUT&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;WEBSRANDARD&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;RESPONSIVE&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;NONGSIM&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;MONSTER&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;ROCKET&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/li&gt;
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //pop-up coding -->
+    
+    <div class="animation">
+        <ul>
+            <li>
+                <div class="effect">
+                    <div class="front">
+                        <img src="img/animation-icon/men.svg" alt="아이콘1">
+                    </div>
+                    <div class="back">
+                        <p>animation</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="effect">
+                    <div class="front">
+                        <img src="img/animation-icon/text.svg" alt="아이콘1">
+                    </div>
+                    <div class="back">
+                        <p>animation</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="effect">
+                    <div class="front">
+                        <img src="img/animation-icon/jellyfish.svg" alt="아이콘1">
+                    </div>
+                    <div class="back">
+                        <p>animation</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="effect">
+                    <div class="front">
+                        <img src="img/animation-icon/rocket.svg" alt="아이콘1">
+                    </div>
+                    <div class="back">
+                        <p>animation</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- //animation -->
     
     
     
     <!-- script -->
     <script src="assets/js/jquery.min_1.12.4.js"></script>
     <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/prism.js"></script>
     <script>
         
         setTimeout(function(){
@@ -88,12 +177,45 @@
             tl.fromTo(".menu ul li", {x:-500}, {x:0, opacity: 1, duration:2, ease: "bounce.out", stagger: 0.05});
         },2000);
 
-        
+        //about
         $(".menu li").eq(1).click(function(){
             var tl = gsap.timeline();
-            tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 0, y: 0, stagger: 0.05});
+            tl.to(".popup", {opacity:1, left: '150%', duration:2, ease: "bounce.out"});
+            tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 1, y: 0, stagger: 0.05});
             tl.to(".me", {opacity:0, duration:1, ease: "bounce.out"});
             tl.to(".about", {opacity:1, left: '50%', duration:2, ease: "bounce.out"});
+        });
+        
+        //site
+        $(".menu li").eq(2).click(function(){
+            var tl = gsap.timeline();
+            tl.to(".popup", {opacity:1, left: '150%', duration:2, ease: "bounce.out"});
+            tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 1, y: 0, stagger: 0.05});
+            tl.to(".site", {opacity:1, left: '50%', duration:2, ease: "bounce.out"});
+            tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 0, y: 0, stagger: 0.05});
+        });
+        
+        //coding
+        $(".menu li").eq(3).click(function(){
+            var tl = gsap.timeline();
+            tl.to(".popup", {opacity:1, left: '150%', duration:2, ease: "bounce.out"});
+            tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 1, y: 0, stagger: 0.05});
+            tl.to(".coding", {opacity:1, left: '50%', duration:2, ease: "bounce.out"});
+            tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 0, y: 0, stagger: 0.05});
+        });
+        
+        
+        //animation
+        $(".menu li").eq(5).click(function(){
+            $(".animation").toggleClass("show");
+            
+            if($(".animation").hasClass("show")){
+                var tl = gsap.timeline();
+                tl.to(".animation li", {opacity:1, y:0, duration:2, ease: "bounce.out", stagger: 0.05});
+            } else {
+                var tl = gsap.timeline();
+                tl.to(".animation li", {opacity:1, y:-200, duration:2, ease: "bounce.out", stagger: 0.05});
+            }
         });
     </script>
 </body>

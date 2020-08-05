@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mouse Effect08</title>
     
-    <link rel="stylesheet" href="css/prism.css">
+   <link rel="stylesheet" href="css/prism.css">
 
 
     <style>
@@ -136,39 +136,35 @@
 
     <div class="infor4">
         <a href="#" class="view">소스보기</a>
-
         <!-- modal -->
         <div class="modal">
             <div class="code-editor">   
-                <h3>Script Editor
-                    <span class="control"></span>
-                    <span class="control"></span>
-                    <span class="control"></span>
-                </h3>
-                <div class="code">
-<pre class="line-numbers"><code class="language-js">
-const spanSlow = document.querySelectorAll(".spanSlow");
-const spanFast = document.querySelectorAll(".spanFast");
+                <span class="control"></span>
+                <span class="control"></span>
+                <span class="control"></span>
+<pre class="line-numbers"><code class="language-js">const spanSlow = document.querySelectorAll(".spanSlow");
+    const spanFast = document.querySelectorAll(".spanFast");
+    
+    
+    
+    window.addEventListener("mousemove", mouseMove);
+    
+    function mouseMove(e){
+        let postion1= (e.pageX / (window.innerWidth / 2))*100;
+        let postion2= (e.pageX / (window.innerWidth / 2))*200;
+    
+        //console.log(speedSlow)
+        spanSlow.forEach((span) => {
+            span.style.transform = `translate(${postion1}px)`;
+        })
+        spanFast.forEach((span) => {
+            span.style.transform = `translate(${-postion2}px)`;
+        })
+    }
 
-
-
-window.addEventListener("mousemove", mouseMove);
-
-function mouseMove(e){
-    let postion1= (e.pageX / (window.innerWidth / 2))*100;
-    let postion2= (e.pageX / (window.innerWidth / 2))*200;
-
-    //console.log(speedSlow)
-    spanSlow.forEach((span) => {
-        span.style.transform = `translate(${postion1}px)`;
-    })
-    spanFast.forEach((span) => {
-        span.style.transform = `translate(${-postion2}px)`;
-    })
-}
 </code></pre>
-                </div>
-
+                
+                
             </div>
             <a class="close">Close</a>
         </div>

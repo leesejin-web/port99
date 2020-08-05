@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style2.css">
     <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/prism.css">
 </head>
 <body>
     
@@ -48,7 +49,7 @@
         
         <nav class="menu">
             <ul>
-                <li class="play"><a href="#"></a></li>
+                <li class="btn"><a href="#"><img src="img/icon/icon01.svg" alt="아이콘"></a></li>
                 <li><a href="#"><img src="img/icon/icon02.svg" alt="아이콘"></a></li>
                 <li><a href="#"><img src="img/icon/icon03.svg" alt="아이콘"></a></li>
                 <li><a href="#"><img src="img/icon/icon04.svg" alt="아이콘"></a></li>
@@ -61,7 +62,7 @@
     <!-- //wrap -->
     
     
-    <div class="pop-up about">
+    <div class="popup site">
         <div class="top">
             <span class="close"></span>
             <span></span>
@@ -76,10 +77,10 @@
             </ul>
         </div>
     </div>
-    <!-- //pop-up about -->
+    <!-- //popup about -->
 
 
-    <div class="pop-up site">
+    <div class="popup about">
         <div class="top">
             <span class="close"></span>
             <span></span>
@@ -89,10 +90,10 @@
             <img src="site.png" alt="">
         </div>
     </div>
-    <!-- //pop-up site -->
+    <!-- //popup site -->
 
 
-    <div class="pop-up code">
+    <div class="popup coding">
         <div class="top">
             <span class="close"></span>
             <span></span>
@@ -103,24 +104,29 @@
                 <li class="button"><img src="img/code-icon/icon01.svg" alt="아이콘1"></li>
                 <li class="text">
                     <ul>
-                        <li>>MUSIC</li>
-                        <li>>ABOUT</li>
-                        <li>>WEBSRANDARD</li>
-                        <li>>RESPONSIVE</li>
-                        <li>>NONGSIM</li>
-                        <li>>MONSTER</li>
-                        <li>>ROCKET</li>
+                        <li><a href="#">>MUSIC</a></li>
+                        <li><a href="#">>ABOUT</a></li>
+                        <li><a href="#">>WEBSRANDARD</a></li>
+                        <li><a href="#">>RESPONSIVE</a></li>
+                        <li><a href="#">>NONGSIM</a></li>
+                        <li><a href="#">>MONSTER</a></li>
+                        <li><a href="#">>ROCKET</a></li>
                     </ul>
                 </li>
-                <li class="code">
-                    <div class="code-editor">
-                        <pre class="line-numbers">
-                            <code class="language-css">
-                            
-                            
-                            </code>
-                        </pre>
-                    </div>
+                <li class="code-wrap">
+<pre class="language-markup line-numbers"><code>&lt;li class="text"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;MUSIC&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;ABOUT&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;WEBSRANDARD&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;RESPONSIVE&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;NONGSIM&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;MONSTER&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;ROCKET&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/li&gt;
+
+</code></pre>
                 </li>
             </ul>
             <div class="footer">
@@ -132,18 +138,55 @@
             </div>
         </div>
     </div>
-    <!-- //pop-up code -->
+    <!-- //popup code -->
     
 
     <div class="animation">
         <ul>
-            <li><img src="img/animation-icon/men.svg" alt="아이콘1"></li>
-            <li><img src="img/animation-icon/text.svg" alt="아이콘2"></li>
-            <li><img src="img/animation-icon/jellyfish.svg" alt="아이콘3"></li>
-            <li><img src="img/animation-icon/rocket.svg" alt="아이콘4"></li>
+            <li>
+                <div class="effect">
+                    <div class="front">
+                        <img src="img/animation-icon/men.svg" alt="아이콘1">
+                    </div>
+                    <div class="back">
+                        <p>Animation<br>Steps</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="effect">
+                    <div class="front">
+                        <img src="img/animation-icon/text.svg" alt="아이콘1">
+                    </div>
+                    <div class="back">
+                        <p>animation</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="effect">
+                    <div class="front">
+                        <img src="img/animation-icon/jellyfish.svg" alt="아이콘1">
+                    </div>
+                    <div class="back">
+                        <p>animation</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="effect">
+                    <div class="front">
+                        <img src="img/animation-icon/rocket.svg" alt="아이콘1">
+                    </div>
+                    <div class="back">
+                        <p>animation</p>
+                    </div>
+                </div>
+            </li>
         </ul>
     </div>
     <!-- //animation-icon click code -->
+
 
       
     <!-- script -->
@@ -170,17 +213,62 @@
         });
 
         // icon play
-        $(".play > a").append("<img src='img/play.svg' alt='정지'>");
+        // $(".play > a").append("<img src='img/play.svg' alt='정지'>");
 
-        $(".play").click(function(){
-            $(".play").toggleClass("show")
-            $(".play").is(".show") ? $(".play > a > img").attr({src : "img/stop.svg"}) : $(".play > a > img").attr({src : "img/play.svg"})
-        })
+        // $(".play").click(function(){
+        //     $(".play").toggleClass("show")
+        //     $(".play").is(".show") ? $(".play > a > img").attr({src : "img/stop.svg"}) : $(".play > a > img").attr({src : "img/play.svg"})
+        // })
+            
+        //about
+        $(".menu li").eq(1).click(function(){
+                var tl = gsap.timeline();
+                tl.to(".popup", {opacity:1, left: '150%', duration:2, ease: "bounce.out"});
+                tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 0, y: 0, stagger: 0.05});
+                tl.to(".me", {opacity:0, duration:1, ease: "bounce.out"});
+                tl.to(".about", {opacity:1, left: '50%', duration:2, ease: "bounce.out"});
+            });
+        
+        //site
+        $(".menu li").eq(2).click(function(){
+            var tl = gsap.timeline();
+            tl.to(".popup", {opacity:1, left: '150%', duration:2, ease: "bounce.out"});
+            tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 1, y: 0, stagger: 0.05});
+            tl.to(".site", {opacity:1, left: '50%', duration:2, ease: "bounce.out"});
+            tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 0, y: 0, stagger: 0.05});
+        });
+        
+        //coding
+        $(".menu li").eq(3).click(function(){
+            var tl = gsap.timeline();
+            tl.to(".popup", {opacity:1, left: '150%', duration:2, ease: "bounce.out"});
+            tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 1, y: 0, stagger: 0.05});
+            tl.to(".coding", {opacity:1, left: '50%', duration:2, ease: "bounce.out"});
+            tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 0, y: 0, stagger: 0.05});
+        });
 
         // animation-icon click
-        $(".animation-icon").click(function(){
-            var al =  gsap.timeline();
-            al.to(".animation > ul > li ", 0.5, {opacity: 1, y: 0, stagger: 0.05});
+        $(".menu li").eq(5).click(function(){
+            $(".animation").toggleClass("show");
+            
+            if($(".animation").hasClass("show")){
+                var tl = gsap.timeline();
+                tl.to(".animation li", {opacity:1, y:0, duration:2, ease: "bounce.out", stagger: 0.05});
+            } else {
+                var tl = gsap.timeline();
+                tl.to(".animation li", {opacity:1, y:-200, duration:2, ease: "bounce.out", stagger: 0.05});
+            }
+        });
+
+        
+        // popup code clcik
+        let tabBtn = $(".code .content > ul > li > ul > li > a ")
+
+        tabBtn.click(function(){
+            let target = $(this);
+            let index = target.index();
+            tabBtn.removeClass("active");
+            target.addClass("active");
         })
     </script>
 </body>

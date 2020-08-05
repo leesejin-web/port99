@@ -8,7 +8,7 @@ body { overflow: hidden;}
     background: #fbde53; 
     overflow: hidden; 
 }
-svg, img { width: 100%;}
+svg, img { width: 100%; height: 100%;}
 
 
 
@@ -88,13 +88,24 @@ svg, img { width: 100%;}
 }
 .menu li {
     position: relative;
-    margin: 15px;
+    top:0;
+    margin: 20px;
     opacity: 0;
     width: 140px;
     height: 90px;
     background: #fff;
-    border: 4px solid #000;
     border-radius: 10px;
+    box-shadow: 0px 8px #CEAF30;
+    user-select: none;
+    transition: all 0.1s ease;
+}
+.menu li:active {
+    transform-origin: bottom;
+    box-shadow: 0px 0px #CEAF30;
+    top: 4px;
+  }
+.menu li:hover {
+    background: #FFF1B8;
 }
 .menu li a {
     display: block;
@@ -108,9 +119,12 @@ svg, img { width: 100%;}
 }
 
 
+  
 
-/* pop-up */
-.pop-up { 
+
+
+/* popup */
+.popup { 
     position: absolute; 
     left: 50%; top: 50%;
     transform: translate(-50%, -50%);
@@ -119,25 +133,25 @@ svg, img { width: 100%;}
     width: 1000px; height: 650px;
 }
 
-.pop-up .top {
+.popup .top {
     background: #595959;
     border-bottom: 4px solid #000;
     height: 36px;
     padding-left: 6px;
 }
 
-.pop-up .top span {
+.popup .top span {
     width: 15px; height: 15px;
     border-radius: 50%;
     background: #fff;
     display: inline-block;
     margin: 10px 0px 4px 8px;
 }
-.pop-up .top span:nth-child(1){background: #eb6659;}
-.pop-up .top span:nth-child(2){background: #ffd01f;}
-.pop-up .top span:nth-child(3){background: #68e91c;}
+.popup .top span:nth-child(1){background: #eb6659;}
+.popup .top span:nth-child(2){background: #ffd01f;}
+.popup .top span:nth-child(3){background: #68e91c;}
 
-.pop-up .content { 
+.popup .content { 
     width: 100%;
     height: 570px;
     padding: 20px;
@@ -145,14 +159,30 @@ svg, img { width: 100%;}
 }
 
 
-/* .pop-up.about {left: 250%;} */
-.about { display: none;}
+/* .popup.about  */
+.about {
+    position: absolute; 
+    left: 150%; top: 50%;
+    transform: translate(-50%, -50%);
+}
 .about .content ul {
+    display: flex;
+}
+
+
+/* .popup.site*/
+.site { 
+    position: absolute; 
+    left: 150%; top: 50%;
+    transform: translate(-50%, -50%);
+}
+.site .content ul  {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.about .content li {
+
+.site .content li {
     cursor: pointer;
     width: 200px;
     margin: 15px;
@@ -161,62 +191,67 @@ svg, img { width: 100%;}
 }
 
 
-/* .pop-up.site {left: 250%;} */
-.site {display: none;}
-.site .content {
-    display: flex;
+/* .popup.code {left: 250%;} */
+.coding { 
+    position: absolute; 
+    left: 150%; top: 50%;
+    transform: translate(-50%, -50%);
 }
-
-
-/* .pop-up.code {left: 250%;} */
-.code { }
-.code .content { 
+.coding .content { 
     padding: 0; 
 }
-.code .content > ul {
+.coding .content > ul {
     display: flex;
 }
-.code .content > ul > li {
+.coding .content > ul > li {
     height: 580px;
     display: flex;
     justify-content: center;
     align-items: start;
 }
 
-.code .content .button {
+.coding .content .button {
     flex-basis: 6%;
     background: #323232;
 }
-.code .content .button img {
+.coding .content .button img {
     width: 35px;
     padding-top: 20px;
 }
 
 
-.code .content .text{
+.coding .content .text{
     flex-basis: 20%;
     background: #222324;
     overflow: hidden;
 }
-.code .content .text ul{
+.coding .content .text ul{
     width: 100%;
     display: inline-block;
     text-align: left;
 }
-.code .content .text li{
+.coding .content .text li{
     height: 100%;
+}
+.coding .content .text li a { 
     color: #fff;
     padding: 10px;
+    display: block;
+}
+.coding .content .text li a:hover {
+    background: #2D2D2D;
+}
+.coding .content .text li a.active {
+    background: #2D2D2D;
 }
 
-
-.code .content .code {
+.coding .content .code-wrap {
     flex-basis: 74%;
     background: #1C1D1D;
 }
 
 
-.code .content .footer {
+.coding .content .footer {
     width: 100%;
     height: 30px;
     background: #127BBE;
@@ -225,20 +260,28 @@ svg, img { width: 100%;}
     align-items: center;
     padding: 0 10px;
 }
-.code .content .footer p { 
+.coding .content .footer p { 
     padding-right: 15px; 
     color: #fff;
 }
-.code .content .footer img {
+.coding .content .footer img {
     width: 60px;
+    padding-right: 18px;
 }
-.code .content .footer > div:last-child { 
+.coding .content .footer > div:last-child { 
     display: flex;
 }
 
 
 
 /* code editor */
+.code-wrap { 
+    overflow: hidden;
+}
+.code-toolbar { 
+    width: 100%;
+    height: 100%;
+}
 .code-editor {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -444,19 +487,83 @@ pre.line-numbers > code {
 /* animation-icon click code */
 .animation { 
     position: absolute;
-    top: 0; right: 0;
+    top: 0; right: 50%;
+    transform: translateX(50%);
     
 }
 .animation ul {
     display: flex;
 }
 .animation li { 
-    cursor: pointer;
+    width: 110px;
+    height: 110px;
     margin: 20px;
     opacity: 0;
-    transform: translateY(-150px);
+    transform: translateY(-200px);
+}
+.effect img {
+    width: 100%;
+    vertical-align: top;
+  }
+.animation .effect {
+    perspective: 1000px;
+}
+.animation .effect .front {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-50%,-50%);
+    z-index: 1000;
+    width: 110px;
+    height: 110px;
+    background: #ffffff;
+    border-radius: 50%;
+    border: 4px solid;
+}
+.animation .effect .front > img {
+    padding: 15px;
+}
+.animation .effect .back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-50%,-50%);
+    width: 110px;
+    height: 110px;
+    background: #000;
+    border-radius: 50%;
+    border: 4px solid;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
 }
 
+
+/* animation-icon Effect */
+.animation ul li .effect .front {
+transform: rotatey(.001deg);
+transition: transform 0.6s ease;
+backface-visibility: hidden;
+}
+
+.animation ul li:hover .effect .front {
+transform: rotatey(180deg);
+}
+
+.animation ul li .effect .back {
+transform: rotatey(.001deg);
+transform: rotatey(-180deg);
+transition: transform 0.6s ease;
+}
+
+.animation ul li:hover .effect .back {
+transform: rotatey(0deg);
+}
+
+
+  
 
 
  
