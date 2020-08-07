@@ -10,12 +10,13 @@
     <title>포트폴리오</title>
 
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style2.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/prism.css">
+    <link rel="stylesheet" href="assets/css/style2.css">
+
+    
 </head>
 <body>
-    
     <div id="wrap">
         <div class="logo">
             <div class="first">
@@ -159,6 +160,14 @@
         </div>
     </div>
     <!-- //popup code -->
+
+
+    <div class="game">
+        <div class="game-wrap">
+            <iframe src="../../game/index.html" width="600" height="300"></iframe>
+            <img src="img/nintendo.svg" alt="닌텐도">
+        </div>
+    </div>
     
 
     <div class="animation">
@@ -468,6 +477,15 @@
             tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 0, y: 0, stagger: 0.05});
         });
 
+        //game
+        $(".menu li").eq(4).click(function(){
+            var tl = gsap.timeline();
+            tl.to(".popup", {opacity:1, left: '150%', duration:2, ease: "bounce.out"});
+            tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 1, y: 0, stagger: 0.05});
+            tl.to(".game", {opacity:1, bottom: '50%', duration:2, ease: "bounce.out"});
+            tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 0, y: 0, stagger: 0.05});
+        });
+
         // animation-icon click
         $(".menu li").eq(5).click(function(){
             $(".animation").toggleClass("show");
@@ -571,6 +589,11 @@
                     document.querySelector(".cursor").classList.remove("active");
                 });
             });
+
+
+
+
+            // card-game
     </script>
 </body>
 </html>
