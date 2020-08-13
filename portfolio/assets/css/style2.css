@@ -498,13 +498,12 @@ pre.line-numbers > code {
   right: 5%;
   width: 75%;
 }
-.game-wrap iframe {
+.game-wrap .ifram {
+  width: 55%;
+  height: 84%;
   position: absolute;
   top: 9%;
   right: 22.9%;
-  width: 55%;
-  height: 84%;
-  border: 0;
 }
 
 
