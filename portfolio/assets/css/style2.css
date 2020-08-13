@@ -502,6 +502,8 @@ pre.line-numbers > code {
   position: absolute;
   top: 9%;
   right: 22.9%;
+  width: 55%;
+  height: 84%;
   border: 0;
 }
 
