@@ -268,7 +268,7 @@ svg, img { width: 100%; height: 100%;}
 }
 .coding .content .footer img {
     width: 60px;
-    padding-right: 18px;
+    padding-right: 12px;
 }
 .coding .content .footer > div:last-child { 
     display: flex;
@@ -487,10 +487,23 @@ pre.line-numbers > code {
 
 /* game */
 .game { 
-  width: 100%; 
+  position: absolute;
+  top: 0;
+  width: 100%;
   height: 100%;
 }
-
+.game-wrap {
+  position: absolute;
+  bottom: 14%;
+  right: 5%;
+  width: 75%;
+}
+.game-wrap iframe {
+  position: absolute;
+  top: 9%;
+  right: 22.9%;
+  border: 0;
+}
 
 
 
