@@ -9,14 +9,14 @@
     <style>
         @font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
 
-        a {text-decoration: none;}
-
         body {
             height: 100vh;
             overflow: hidden;
             background: url(../img/background.png) no-repeat;
             background-size: cover;
+            cursor: none;
         }
+        
 
         /* 카드 */
         main {
@@ -238,7 +238,7 @@
             border: 0px;
         }
 
-        .infor4 {position: absolute; left: 0; bottom: 0; z-index: 1000; padding: 20px;}
+        .infor4 {position: absolute; left: 0; top: 0; z-index: 1000; padding: 20px;}
         .infor4 a {color: #fff; border: 1px solid #fff; border-radius: 30px; padding: 5px 30px; margin-right: 10px;}
         .infor4 .modal {
             background: rgba(0,0,0,0.8);
@@ -298,22 +298,6 @@
             <div class="front"></div>
             <div class="back"></div>
         </div>
-        <div class="card" data-type="img6" data-matched="false">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card" data-type="img7" data-matched="false">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card" data-type="img8" data-matched="false">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card" data-type="img9" data-matched="false">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
         <div class="card" data-type="img1" data-matched="false">
             <div class="front"></div>
             <div class="back"></div>
@@ -331,22 +315,6 @@
             <div class="back"></div>
         </div>
         <div class="card" data-type="img5" data-matched="false">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card" data-type="img6" data-matched="false">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card" data-type="img7" data-matched="false">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card" data-type="img8" data-matched="false">
-            <div class="front"></div>
-            <div class="back"></div>
-        </div>
-        <div class="card" data-type="img9" data-matched="false">
             <div class="front"></div>
             <div class="back"></div>
         </div>
@@ -743,6 +711,8 @@ main {
         </div>
     </div>
 
+    <!-- cursor -->
+
     <script src="js/jquery-1.12.4.min.js"></script>
     <script src="js/prism.js"></script>
 
@@ -913,7 +883,6 @@ main {
         $(".infor4 .close").click(function(){
             $(".infor4 .modal").removeClass("show");
         });
-
 
 
 

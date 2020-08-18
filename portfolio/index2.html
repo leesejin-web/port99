@@ -59,6 +59,10 @@
             </ul>
         </nav>
         <!-- //menu -->
+
+        <div class="home">
+            <a href="#"><img src="img/home-icon.svg" alt="홈 아이콘"></a>
+        </div>
     </div>
     <!-- //wrap -->
     
@@ -164,7 +168,9 @@
 
     <div class="game">
         <div class="game-wrap">
-            <iframe src="../../game/index.html" width="600" height="300"></iframe>
+            <div class="ifram">
+                <iframe src="game/index.html" frameborder="0" width="100%" height="100%" id="ifram"></iframe>
+            </div>
             <img src="img/nintendo.svg" alt="닌텐도">
         </div>
     </div>
@@ -173,12 +179,12 @@
     <div class="animation">
         <ul>
             <li>
-                <div class="effect">
+                <div class="effect steps-animation">
                     <div class="front">
                         <img src="img/animation-icon/men.svg" alt="아이콘1">
                     </div>
                     <div class="back">
-                        <p>Animation<br>Steps</p>
+                        <p>Steps<br>Animation</p>
                     </div>
                 </div>
             </li>
@@ -198,7 +204,7 @@
                         <img src="img/animation-icon/jellyfish.svg" alt="아이콘1">
                     </div>
                     <div class="back">
-                        <p>animation</p>
+                        <p>Tentacle<br>Animation</p>
                     </div>
                 </div>
             </li>
@@ -208,7 +214,7 @@
                         <img src="img/animation-icon/rocket.svg" alt="아이콘1">
                     </div>
                     <div class="back">
-                        <p>animation</p>
+                        <p>Gasp<br>Animation</p>
                     </div>
                 </div>
             </li>
@@ -258,7 +264,6 @@
         <div class="out"></div>
     </div>
     <!-- bubble  -->
-
 
 
 
@@ -414,10 +419,21 @@
     </div>
     <!-- rocket -->
       
+    <div class="steps-wrap">
+        <div id="steps-bg"></div>
+        <div class="btn">
+            <a href="#c" class="btnStart">Start</a>
+            <a href="#c" class="btnStop">Stop</a>
+        </div>
+        <div class="out"></div>
+    </div>
+    <!-- steps animation -->
 
-     <div class="cursor">
+
+     <div id="cursor" class="cursor" >
      </div>
      <!-- cursor -->
+     
 
     <!-- script -->
     <script src="assets/js/jquery.min_1.12.4.js"></script>
@@ -430,6 +446,7 @@
             var tl = gsap.timeline();
             tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 1, y: 0, stagger: 0.05});
             tl.fromTo(".me", {y:1000}, {y:0, opacity: 1, duration:2, ease: "bounce.out"});
+            tl.fromTo(".home > a",{y:100},{y:0, opacity: 1, duration:1, ease: "bounce.out"})
             tl.fromTo(".menu ul li", {x:-500}, {x:0, opacity: 1, duration:2, ease: "bounce.out", stagger: 0.05});
         },2000);
 
@@ -454,6 +471,7 @@
         $(".menu li").eq(1).click(function(){
                 var tl = gsap.timeline();
                 tl.to(".popup", {opacity:1, left: '150%', duration:2, ease: "bounce.out"});
+                tl.to(".game .game-wrap", {opacity:0, bottom: '-75%', duration:2, ease: "bounce.out"});
                 tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 0, y: 0, stagger: 0.05});
                 tl.to(".me", {opacity:0, duration:1, ease: "bounce.out"});
                 tl.to(".about", {opacity:1, left: '50%', duration:2, ease: "bounce.out"});
@@ -463,6 +481,7 @@
         $(".menu li").eq(2).click(function(){
             var tl = gsap.timeline();
             tl.to(".popup", {opacity:1, left: '150%', duration:2, ease: "bounce.out"});
+            tl.to(".game .game-wrap", {opacity:0, bottom: '-75%', duration:2, ease: "bounce.out"});
             tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 1, y: 0, stagger: 0.05});
             tl.to(".site", {opacity:1, left: '50%', duration:2, ease: "bounce.out"});
             tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 0, y: 0, stagger: 0.05});
@@ -472,6 +491,7 @@
         $(".menu li").eq(3).click(function(){
             var tl = gsap.timeline();
             tl.to(".popup", {opacity:1, left: '150%', duration:2, ease: "bounce.out"});
+            tl.to(".game .game-wrap", {opacity:0, bottom: '-75%', duration:2, ease: "bounce.out"});
             tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 1, y: 0, stagger: 0.05});
             tl.to(".coding", {opacity:1, left: '50%', duration:2, ease: "bounce.out"});
             tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 0, y: 0, stagger: 0.05});
@@ -482,7 +502,7 @@
             var tl = gsap.timeline();
             tl.to(".popup", {opacity:1, left: '150%', duration:2, ease: "bounce.out"});
             tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 1, y: 0, stagger: 0.05});
-            tl.to(".game", {opacity:1, bottom: '50%', duration:2, ease: "bounce.out"});
+            tl.to(".game .game-wrap", {opacity:1, bottom: '15%', duration:2, ease: "bounce.out"});
             tl.to("#wrap .logo .text", 0.9, {ease: Back.easeOut.config(1.7), opacity: 0, y: 0, stagger: 0.05});
         });
 
@@ -561,14 +581,28 @@
         tl_sky.timeScale(1);
 
 
+        // steps-animation
+        $(".steps-animation").click(function(){
+            $(".steps-wrap").fadeIn();
+        })
+        $(".steps-wrap .out").click(function(){
+            $(".steps-wrap").fadeOut()
+        })
+
+        $(".btnStart").click(function(){
+        $("#steps-bg").removeClass().addClass("btnStart");
+        });
+
+        $(".btnStop").click(function(){
+        $("#steps-bg").removeClass().addClass("btnStop");
+        });
+
+
         // cursor
         $("body, html").mousemove(function(event){
-            $(".clientX").text(event.clientX);
-            $(".clientY").text(event.clientY);
-
             $(".cursor").css({ left: event.clientX - 25, top: event.clientY - 25})
          })
-
+    
         $(".cursor").append("<img src='img/cursor/cursor.svg' alt='커서'>");
 
         $("a").hover(function(){
@@ -578,22 +612,29 @@
             $(".cursor").is(".show") ? $(".cursor.show").css({"transform" : "scale(2)", "transition" : "transform 0.5s ease" }) : 
             $(".cursor").css({"transform" : "scale(1)", "transition" : "transform 0.5s ease" })
         })
+
+        
+        var bubbleIframeMouseMove = function( iframe ){
+            iframe.contentWindow.addEventListener('mousemove', function( event ) {
+                var boundingClientRect = iframe.getBoundingClientRect();
+
+                var evt = new CustomEvent( 'mousemove', {bubbles: true, cancelable: false})
+                evt.clientX = event.clientX + boundingClientRect.left;
+                evt.clientY = event.clientY + boundingClientRect.top;
+
+                iframe.dispatchEvent( evt );
+            });
+        };
+
+        var myIframe = document.getElementById("ifram");
+
+        // Run it through the function to setup bubbling
+        bubbleIframeMouseMove(myIframe);
+
         
 
 
-        document.querySelectorAll("a").forEach(elem => {
-                elem.addEventListener("mouseenter", () => {
-                    document.querySelector(".cursor").classList.add("active");
-                });
-                elem.addEventListener("mouseleave", () => {
-                    document.querySelector(".cursor").classList.remove("active");
-                });
-            });
 
-
-
-
-            // card-game
     </script>
 </body>
 </html>

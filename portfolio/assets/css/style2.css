@@ -15,7 +15,6 @@ svg, img { width: 100%; height: 100%;}
 
 
 
-
 /* logo */
 .logo {
   position: absolute; left: 50%; top: 50%;
@@ -121,6 +120,16 @@ svg, img { width: 100%; height: 100%;}
     width: 55%;
 }
 
+
+
+
+/* home-icon */
+.home {
+  width: 2.5%;
+  position: absolute;
+  right: 0;
+  margin: 16px;
+}
 
   
 
@@ -268,7 +277,7 @@ svg, img { width: 100%; height: 100%;}
 }
 .coding .content .footer img {
     width: 60px;
-    padding-right: 18px;
+    padding-right: 12px;
 }
 .coding .content .footer > div:last-child { 
     display: flex;
@@ -487,10 +496,23 @@ pre.line-numbers > code {
 
 /* game */
 .game { 
-  width: 100%; 
+  width: 100%;
   height: 100%;
 }
-
+.game-wrap {
+  position: absolute;
+  bottom: -75%;
+  right: 5%;
+  width: 75%;
+  opacity: 0;
+}
+.game-wrap .ifram {
+  width: 55%;
+  height: 84%;
+  position: absolute;
+  top: 9%;
+  right: 22.9%;
+}
 
 
 
@@ -1032,6 +1054,45 @@ html {
 .out::after { content: ''; position: absolute; top: 50%; left: 50%;  width: 30px; height: 5px; background: #fff; transform-origin: center; transform: translate(-50%, -50%) rotate(45deg); border-radius: 30%; }
 .out::before {content: ''; position: absolute; top: 50%; left: 50%;  width: 30px; height: 5px; background: #fff; transform-origin: center; transform: translate(-50%, -50%) rotate(-45deg);  border-radius: 30%;}
 
+
+
+
+/* steps-animation */
+.steps-wrap {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fcdcdf;
+  display: none;
+ }
+#steps-bg {
+  background-image: url(https://tistory2.daumcdn.net/tistory/3108288/skin/images/steps.jpg);
+  width: 800px; height: 600px;
+  position: absolute; left: 50%; top: 50%;
+  margin-left: -400px; margin-top: -300px;
+  animation: ani 1s steps(16, start) infinite;
+}
+#steps-bg.btnStart {animation-play-state: running}
+#steps-bg.btnStop {animation-play-state: paused}
+
+@keyframes ani {
+  0% {background-position: 0 0}
+  100% {background-position: -12800px 0}
+}
+.steps-wrap .btn {
+  position: absolute; top: 10px; left: 10px;
+  z-index:1000;
+}
+.steps-wrap .btn a {
+  background: #99adcc; color: #fff;
+  padding: 8px 10px;
+  margin: 2px;
+  border-radius: 5px;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: capitalize;
+}
 
 
 /* cusor */
